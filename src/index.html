@@ -1,13 +1,405 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Portifolio</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 maximum-scale=1"
+    />
+    <meta content="www.dgsite.web.app" name="url" />
+    <meta content="dgsite.web.app" name="url" />
+    <meta content="https://www.dgsite.web.app" name="url" />
+    <meta content="https://dgsite.web.app" name="url" />
+    <meta
+      name="keywords"
+      content="design, dgm, diego martins, desenvolvedor web, desenvolvedor, programador de sistemas, sistema, sistemas, programador, internet, site, dev, developer, html5, css, css3, js, javascript, react, angular, ionic, sql, banco de dados, bootstrap, bd, db, mongodb, firebase, web, webdesign, web designer, dg, dg site, dgsite, dg web, html5, css3, js, portfolio, portifolio, portifólio, diego guimaraes, diego guimarães, diego guimaraes martins, diego guimarães martins"
+    />
+    <meta name="author" content="DG Site - Diego Guimarães Martins" />
+    <meta
+      content="Frontend | Angular | Ionic | HTML5 | CSS3 | JavaScript | React | NodeJS | Firebase | MongoDB | SQL"
+      name="description"
+    />
+    <meta
+      content="Frontend | Angular | Ionic | HTML5 | CSS3 | JavaScript | React | NodeJS | Firebase | MongoDB | SQL"
+      property="og:description"
+    />
+    <!-- <meta
+      name="image"
+      content="https://media-exp1.licdn.com/dms/image/C4E03AQEkVc65VwlvuQ/profile-displayphoto-shrink_200_200/0?e=1599091200&v=beta&t=6K05evgHM-qil7UWZ2AszgFTx0QgwB9_4PrW5sGO9yM"
+    /> -->
+    <meta name="image" content="assets/img/eu.jpg" />
+    <meta itemprop="image" content="assets/img/eu.jpg" />
+    <meta property="og:image" content="assets/img/eu.jpg" />
+    <meta name="language" content="portuguese" />
+    <meta
+      name="google-site-verification"
+      content="dCrY_7akRysGlLmDth_jCfy7YDjef23TEO_FX97OxZY"
+    />
+    <meta name="robots" content="INDEX, FOLLOW" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <title>DG Site - Diego Guimarães Martins</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="assets/plugins/font-awesome/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/font-awesome/css/brands.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/font-awesome/css/solid.min.css"
+    />
+
+    <link rel="stylesheet" href="assets/css/creative.css" />
+
+    <style>
+      /* ---- particles.js ----- */
+      canvas {
+        display: block;
+      }
+      /* ---- particles.js container ---- */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        background-color: var(--white);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+      }
+
+      /* splash screen */
+      #splashScreen {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        overflow: hidden;
+        min-height: 100vh;
+        background-color: white;
+        width: 100%;
+        transition: opacity 1s ease;
+      }
+
+      #splashScreen svg {
+        width: 25%;
+        height: 25%;
+      }
+
+      @media all and (max-height: 480px) {
+        #splashScreen svg {
+          width: 15%;
+          height: 15%;
+        }
+      }
+
+      @media all and (min-width: 1200px) and (max-height: 1000px) {
+        #splashScreen svg {
+          width: 10%;
+          height: 10%;
+        }
+      }
+
+      #splashScreen svg {
+        animation-name: rainbow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes rainbow {
+        0% {
+          fill: #f09916;
+          transform: scale(0.5);
+        }
+        25% {
+          fill: #f09916;
+          transform: scale(1);
+          opacity: 0;
+        }
+        50% {
+          fill: #007bff;
+          transform: scale(0.5);
+          opacity: 1;
+        }
+        75% {
+          fill: #007bff;
+          transform: scale(1);
+          opacity: 0;
+        }
+        100% {
+          fill: #f09916;
+          transform: scale(0.5);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <!-- isso faz nao ter barra de rolagem enquanto pace nao carrega -->
+  <body style="overflow: hidden">
+    <!-- isso deixa o header fixed para sobrepor tudo da pagina enquanto pace nao carrega -->
+    <div id="splashScreen">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        width="1px"
+        height="1px"
+        viewBox="0 0 269 334"
+        enable-background="new 0 0 269 334"
+        xml:space="preserve"
+      >
+        <g id="Layer_10">
+          <g>
+            <g>
+              <polygon
+                points="202.721,104.242 159.486,61.008 159.496,61.019 102.914,5.252 70.986,36.852 112.947,78.813
+				137.498,103.111 137.373,103.237 183.918,149.782 183.918,149.782 201.5,167.984 104.626,264.882 104.599,330.748
+				266.911,168.435 			"
+              />
+              <polygon
+                points="202.721,104.242 159.486,61.008 159.496,61.019 102.914,5.252 70.986,36.852 112.947,78.813
+				137.498,103.111 137.373,103.237 183.918,149.782 183.918,149.782 201.5,167.984 104.626,264.882 104.599,330.748
+				266.911,168.435 			"
+              />
+            </g>
+            <polygon
+              points="104.264,170.092 69.615,135.443 104.264,100.795 71.736,68.269 5.269,134.736 104.264,233.731
+			170.731,167.264 138.912,135.443 		"
+            />
+          </g>
+          <g>
+            <g>
+              <polygon
+                points="202.721,104.242 159.486,61.008 159.496,61.019 102.914,5.252 70.986,36.852 112.947,78.813
+				137.498,103.111 137.373,103.237 183.918,149.782 183.918,149.782 201.5,167.984 104.626,264.882 104.599,330.748
+				266.911,168.435 			"
+              />
+            </g>
+            <polygon
+              points="104.264,170.092 69.615,135.443 104.264,100.795 71.736,68.269 5.269,134.736 104.264,233.731
+			170.731,167.264 138.912,135.443 		"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <app-root></app-root>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="./assets/plugins/particles/particles.min.js"></script>
+    <!-- stats.js lib -->
+    <script src="./assets/plugins/particles/stats.min.js"></script>
+    <script>
+      let loadingParticles = setInterval(() => {
+        let el = document.getElementById("particles-js");
+
+        if (el) {
+          clearInterval(loadingParticles);
+          particlesJS("particles-js", {
+            particles: {
+              number: {
+                value: 120,
+                density: { enable: true, value_area: 800 },
+              },
+              color: { value: "#007bff" },
+              shape: {
+                type: "circle",
+                stroke: { width: 0, color: "#000000" },
+                polygon: { nb_sides: 5 },
+                image: { src: "img/github.svg", width: 100, height: 100 },
+              },
+              opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                  enable: false,
+                  speed: 1,
+                  opacity_min: 0.1,
+                  sync: false,
+                },
+              },
+              size: {
+                value: 3,
+                random: true,
+                anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+              },
+              line_linked: {
+                enable: true,
+                distance: 224.4776885211732,
+                color: "#007bff",
+                opacity: 0.4,
+                width: 1,
+              },
+              move: {
+                enable: true,
+                speed: 6,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: { enable: false, rotateX: 600, rotateY: 1200 },
+              },
+            },
+            interactivity: {
+              detect_on: "window",
+              events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: false, mode: "push" },
+                resize: false,
+              },
+              modes: {
+                grab: { distance: 500, line_linked: { opacity: 1 } },
+                bubble: {
+                  distance: 400,
+                  size: 40,
+                  duration: 2,
+                  opacity: 8,
+                  speed: 3,
+                },
+                repulse: { distance: 80, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 },
+              },
+            },
+            retina_detect: true,
+          });
+        }
+      }, 500);
+    </script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAtQSer6abZozwDTDUIPxro13IG7ua74E8",
+        authDomain: "cms-api-curriculo.firebaseapp.com",
+        databaseURL: "https://cms-api-curriculo.firebaseio.com",
+        projectId: "cms-api-curriculo",
+        storageBucket: "cms-api-curriculo.appspot.com",
+        messagingSenderId: "212348249722",
+        appId: "1:212348249722:web:c09e7c6d07150cdc83fdc3",
+        measurementId: "G-T2JP8JXRNQ",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171539083-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-171539083-1");
+    </script>
+    <!-- loading das paginas -->
+    <script>
+      window.onload = () => {
+        const elements = {
+          home: [
+            "#splashScreen",
+            "#header",
+            "#about",
+            "#carousel-content",
+            "#particles-js",
+            ".particles-js-canvas-el",
+            "#redes",
+          ],
+        };
+
+        const body = document.querySelector("body");
+        const splashScreen = document.querySelector("#splashScreen");
+
+        const url = (document.URL || document.documentURI).replace(
+          document.baseURI,
+          ""
+        );
+
+        let timer = setInterval(() => {
+          let elementsLoadingOnScreen =
+            document.querySelectorAll(elements[url]) || undefined;
+
+          if (
+            elements[url] == undefined ||
+            (elementsLoadingOnScreen !== undefined &&
+              elementsLoadingOnScreen.length >= elements[url].length)
+          ) {
+            clearInterval(timer);
+
+            body.style.overflow = "auto";
+            splashScreen.style.opacity = 0;
+            splashScreen.querySelector("svg").style.display = "none";
+
+            setTimeout(() => {
+              splashScreen.style.minHeight = 0;
+              splashScreen.style.height = 0;
+            }, 500);
+          }
+        }, 100);
+      };
+    </script>
+    <!-- <script src="./assets/plugins/wow.js/dist/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script> -->
+  </body>
 </html>

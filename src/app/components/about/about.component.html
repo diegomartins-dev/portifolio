@@ -1,0 +1,117 @@
+<div class="position-relative">
+  <section id="about" class="position-relative container-fluid">
+    <div class="row">
+      <div
+        class="d-flex flex-direction-row justify-content-center text-center col-sm-12 col-md-5 col-lg-5 about-profile"
+      >
+        <h1 class="title about-title text-white d-sm-block d-md-none pt-5 pb-2">
+          <strong>Sobre mim</strong>
+        </h1>
+        <div class="card d-flex justify-content wow bounceInLeft">
+          <!-- particles.js container -->
+          <div id="particles-js"></div>
+          <div class="row no-gutters">
+            <img
+              src="../../../../assets/img/eu.jpg"
+              class="card-img col-12"
+              alt="minha foto"
+              style="z-index: 2"
+            />
+            <div class="card-content col-12">
+              <div class="card-body">
+                <h3 class="title">Diego Guimarães Martins</h3>
+                <h5 class="subtitle mb-5">Desenvolvedor Web</h5>
+                <p class="text-secondary">
+                  <i class="fas fa-envelope"></i> dgmartins87@gmail.com
+                </p>
+                <p class="text-secondary">
+                  <i class="fas fa-phone"></i> (71) 9 9332-9298
+                </p>
+                <p class="text-secondary">
+                  <i class="fas fa-map-marker-alt"></i> Salvador, Bahia - Brasil
+                </p>
+                <hr class="mt-4 mb-0" />
+              </div>
+              <div class="card-footer d-flex pt-1 justify-content-center">
+                <span>
+                  <a
+                    href="https://webcurriculo.firebaseapp.com"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Web Curriculo"
+                    ><i class="fas fa-globe-americas"></i>
+                  </a>
+                </span>
+                <span>
+                  <a
+                    href="https://www.linkedin.com/in/diego-guimaraes-362136123/"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Linkedin"
+                    ><i class="fab fa-linkedin"></i></a
+                ></span>
+                <span>
+                  <a
+                    href="https://github.com/diegohyenna"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Github"
+                    ><i class="fab fa-github"></i> </a
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-sm-12 col-md-7 col-lg-7 px-5 pb-5 about-content wow bounceInLeft"
+      >
+        <h1 class="title text-white pt-5 pb-2 d-none d-md-block">
+          <strong>Sobre mim</strong>
+        </h1>
+        <div class="body">
+          <h5 class="text-secondary d-sm-block d-md-none">
+            <strong>Descrição</strong>
+          </h5>
+          <p class="text-secondary" data-wow-delay=".1s">
+            Sou formado em Sistemas para Internet pela Unifacs e atuo na área de
+            T.I. desde 2011. Sou um Desenvolvedor Web (Web Developer) com
+            sólidos conhecimentos em tecnologias Fullstack, sendo o foco maior
+            em Frontend. Gosto de tecnologia, inovação, criatividade, web
+            designer, desenho, arte e games. Estou sempre disposto a aprender
+            mais.
+            <span class="dgsite-span"
+              >DG Site - DGSite - diego guimarães martins</span
+            >
+          </p>
+          <h5 class="text-secondary pt-2" data-wow-delay=".1s">
+            <strong>Algumas tecnologias conhecidas</strong>
+          </h5>
+          <p class="text-secondary wow bounceInLeft" data-wow-delay=".2s">
+            <span *ngFor="let technology of technologies" class="technologies"
+              >{{ technology.title }}
+              <span class="percent">{{ technology.percent }}</span></span
+            >
+          </p>
+
+          <a
+            class="btn btn-block font-weight-bold text-white"
+            target="_blank"
+            href="https://webcurriculo.firebaseapp.com"
+            >Web Curriculo</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <svg
+    class="svg-about"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1440 170"
+  >
+    <path fill="" fill-opacity="1" d="M0,160L1440,32L1440,0L0,0Z"></path>
+  </svg>
+</div>

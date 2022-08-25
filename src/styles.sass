@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+// --violet-web: #ff85fbff
+// --heliotrope: #cc66ffff
+// --electric-purple: #a938ffff
+// --vivid-violet: #9b29ffff
+// --medium-slate-blue: #9661ffff
+// --medium-slate-blue-2: #6966ffff
+// --medium-slate-blue-3: #6b77ffff
+// --cornflower-blue: #619bffff
+// --french-sky-blue: #70b8ffff
+// --sky-blue: #70dbffff
+
+@mixin scrollBarConfig($primaryColor, $secondaryColor)
+  /* Barra de rolagem */
+  //firefox
+  *
+    scrollbar-width: 8px !important
+    scrollbar-color: $primaryColor $secondaryColor !important
+
+  //demais browsers
+  *::-webkit-scrollbar
+    width: 8px !important
+    height: 8px !important
+
+  *::-webkit-scrollbar-track
+    background-color: $secondaryColor !important
+
+  *::-webkit-scrollbar-thumb
+    background-color: $primaryColor !important
+    border-radius: 8px !important
+    border: 2px solid $secondaryColor !important
+
+@media (prefers-color-scheme: light)
+  :root,
+  body.theme-blue-orange
+    --primary-color: #ef992a
+    --primary-color-dark: #d15f1d
+    --primary-color-ultra-dark: #973b06
+    --secondary-color: #007bff
+    --light-blue: #2ba2e21a
+    --dark-blue: #173152
+    --indigo: #6a10bd
+    --purple: #8a2be2
+    --light-purple: #892be244
+    --pink: #e83e8c
+    --red: #dc3545
+    --yellow: #ffc107
+    --green: #28a745
+    --teal: #21ecaf
+    --cyan: #17a2b8
+    --white: #fff
+    --gray: #869791
+    --gray-dark: #var(--light)
+    --gray-light: #ddd
+    --gray-super-light: #eee
+    --primary: var(--secondary-color)
+    --secondary: #6c757d
+    --success: var(--teal)
+    --info: #17a2b8
+    --warning: var(--primary-color)
+    --danger: #dc3545
+    --light: #f8f9fa
+    --dark: var(--light)
+
+  @include scrollBarConfig(var(--primary-color), var(--gray))
+
+@media (prefers-color-scheme: light)
+  body.theme-aqua-blueviolet
+    --primary-color: #70dbff
+    --primary-color-dark: #616ce4
+    --primary-color-ultra-dark: var(--primary-color-dark)
+    --secondary-color: #9b29ff
+    --light-blue: #2ba2e21a
+    --dark-blue: #173152
+    --indigo: #6a10bd
+    --purple: #8a2be2
+    --light-purple: #892be244
+    --pink: #e83e8c
+    --red: #dc3545
+    --yellow: #ffc107
+    --green: #28a745
+    --teal: #21ecaf
+    --cyan: #17a2b8
+    --white: #fff
+    --gray: #869791
+    --gray-dark: var(--light)
+    --gray-light: #ddd
+    --gray-super-light: #eee
+    --primary: var(--secondary-color)
+    --secondary: var(--primary-color)
+    --success: var(--teal)
+    --info: #17a2b8
+    --warning: #ff85fb
+    --danger: #dc3545
+    --light: #f8f9fa
+    --dark: var(--light)
+
+    @include scrollBarConfig(var(--primary-color), var(--gray))
+
+@media (prefers-color-scheme: dark)
+  :root
+    --primary-color: #70dbff
+    --primary-color-dark: #3f4261
+    --primary-color-ultra-dark: var(--primary-color-dark)
+    --secondary-color: #9b29ff
+    --light-blue: #2ba2e21a
+    --dark-blue: #173152
+    --indigo: #6a10bd
+    --purple: #8a2be2
+    --light-purple: #892be244
+    --pink: #e83e8c
+    --red: #dc3545
+    --yellow: #ffc107
+    --green: #28a745
+    --teal: #21ecaf
+    --cyan: #17a2b8
+    --dark: #343a40
+    --white: var(--dark)
+    --light: #FFFFFF
+    --gray: #869791
+    --gray-dark: #343a40
+    --gray-light: #ddd
+    --gray-super-light: #f8f9fa
+    --primary: var(--secondary-color)
+    --secondary: var(--primary-color)
+    --success: var(--teal)
+    --info: #17a2b8
+    --warning: #ff85fb
+    --danger: #dc3545
+
+    @include scrollBarConfig(var(--gray-light), var(--dark))
+
+strong
+  font-weight: 700
+
+.text-white
+  color: var(--white)
+
+.btn-primary
+  background-color: var(--primary-color)
+  color: var(--primary-color-ultra-dark)
+  border-color: var(--primary-color)
+  font-weight: 700
+
+  &:hover
+    color: #fff
+    background-color: var(--primary-color-ultra-dark)
+    border-color: var(--primary-color-ultra-dark)
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle
+  color: #fff
+  background-color: var(--primary-color-ultra-dark)
+  border-color: var(--primary-color-ultra-dark)
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle
+  color: #fff
+  background-color: var(--primary-color-ultra-dark)
+  border-color: var(--primary-color-ultra-dark)
+
+//body
+//  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+
+body
+  font-family: "Poppins", Arial, Helvetica, sans-serif
+
+html
+  scroll-behavior: smooth
+
+.dgsite-span
+  display: none
+
+.title strong
+  // background: linear-gradient(7deg, var(--secondary-color) 35%, rgb(143, 6, 223) 100%, var(--primary-color) 35%)
+  background: linear-gradient(7deg, var(--secondary-color) 35%, var(--primary-color) 55%)
+  -webkit-background-clip: text
+  -moz-background-clip: text
+  background-clip: text
+  -webkit-text-fill-color: transparent
+  -moz-text-fill-color: transparent
+  color: var(--primary-color)

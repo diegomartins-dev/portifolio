@@ -1,0 +1,91 @@
+{
+  "pages": [
+    {
+      "page": "home",
+      "components": [
+        {
+          "component": "header",
+          "components": [
+            {
+              "component": "aside",
+              "components": [
+                {
+                  "component": "ImageComponent",
+                  "alt": "dg web designer - imagem da logo do site onde tem a presença da letra D e da letra G",
+                  "width": "250",
+                  "height": "250",
+                  "src": "assets/img/logo-02.svg",
+                  "class": "logo"
+                },
+                {
+                  "component": "ParagraphComponent",
+                  "content": "O Desenvolvedor Web é o profissional que trabalha na construção de websites e sistemas para a internet. <span class='dgsite-span'>DG Site - DGSite - diego guimarães martins</span>"
+                },
+                {
+                  "component": "LinkComponent",
+                  "class": "btn btn-outline-light mb-2",
+                  "content": "Veja alguns projetos",
+                  "href": "home#projects"
+                },
+                {
+                  "component": "LinkComponent",
+                  "class": "btn btn-primary mb-2 ml-2",
+                  "href": "https://webcurriculo.firebaseapp.com",
+                  "content": "Web Currículo",
+                  "target": "_blank"
+                }
+              ]
+            },
+            {
+              "component": "links",
+              "components": [
+                {
+                  "component": "SocialMediaComponent",
+                  "class": "link",
+                  "href": "https://webcurriculo.firebaseapp.com",
+                  "target": "_blank",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  "title": "Web Curriculo",
+                  "content": "<i class='fas fa-globe-americas'></i>"
+                },
+                {
+                  "component": "SocialMediaComponent",
+                  "class": "link",
+                  "href": "https://www.linkedin.com/in/diego-guimaraes-362136123/",
+                  "target": "_blank",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  "title": "LinkedIn",
+                  "content": "<i class='fab fa-linkedin'></i>"
+                },
+                {
+                  "component": "SocialMediaComponent",
+                  "class": "link",
+                  "href": "https://github.com/diegohyenna",
+                  "target": "_blank",
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  "title": "Github",
+                  "content": "<i class='fab fa-github'></i>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component": "about",
+          "components": []
+        },
+        {
+          "component": "projects",
+          "components": []
+        },
+        {
+          "component": "footer",
+          "components": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,27 +1,46 @@
 # Portifolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+É o meu site em desenvolvimento, vou acrescentando features aos poucos.
 
-## Development server
+## Tecnologias utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular
+- Bootstrap
+- Media Queries
+- [Particles js](https://vincentgarreau.com/particles.js/)
+- [Font Awesome](https://fontawesome.com)
+- Firebase
 
-## Code scaffolding
+## Local
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+na pasta raiz:
 
-## Build
+- `npm install`
+- instalar o Angular CLI e rodar `ng serve`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Docker
 
-## Running unit tests
+- rode `docker build -t img-portifolio .` para criar a imagem
+- depois rode `docker run --name container-portifolio -p 4200:4200 -v /app/node_modules -v %cd%:/app img-portifolio`
+- acesse [o projeto local aqui](localhost:4200)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Docker compose
 
-## Running end-to-end tests
+- rode `docker-compose up`
+- acesse [o projeto local aqui](localhost:4200)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para acessar o projeto no container via terminal rode:
 
-## Further help
+- `docker exec -it container-portifolio sh`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Deploy
+
+Para eu lembrar caso o ambiente de dev seja novo:
+
+- `npm install -g firebase-tools`
+- `firebase login`
+
+Após a instalação do firebase tools, roda sempre:
+
+- fazer um build primeiro `ng build`
+- na pasta raiz, rodar `firebase deploy`

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cms-api-curriculo"
+  },
+  "targets": {
+    "cms-api-curriculo": {
+      "hosting": {
+        "dgsite": [
+          "dgsite"
+        ]
+      }
+    }
+  }
+}
