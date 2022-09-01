@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ADHost } from './components/shared/dynamic-component/ad-host.directive';
 import { ImageComponent } from './components/shared/image/image.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +26,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     HeaderComponent,
     FooterComponent,
     ImageComponent,
-    ADHost,
     ParagraphComponent,
     LinkComponent,
     SocialMediaComponent,

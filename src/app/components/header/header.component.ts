@@ -1,21 +1,14 @@
 import { DynamicComponentShared } from './../shared/dynamic-component/dynamic-component.shared';
 import { IDynamicComponent } from './../shared/dynamic-component/dynamic-component.interface';
-import { DynamicComponent } from './../shared/dynamic-component/dynamic-component';
 import { ParagraphComponent } from './../shared/paragraph/paragraph.component';
 import { ImageComponent } from '../shared/image/image.component';
-import { ADHost } from '../shared/dynamic-component/ad-host.directive';
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewInit,
   Component,
-  DoCheck,
   Input,
-  OnChanges,
   OnInit,
   QueryList,
-  ViewChild,
   ViewChildren,
+  ViewContainerRef,
 } from '@angular/core';
 import { LinkComponent } from '../shared/link/link.component';
 import { SocialMediaComponent } from '../shared/social-media/social-media.component';
@@ -25,12 +18,12 @@ import { SocialMediaComponent } from '../shared/social-media/social-media.compon
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass'],
 })
-export class HeaderComponent
-  extends DynamicComponentShared
-  implements OnInit, AfterContentInit
-{
+export class HeaderComponent extends DynamicComponentShared implements OnInit {
   @Input('data') dataInput: any;
-  @ViewChild(ADHost) abc: any;
+  @ViewChildren('container', {
+    read: ViewContainerRef,
+  })
+  containers?: QueryList<ViewContainerRef>;
 
   constructor() {
     let componentsListLoading: IDynamicComponent[] = [
@@ -49,17 +42,15 @@ export class HeaderComponent
     ];
 
     super(componentsListLoading);
-    console.log(this.abc);
   }
 
   ngOnInit(): void {
-    console.log(this.abc);
-    super.directiveHostViewChild = this.abc;
-    this.loadDataInput(this.dataInput);
-  }
-
-  ngAfterContentInit(): void {
-    console.log(this.abc);
+    let timer = setInterval(() => {
+      if (this.containers) {
+        clearInterval(timer);
+        this.loadingComponents(this.containers, this.dataInput);
+      }
+    }, 500);
   }
 
   setTheme(event: any) {

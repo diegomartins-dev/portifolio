@@ -1,68 +1,62 @@
-import { ADHost } from './ad-host.directive';
 import { QueryList, ViewContainerRef } from '@angular/core';
 import { IDynamicComponent } from './dynamic-component.interface';
-import { DynamicComponent } from './dynamic-component';
 
 export class DynamicComponentShared {
   componentsListLoading: IDynamicComponent[];
-  directiveHostViewChild!: QueryList<ADHost>;
+  directiveHostViewChild!: any;
 
   constructor(componentsListLoading: IDynamicComponent[]) {
     this.componentsListLoading = componentsListLoading;
   }
 
-  public getComponentByListLoading(componentName: string) {
+  public getComponentByListLoading(
+    componentName: string
+  ): IDynamicComponent | undefined {
     return (
-      this.componentsListLoading.filter(
-        (cmp) => cmp.name == componentName
+      this.componentsListLoading?.filter(
+        (cmp: any) => cmp.name == componentName
       )[0] || undefined
     );
   }
 
-  public getDirective(componentGroup: string) {
-    console.log(this.directiveHostViewChild);
-    return (
-      this.directiveHostViewChild?.filter(
-        (cmp: any) => cmp.group === componentGroup
-      )[0] || undefined
+  public getContainer(
+    componentContainers: QueryList<ViewContainerRef>,
+    componentGroup: string
+  ): ViewContainerRef | undefined {
+    return componentContainers.find(
+      (componentItem: any) =>
+        componentItem._hostTNode.attrs[1] === componentGroup
     );
   }
 
-  public createComponent(
-    componentDirective: DynamicComponent,
-    headerViewContainerRef: ViewContainerRef
+  loadComponentByDataInput(
+    containers: QueryList<ViewContainerRef>,
+    dataInput: [any]
   ) {
-    const componentRef =
-      headerViewContainerRef.createComponent<DynamicComponent>(
-        componentDirective.component
-      );
+    dataInput.map((data) => {
+      const component = this.getComponentByListLoading(data.component);
+      if (component == undefined) return;
 
-    componentRef.instance.data = componentDirective.data;
-  }
+      const container = this.getContainer(containers, component.group);
+      if (container == undefined) return;
 
-  loadDataInput(dataInput: [any]) {
-    dataInput.map((dataInput) => {
-      const componentByListLoading = this.getComponentByListLoading(
-        dataInput.component
-      );
-
-      delete dataInput.component;
-      if (componentByListLoading !== undefined)
-        this.loadComponent(componentByListLoading, { ...dataInput });
+      this.createComponent(container, component, {
+        ...data,
+      });
     });
   }
 
-  private loadComponent(componentByListLoading: IDynamicComponent, data: any) {
-    const componentDirective = new DynamicComponent(
-      componentByListLoading.element,
-      data
-    );
+  private createComponent(
+    container: ViewContainerRef,
+    component: IDynamicComponent,
+    data: any
+  ) {
+    if (container === undefined) return;
+    const cmp = container.createComponent<any>(component.element);
+    cmp.instance.data = { ...data };
+  }
 
-    const directiveHost = this.getDirective(componentByListLoading.group);
-    if (directiveHost === undefined) return;
-
-    const headerViewContainerRef = directiveHost.viewContainerRef;
-
-    this.createComponent(componentDirective, headerViewContainerRef);
+  loadingComponents(containers: QueryList<ViewContainerRef>, data: any) {
+    this.loadComponentByDataInput(containers, data);
   }
 }

@@ -97,5 +97,7 @@
       }
     }
   },
-  "defaultProject": "portifolio"
+  "cli": {
+    "analytics": "7bf85cca-4e26-4074-93a6-09e1bcc613ba"
+  }
 }

@@ -18,8 +18,8 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
-    this.projectsService.getProjects().subscribe((result) => {
-      this.projects = result;
+    this.projectsService.getProjects().subscribe((results) => {
+      this.projects = results;
 
       const { categories, technologies } = this.projectsService.getFilters(
         this.projects

@@ -1,9 +1,13 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
   AfterViewInit,
   Component,
   Input,
   OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -13,7 +17,7 @@ import {
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.sass'],
 })
-export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
+export class CarouselComponent implements OnInit, AfterViewInit {
   @Input('items') items: any;
   private itemsBackup: any;
 
@@ -44,21 +48,16 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   ngOnInit() {
+    this.showCarouselInDesktop =
+      this.screenWidth >= this.minimumScreenMobile ? true : false;
+    this.itemsBackup = this.items;
     window.onresize = (e: any) => {
       this.screenWidth = e.target.innerWidth;
     };
   }
 
   ngAfterViewInit(): void {
-    this.showCarouselInDesktop =
-      this.screenWidth >= this.minimumScreenMobile ? true : false;
-    console.log(this.screenWidth, this.minimumScreenMobile);
-    this.itemsBackup = this.items;
     this.renderViewChildren();
-  }
-
-  ngOnChanges(changes: any): void {
-    console.log(changes);
   }
 
   renderViewChildren() {
@@ -116,7 +115,8 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   setActiveItemCarouselMobile = (index: number) => {
-    const itensCarouselLength = this.carouselMobileView._results.length;
+    if (this.carouselMobileView) return;
+    const itensCarouselLength = this.carouselMobileView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;
@@ -124,13 +124,14 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
     this.projectActiveItemNumber = index;
 
     this.setDesactiveElementsOfCarousel(this.carouselMobileView);
-    this.carouselMobileView._results[index].nativeElement.classList.add(
+    this.carouselMobileView?._results[index]?.nativeElement?.classList?.add(
       'active'
     );
   };
 
   setActiveItemCarouselDesktop = (index: number) => {
-    const itensCarouselLength = this.carouselDesktopView._results.length;
+    if (!this.carouselDesktopView) return;
+    const itensCarouselLength = this.carouselDesktopView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;
@@ -138,14 +139,14 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
     this.projectActiveItemNumber = index;
 
     this.setDesactiveElementsOfCarousel(this.carouselDesktopView);
-    this.carouselDesktopView._results[index].nativeElement.classList.add(
+    this.carouselDesktopView?._results[index]?.nativeElement?.classList?.add(
       'active'
     );
   };
 
   setDesactiveElementsOfCarousel(elements: any) {
     for (let element of elements._results) {
-      element.nativeElement.classList.remove('active');
+      element?.nativeElement?.classList?.remove('active');
     }
   }
 
