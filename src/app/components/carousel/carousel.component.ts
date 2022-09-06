@@ -134,7 +134,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   setActiveItemCarouselMobile = (index: number) => {
-    console.log(this.carouselMobileView);
     const itensCarouselLength = this.carouselMobileView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;
@@ -149,7 +148,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   };
 
   setActiveItemCarouselDesktop = (index: number) => {
-    console.log(this.carouselDesktopView);
     const itensCarouselLength = this.carouselDesktopView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;

@@ -8,6 +8,14 @@
 // --cornflower-blue: #619bffff
 // --french-sky-blue: #70b8ffff
 // --sky-blue: #70dbffff
+// --pink: #e83e8c
+// --red: #dc3545
+// --yellow: #ffc107
+// --green: #28a745
+// --teal: #21ecaf
+// --cyan: #17a2b8
+// --purple: #8a2be2
+// --light-purple: #892be244
 
 @mixin scrollBarConfig($primaryColor, $secondaryColor)
   /* Barra de rolagem */
@@ -28,144 +36,73 @@
     background-color: $primaryColor !important
     border-radius: 8px !important
     border: 2px solid $secondaryColor !important
-@media (prefers-color-scheme: light)
-  :root,
-  body.theme-blue-orange
-    --primary-color: #ef992a
-    --primary-color-dark: #d15f1d
-    --primary-color-ultra-dark: #973b06
-    --secondary-color: #007bff
-    --light-blue: #2ba2e21a
-    --dark-blue: #173152
-    --indigo: #6a10bd
-    --purple: #8a2be2
-    --light-purple: #892be244
-    --pink: #e83e8c
-    --red: #dc3545
-    --yellow: #ffc107
-    --green: #28a745
-    --teal: #21ecaf
-    --cyan: #17a2b8
-    --white: #fff
-    // --gray: #869791
-    --gray-dark: #var(--light)
-    --gray-light: #ddd
-    --gray-super-light: #eee
-    --gray: var(--gray-super-light)
-    --primary: var(--secondary-color)
-    --secondary: #6c757d
-    --success: var(--teal)
-    --info: #17a2b8
-    --warning: var(--primary-color)
-    --danger: #dc3545
-    --light: #f8f9fa
-    --dark: var(--light)
 
-    @include scrollBarConfig(var(--primary-color), var(--gray))
+@mixin light-orange
+  --primary-color: #ef992a
+  --primary-color-dark: #d15f1d
+  --primary-color-ultra-dark: #973b06
+  --secondary-color: #007bff
+  --secondary-color-dark: #173152
+  --ternary-color: #6a10bd
+  --white: #fff
+  --bg-card: #eee
+  --bg-card-secondary: var(--light)
+  --bg-card-ternary: #ddd
+  --text-card: #869791
+  --light: #f8f9fa
+  --dark: var(--light)
 
-  body.theme-aqua-blueviolet
-    --primary-color: #70dbff
-    --primary-color-dark: #616ce4
-    --primary-color-ultra-dark: var(--primary-color-dark)
-    --secondary-color: #9b29ff
-    --light-blue: #2ba2e21a
-    --dark-blue: #173152
-    --indigo: #6a10bd
-    --purple: #8a2be2
-    --light-purple: #892be244
-    --pink: #e83e8c
-    --red: #dc3545
-    --yellow: #ffc107
-    --green: #28a745
-    --teal: #21ecaf
-    --cyan: #17a2b8
-    --white: #fff
-    --gray-dark: var(--light)
-    --gray-light: #ddd
-    --gray-super-light: #eee
-    --gray: var(--gray-super-light)
-    --primary: var(--secondary-color)
-    --secondary: var(--primary-color)
-    --success: var(--teal)
-    --info: #17a2b8
-    --warning: #ff85fb
-    --danger: #dc3545
-    --light: #f8f9fa
-    --dark: var(--light)
+  @include scrollBarConfig(var(--primary-color), var(--text-card))
 
-    @include scrollBarConfig(var(--primary-color), var(--gray))
+@mixin light-violet
+  --primary-color: #70dbff
+  --primary-color-dark: #616ce4
+  --primary-color-ultra-dark: var(--primary-color-dark)
+  --secondary-color: #9b29ff
+  --secondary-color-dark: #173152
+  --ternary-color: #2ba2e21a
 
-@media (prefers-color-scheme: dark)
-  :root,
-  body.theme-aqua-blueviolet
-    --primary-color: #70dbff
-    --primary-color-dark: #720daf
-    --primary-color-ultra-dark: var(--primary-color-dark)
-    --secondary-color: #9b29ff
-    --light-blue: #2ba2e21a
-    --dark-blue: #173152
-    --indigo: #6a10bd
-    --purple: #8a2be2
-    --light-purple: #892be244
-    --dark-purple: #2e0852
-    --pink: #e83e8c
-    --red: #dc3545
-    --yellow: #ffc107
-    --green: #28a745
-    --teal: #21ecaf
-    --cyan: #17a2b8
-    --dark: #343a40
-    --white: var(--dark)
-    --light: #FFF
-    --gray: var(--dark-purple)
-    --gray-dark: #343a40
-    --gray-light: #ddd
-    --gray-super-light: #f8f9fa
-    --primary: var(--secondary-color)
-    --secondary: var(--primary-color)
-    --success: var(--teal)
-    --info: #17a2b8
-    --warning: #ff85fb
-    --danger: #dc3545
+  @include scrollBarConfig(var(--primary-color), var(--text-card))
 
-    * > .text-white
-      color: var(--gray-dark) !important
+@mixin dark-violet
+  --primary-color: #70dbff
+  --primary-color-dark: #720daf
+  --primary-color-ultra-dark: var(--primary-color-dark)
+  --secondary-color: #9b29ff
+  --ternary-color: #2ba2e21a
+  --secondary-color-dark: #173152
+  --dark: #261536
+  --white: var(--dark)
+  --light: #FFF
+  --bg-card: #2e0852
+  --bg-card-secondary: #892be244
+  --bg-card-ternary: #ddd
 
-    @include scrollBarConfig(var(--gray-light), var(--dark))
+  * > .text-white
+    color: var(--light) !important
 
-  body.theme-blue-orange
-    --primary-color: #d15f1d
-    --primary-color-dark: #973b06
-    --primary-color-ultra-dark: #301201
-    --secondary-color: #0257b3
-    --light-blue: #022246
-    --dark-blue: #173152
-    --indigo: #6a10bd
-    --purple: #8a2be2
-    --light-purple: #892be244
-    --dark-purple: #2e0852
-    --pink: #e83e8c
-    --red: #dc3545
-    --yellow: #ffc107
-    --green: #28a745
-    --teal: #21ecaf
-    --cyan: #17a2b8
-    --dark: #343a40
-    --white: var(--dark)
-    --light: #FFF
-    --gray: #301201
-    --gray-dark: #343a40
-    --gray-light: #ddd
-    --gray-super-light: #f8f9fa
-    --primary: var(--secondary-color)
-    --secondary: var(--primary-color)
-    --success: var(--teal)
-    --info: #17a2b8
-    --warning: #ff85fb
-    --danger: #dc3545
+  #header, #header p, #header .line, #header .link, #about .text-secondary, #about .subtitle, .text-secondary, #projects, #footer, #footer .title a, hr
+    color: var(--light) !important
+    border-color: var(--light) !important
 
-    * > .text-white
-      color: var(--light) !important
+  @include scrollBarConfig(var(--bg-card-ternary), var(--dark))
+
+@mixin dark-orange
+  --primary-color: #d15f1d
+  --primary-color-dark: #64381f
+  --primary-color-ultra-dark: #301201
+  --secondary-color: #0257b3
+  --ternary-color: #022246
+  --secondary-color-dark: #173152
+  --dark: #301405
+  --white: var(--dark)
+  --light: #FFF
+  --bg-card: #3a312e
+  --bg-card-secondary: var(--bg-card)
+  --bg-card-ternary: #ddd
+
+  * > .text-white
+    color: var(--light) !important
 
     * > .technologies, * > .project-item-technology, * > .project-items .btn
       color: var(--light) !important
@@ -173,6 +110,25 @@
   #header, #header p, #header .line, #header .link, #about .text-secondary, #about .subtitle, .text-secondary, #projects, #footer, #footer .title a, hr
     color: var(--light) !important
     border-color: var(--light) !important
+
+  @include scrollBarConfig(var(--bg-card-ternary), var(--dark))
+
+:root
+  @include light-orange
+
+body.dark-mode
+  &.theme-aqua-blueviolet
+    @include dark-violet
+
+  &.theme-blue-orange
+    @include dark-orange
+
+body.light-mode
+  &.theme-aqua-blueviolet
+    @include light-violet
+
+  &.theme-blue-orange
+    @include light-orange
 
 strong
   font-weight: 700
@@ -227,6 +183,127 @@ html
   -moz-text-fill-color: transparent
   color: var(--primary-color)
 
+.logo
+  width: 220px
+
+/** -------------------------- HEADER ----------------------  **/
+@media (max-width: 481px)
+  .logo
+    width: 120px
+
+.bg-polygon
+  background-color: var(--white)
+  color: var(--white)
+  background-attachment: fixed, fixed, fixed
+  background-image: url("/assets/img/overlay3.svg"), linear-gradient(45deg, var(--primary-color), var(--primary-color-dark), var(--secondary-color), var(--secondary-color-dark))
+  background-position: left top, center center, center center
+  background-size: cover
+  background-repeat: no-repeat
+  overflow: hidden
+  min-height: 100vh
+
+header
+  display: flex
+  position: relative
+  width: 100%
+  min-height: 100vh
+  text-align: center
+  color: var(--white)
+  background-position: center
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  background-size: cover
+  -o-background-size: cover
+
+  .header-left
+    padding: 20px 0
+    float: left
+    width: 85%
+    display: flex
+    align-items: center
+    justify-content: center
+
+    @media (min-width: 768px)
+      width: calc(100% - 80px)
+
+    .header-content
+      position: relative
+      text-align: center
+      margin: 0 25px
+
+      .btn-outline-light:hover
+        font-weight: bold
+        color: var(--primary-color)
+
+      .header-content-inner
+        margin: 0 auto
+
+        h1
+          margin-top: 0
+          margin-bottom: 0
+          text-transform: uppercase
+          font-weight: 700
+
+        hr
+          margin: 30px auto
+
+        p
+          font-size: 1.2rem
+          font-weight: 300
+          color: var(--white)
+          margin: 40px 0
+
+  .header-right
+    float: right
+    width: 15%
+    max-width: 80px
+    min-height: 100vh
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+
+    @media (min-width: 320px)
+      padding: 0 0.5rem
+
+    @media (min-width: 480px)
+      padding: 0 1rem
+
+    @media (min-width: 768px)
+      padding: 0 1.5rem
+
+    .lines
+      position: relative
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+
+      .line
+        position: absolute
+        left: calc(50% - 1px)
+        border-left: 1px solid var(--white)
+        width: 100%
+
+        @media (min-height: 320px)
+          height: calc(100vh - 76 * 100vh / 100)
+
+        @media (min-height: 480px)
+          height: calc(100vh - 75 * 100vh / 100)
+
+    .links
+      display: flex
+      flex-direction: column
+
+      .link
+        color: var(--white)
+        font-size: 2rem
+        margin: 5px 0
+        display: inline-block
+
+        &:hover
+          color: var(--primary-color)
+
 /* ------------------ Cards - default e mobile --------------------- */
 .card-img-desktop
   margin-bottom: 24px
@@ -236,7 +313,7 @@ html
 .card
   border-width: 2px
 
-  .card.title
+  .card-title
     color: var(--primary-color)
     font-size: 1.4rem
     font-weight: 700
@@ -255,7 +332,7 @@ html
     bottom: -8px
     left: 1.25rem
     padding: 4px 12px
-    background-color: var(--purple)
+    background-color: var(--secondary-color)
     border-radius: 8px
     box-shadow: 2px 2px 12px 0.5px rgba(0, 0, 0, 0.2)
 
@@ -306,7 +383,7 @@ html
 
   .card-footer
     align-items: baseline
-    background-color: var(--white)
+    background-color: transparent
     border: none
 
     .btn

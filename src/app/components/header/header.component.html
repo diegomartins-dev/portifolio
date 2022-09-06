@@ -4,12 +4,26 @@
       <div class="theme-choose-container">
         <button
           class="button theme-blue-orange"
-          (click)="setTheme($event)"
+          (click)="setTheme('theme-blue-orange')"
         ></button>
         <button
           class="button theme-aqua-blueviolet"
-          (click)="setTheme($event)"
+          (click)="setTheme('theme-aqua-blueviolet')"
         ></button>
+      </div>
+      <div class="dark-mode-switch">
+        <div class="custom-control custom-switch">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customSwitch1"
+            [ngModel]="dark"
+            (change)="setDarkTheme((dark = !dark))"
+          />
+          <label class="custom-control-label" for="customSwitch1">{{
+            dark ? "Dark" : "Light"
+          }}</label>
+        </div>
       </div>
       <div class="header-content">
         <div class="header-content-inner">

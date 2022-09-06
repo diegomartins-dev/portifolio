@@ -24,6 +24,7 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
     read: ViewContainerRef,
   })
   containers?: QueryList<ViewContainerRef>;
+  dark = false;
 
   constructor() {
     let componentsListLoading: IDynamicComponent[] = [
@@ -51,12 +52,32 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
         this.loadingComponents(this.containers, this.dataInput);
       }
     }, 500);
+
+    this.dark = this.getSettedDarkMode();
   }
 
-  setTheme(event: any) {
-    const button: HTMLElement = event.target;
-    const classTheme = button.className.replace('button', '').trim();
+  getSettedDarkMode() {
+    if (localStorage.getItem('dark-mode')) {
+      if (localStorage.getItem('dark-mode') == 'dark-mode') {
+        this.setDarkTheme(true);
+        return true;
+      } else {
+        this.setDarkTheme(false);
+        return false;
+      }
+    } else {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        this.setDarkTheme(true);
+        this.setTheme('theme-aqua-blueviolet');
+        return true;
+      } else {
+        this.setDarkTheme(false);
+        return false;
+      }
+    }
+  }
 
+  setTheme(theme: string) {
     const body = document.body;
     const bodyClassList = body.classList;
 
@@ -64,8 +85,21 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
       classList.indexOf('theme') !== -1 ? bodyClassList.remove(classList) : ''
     );
 
-    bodyClassList.add(classTheme);
+    bodyClassList.add(theme);
     localStorage.removeItem('theme');
-    localStorage.setItem('theme', classTheme);
+    localStorage.setItem('theme', theme);
+  }
+
+  setDarkTheme(dark: boolean) {
+    const body = document.body;
+    const bodyClassList = body.classList;
+
+    bodyClassList.forEach((classList) =>
+      classList.indexOf('mode') !== -1 ? bodyClassList.remove(classList) : ''
+    );
+
+    bodyClassList.add(dark ? 'dark-mode' : 'light-mode');
+    localStorage.removeItem('dark-mode');
+    localStorage.setItem('dark-mode', dark ? 'dark-mode' : 'light-mode');
   }
 }
