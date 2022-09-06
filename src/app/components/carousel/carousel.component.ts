@@ -1,13 +1,8 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
   AfterViewInit,
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -43,16 +38,40 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   private projectActiveItemNumber = 0;
 
-  constructor() {
-    this.screenWidth = window.innerWidth;
-  }
+  loading = false;
+
+  constructor() {}
 
   ngOnInit() {
+    this.screenWidth = window.innerWidth;
+    this.loading = true;
     this.showCarouselInDesktop =
       this.screenWidth >= this.minimumScreenMobile ? true : false;
     this.itemsBackup = this.items;
+    this.loading = false;
+    this.onAutoPlayCarousel();
     window.onresize = (e: any) => {
       this.screenWidth = e.target.innerWidth;
+      this.loading = true;
+      if (this.screenWidth >= this.minimumScreenMobile) {
+        this.showCarouselInDesktop = true;
+        let timer = setInterval(() => {
+          if (this.carouselDesktopView._results.length > 0) {
+            clearInterval(timer);
+            this.renderViewChildren();
+            this.loading = false;
+          }
+        }, 100);
+      } else {
+        this.showCarouselInDesktop = false;
+        let timer = setInterval(() => {
+          if (this.carouselMobileView._results.length > 0) {
+            clearInterval(timer);
+            this.renderViewChildren();
+            this.loading = false;
+          }
+        }, 100);
+      }
     };
   }
 
@@ -115,7 +134,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   setActiveItemCarouselMobile = (index: number) => {
-    if (this.carouselMobileView) return;
+    console.log(this.carouselMobileView);
     const itensCarouselLength = this.carouselMobileView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;
@@ -130,7 +149,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   };
 
   setActiveItemCarouselDesktop = (index: number) => {
-    if (!this.carouselDesktopView) return;
+    console.log(this.carouselDesktopView);
     const itensCarouselLength = this.carouselDesktopView?._results.length;
 
     if (index < 0) index = itensCarouselLength - 1;

@@ -53,6 +53,7 @@
   </div>
 </div>
 <div class="container-slide">
+  <div *ngIf="this.loading" class="loader"></div>
   <!-- DESKTOP -->
   <div *ngIf="this.showCarouselInDesktop" id="carousel-content">
     <div
@@ -135,13 +136,13 @@
         <div class="col-md-12 card-image-col position-relative">
           <div class="card-image-mobile-container">
             <img
-              src="{{ item.image.src }}"
+              src="{{ item?.image?.src }}"
               class="card-img-mobile"
-              alt="{{ item.image.alt }}"
+              alt="{{ item?.image?.alt }}"
             />
           </div>
-          <div class="card-status badge badge-{{ item.status.class }}">
-            {{ item.status.title }}
+          <div class="card-status badge badge-{{ item?.status?.class }}">
+            {{ item?.status?.title }}
           </div>
           <div class="card-project-number-container">
             <div class="card-project-number">{{ j + 1 }}</div>
@@ -150,16 +151,16 @@
         <div class="col-md-12 card-content">
           <div class="card-body">
             <div class="card-title">
-              {{ item.body.title }}
+              {{ item?.body?.title }}
             </div>
             <p class="card-text text-secondary">
-              {{ item.body.description }}
+              {{ item?.body?.description }}
             </p>
             <div class="card-text text-secondary">
               <small><strong>Algumas tecnologias usadas:</strong></small>
               <div class="container-technologies">
                 <span
-                  *ngFor="let technology of item.body.technologies"
+                  *ngFor="let technology of item?.body?.technologies"
                   class="technologies"
                   >{{ technology }}</span
                 >
@@ -168,18 +169,18 @@
           </div>
           <div class="card-footer">
             <a
-              *ngFor="let link of item.links"
-              href="{{ link.href }}"
+              *ngFor="let link of item?.links"
+              href="{{ link?.href }}"
               target="_blank"
               class="btn btn-primary btn-block font-weight-bold"
-              >{{ link.title }}</a
+              >{{ link?.title }}</a
             >
           </div>
         </div>
       </div>
       <div class="dots d-flex pt-2 pb-4 justify-content-center">
         <div
-          *ngFor="let project of item; let i = index"
+          *ngFor="let project of items; let i = index"
           class="dot"
           [ngClass]="j == i ? 'active' : ''"
           (click)="moveItOnDot(i, setActiveItemCarouselMobile)"
