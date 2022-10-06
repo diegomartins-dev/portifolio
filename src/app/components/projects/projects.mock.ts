@@ -49,10 +49,10 @@ export default [
   //       'Typescript',
   //     ],
   //   },
-  //   link: {
+  //   links: [{
   //     href: 'https://github.com/diegohyenna/agenda-sms',
   //     title: 'Visitar o repositório aqui',
-  //   },
+  //   }],
   // },
   {
     category: 'frontend',
@@ -192,60 +192,62 @@ export default [
       },
     ],
   },
-  // {
-  //   category: 'frontend',
-  //   image: {
-  //     src: 'assets/img/projects/gatsby.png',
-  //     alt: 'estudos em gatsby',
-  //     bg: 'assets/img/projects/bgs/technology01b.jpg',
-  //   },
-  //   status: {
-  //     title: 'Concluído',
-  //     class: 'primary',
-  //   },
-  //   body: {
-  //     title: 'Estudos com Gatsby',
-  //     description: 'Um estudo com Gatsby JS.',
-  //     technologies: [
-  //       'Gatsby',
-  //       'Styled Components',
-  //       'Node SASS',
-  //       'Bootstrap',
-  //       'Heroku',
-  //     ],
-  //   },
-  //   link: {
-  //     href: 'https://github.com/diegohyenna/estudos-gatsby',
-  //     title: 'Visitar o repositório aqui',
-  //   },
-  // },
   {
-    category: 'backend',
+    category: 'frontend',
     image: {
-      src: 'assets/img/projects/mongodb.png',
-      alt: 'estudos em mongodb',
-      bg: 'assets/img/projects/bgs/technology02b.jpg',
+      src: 'assets/img/projects/gatsby.png',
+      alt: 'estudos em gatsby',
+      bg: 'assets/img/projects/bgs/technology01b.jpg',
     },
     status: {
       title: 'Concluído',
       class: 'primary',
     },
     body: {
-      title: 'Estudos com MongoDB + Mongoose',
-      description: 'Um estudo com MongoDB + Mongoose.',
-      technologies: ['MongoDB', 'Express', 'PassportJs', 'Express Handlebars'],
+      title: 'Estudos com Gatsby',
+      description: 'Um estudo com Gatsby JS.',
+      technologies: [
+        'Gatsby',
+        'Styled Components',
+        'Node SASS',
+        'Bootstrap',
+        'Heroku',
+      ],
     },
     links: [
       {
-        href: 'https://github.com/diegohyenna/estudos-com-mongodb',
+        href: 'https://github.com/diegohyenna/estudos-gatsby',
         title: 'Visitar o repositório aqui',
-      },
-      {
-        href: 'https://blog-nodejs-mongoose-estudos.herokuapp.com',
-        title: 'Visitar a demonstração',
       },
     ],
   },
+  // {
+  //   category: 'backend',
+  //   image: {
+  //     src: 'assets/img/projects/mongodb.png',
+  //     alt: 'estudos em mongodb',
+  //     bg: 'assets/img/projects/bgs/technology02b.jpg',
+  //   },
+  //   status: {
+  //     title: 'Concluído',
+  //     class: 'primary',
+  //   },
+  //   body: {
+  //     title: 'Estudos com MongoDB + Mongoose',
+  //     description: 'Um estudo com MongoDB + Mongoose.',
+  //     technologies: ['MongoDB', 'Express', 'PassportJs', 'Express Handlebars'],
+  //   },
+  //   links: [
+  //     {
+  //       href: 'https://github.com/diegohyenna/estudos-com-mongodb',
+  //       title: 'Visitar o repositório aqui',
+  //     },
+  //     {
+  //       href: 'https://blog-nodejs-mongoose-estudos.herokuapp.com',
+  //       title: 'Visitar a demonstração',
+  //     },
+  //   ],
+  // },
   {
     category: 'backend',
     image: {
@@ -308,9 +310,9 @@ export default [
   //     description: 'Um style guide desenvolvido em cima do materialize.',
   //     technologies: ['Materialize Css', 'JQuery', 'SASS', 'Gulp'],
   //   },
-  //   link: {
+  //   links: [{
   //     href: 'https://github.com/diegohyenna/toopfy-style-guide',
   //     title: 'Visitar o repositório aqui',
-  //   },
+  //   }],
   // },
 ];

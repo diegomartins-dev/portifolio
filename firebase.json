@@ -1,12 +1,8 @@
 {
   "hosting": {
     "target": "dgsite",
-    "public": "dist/dgsite",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "public": "dist/portifolio",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

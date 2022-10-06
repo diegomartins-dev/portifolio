@@ -25,12 +25,12 @@ na pasta raiz:
 
 - rode `docker build -t img-portifolio .` para criar a imagem
 - depois rode `docker run --name container-portifolio -p 4200:4200 -v /app/node_modules -v %cd%:/app img-portifolio`
-- acesse [o projeto local aqui](localhost:4200)
+- acesse [o projeto local aqui](http://localhost:4200)
 
 ## Docker compose
 
 - rode `docker-compose up`
-- acesse [o projeto local aqui](localhost:4200)
+- acesse [o projeto local aqui](http://localhost:4200)
 
 Para acessar o projeto no container via terminal rode:
 

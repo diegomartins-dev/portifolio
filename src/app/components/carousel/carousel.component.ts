@@ -1,8 +1,11 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -11,8 +14,9 @@ import {
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input('items') items: any;
   private itemsBackup: any;
 
@@ -73,6 +77,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         }, 100);
       }
     };
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('on changes');
+    console.log(changes);
   }
 
   ngAfterViewInit(): void {
