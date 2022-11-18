@@ -57,6 +57,33 @@ export default [
   {
     category: 'frontend',
     image: {
+      src: 'assets/img/projects/financas.jpg',
+      alt: 'financas',
+      bg: 'assets/img/projects/bgs/technology01b.jpg',
+    },
+    status: {
+      title: 'Concluído',
+      class: 'primary',
+    },
+    body: {
+      title: 'Financas',
+      description: 'Um projeto feito em react para fins de estudo',
+      technologies: ['React', 'Typescript', 'Styled Components'],
+    },
+    links: [
+      {
+        href: 'https://github.com/diegohyenna/financas',
+        title: 'Visitar o repositório aqui',
+      },
+      {
+        href: 'https://financasxyz.netlify.app',
+        title: 'Visitar o site aqui',
+      },
+    ],
+  },
+  {
+    category: 'frontend',
+    image: {
       src: 'assets/img/projects/playerlizzer.png',
       alt: 'Playerlizze',
       bg: 'assets/img/projects/bgs/technology03b.jpg',
@@ -192,35 +219,35 @@ export default [
       },
     ],
   },
-  {
-    category: 'frontend',
-    image: {
-      src: 'assets/img/projects/gatsby.png',
-      alt: 'estudos em gatsby',
-      bg: 'assets/img/projects/bgs/technology01b.jpg',
-    },
-    status: {
-      title: 'Concluído',
-      class: 'primary',
-    },
-    body: {
-      title: 'Estudos com Gatsby',
-      description: 'Um estudo com Gatsby JS.',
-      technologies: [
-        'Gatsby',
-        'Styled Components',
-        'Node SASS',
-        'Bootstrap',
-        'Heroku',
-      ],
-    },
-    links: [
-      {
-        href: 'https://github.com/diegohyenna/estudos-gatsby',
-        title: 'Visitar o repositório aqui',
-      },
-    ],
-  },
+  // {
+  //   category: 'frontend',
+  //   image: {
+  //     src: 'assets/img/projects/gatsby.png',
+  //     alt: 'estudos em gatsby',
+  //     bg: 'assets/img/projects/bgs/technology01b.jpg',
+  //   },
+  //   status: {
+  //     title: 'Concluído',
+  //     class: 'primary',
+  //   },
+  //   body: {
+  //     title: 'Estudos com Gatsby',
+  //     description: 'Um estudo com Gatsby JS.',
+  //     technologies: [
+  //       'Gatsby',
+  //       'Styled Components',
+  //       'Node SASS',
+  //       'Bootstrap',
+  //       'Heroku',
+  //     ],
+  //   },
+  //   links: [
+  //     {
+  //       href: 'https://github.com/diegohyenna/estudos-gatsby',
+  //       title: 'Visitar o repositório aqui',
+  //     },
+  //   ],
+  // },
   // {
   //   category: 'backend',
   //   image: {
