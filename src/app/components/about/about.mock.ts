@@ -1,4 +1,5 @@
-export default {
+import { IAbout } from './about.interface';
+export const about: IAbout = {
   profile: {
     image: {
       src: '../../../../assets/img/eu.jpg',
@@ -108,6 +109,8 @@ export default {
       {
         href: 'https://webcurriculo.firebaseapp.com',
         title: 'Web currículo',
+        icon: '',
+        target: '_blank',
       },
     ],
   },

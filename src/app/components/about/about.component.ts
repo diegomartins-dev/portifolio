@@ -1,3 +1,4 @@
+import { IProfile, IContent } from './about.interface';
 import { AboutService } from './about.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,20 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.sass'],
 })
 export class SobreComponent implements OnInit {
-  public technologies!: Technology[];
+  public profile!: IProfile;
+  public content!: IContent;
 
-  constructor(private aboutService: AboutService) {
-    // this.technologies
-  }
+  constructor(private aboutService: AboutService) {}
 
   ngOnInit(): void {
     this.aboutService.getItemsAbout().subscribe((result) => {
-      console.log(result);
+      this.profile = result.profile;
+      this.content = result.content;
     });
   }
-}
-
-interface Technology {
-  title: string;
-  percent: string;
 }

@@ -19,48 +19,27 @@
             />
             <div class="card-content col-12">
               <div class="card-body">
-                <h3 class="title">Diego Guimarães Martins</h3>
-                <h5 class="subtitle mb-5">Desenvolvedor Web</h5>
-                <p class="text-secondary">
-                  <i class="fas fa-envelope"></i> dgmartins87@gmail.com
-                </p>
-                <p class="text-secondary">
-                  <i class="fas fa-phone"></i> (71) 9 9332-9298
-                </p>
-                <p class="text-secondary">
-                  <i class="fas fa-map-marker-alt"></i> Salvador, Bahia - Brasil
+                <h3 class="title">{{ this.profile.name }}</h3>
+                <h5 class="subtitle mb-5">{{ this.profile.occupation }}</h5>
+                <p
+                  *ngFor="let contact of this.profile.contacts"
+                  class="text-secondary"
+                >
+                  <i [class]="contact.icon"></i> {{ contact.content }}
                 </p>
                 <hr class="mt-4 mb-0" />
               </div>
               <div class="card-footer d-flex pt-1 justify-content-center">
-                <span>
+                <span *ngFor="let link of this.profile.links">
                   <a
-                    href="https://webcurriculo.firebaseapp.com"
-                    target="_blank"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Web Curriculo"
-                    ><i class="fas fa-globe-americas"></i>
+                    href="{{ link.href }}"
+                    target="{{ link.target }}"
+                    attr.data-toggle="{{ link['data-toggle'] }}"
+                    attr.data-placement="{{ link['data-placement'] }}"
+                    title="{{ link.title }}"
+                    ><i class="{{ link.icon }}"></i>
                   </a>
                 </span>
-                <span>
-                  <a
-                    href="https://www.linkedin.com/in/diego-guimaraes-362136123/"
-                    target="_blank"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Linkedin"
-                    ><i class="fab fa-linkedin"></i></a
-                ></span>
-                <span>
-                  <a
-                    href="https://github.com/diegohyenna"
-                    target="_blank"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Github"
-                    ><i class="fab fa-github"></i> </a
-                ></span>
               </div>
             </div>
           </div>
@@ -77,12 +56,7 @@
             <strong>Descrição</strong>
           </h5>
           <p class="text-secondary" data-wow-delay=".1s">
-            Sou formado em Sistemas para Internet pela Unifacs e atuo na área de
-            T.I. desde 2011. Sou um Desenvolvedor Web (Web Developer) com
-            sólidos conhecimentos em tecnologias Fullstack, sendo o foco maior
-            em Frontend. Gosto de tecnologia, inovação, criatividade, web
-            designer, desenho, arte e games. Estou sempre disposto a aprender
-            mais.
+            {{ this.content.description }}
             <span class="dgsite-span"
               >DG Site - DGSite - diego guimarães martins</span
             >
@@ -91,18 +65,21 @@
             <strong>Algumas tecnologias conhecidas</strong>
           </h5>
           <p class="text-secondary wow bounceInLeft" data-wow-delay=".2s">
-            <span *ngFor="let technology of technologies" class="technologies"
+            <span
+              *ngFor="let technology of this.content.technologies"
+              class="technologies"
               >{{ technology.title }}
               <span class="percent">{{ technology.percent }}</span></span
             >
           </p>
 
           <a
+            *ngFor="let link of this.content.links"
             class="btn btn-block font-weight-bold text-white"
-            target="_blank"
-            href="https://webcurriculo.firebaseapp.com"
-            >Web Curriculo</a
-          >
+            target="{{ link.target }}"
+            href="{{ link.href }}"
+            >{{ link.title }}<i class="{{ link.icon }}"></i
+          ></a>
         </div>
       </div>
     </div>
