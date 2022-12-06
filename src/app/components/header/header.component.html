@@ -11,6 +11,15 @@
           (click)="setTheme('theme-aqua-blueviolet')"
         ></button>
       </div>
+      <div class="header-content">
+        <div class="header-content-inner">
+          <ng-container #container group="left"></ng-container>
+        </div>
+      </div>
+    </div>
+    <div
+      class="header-right d-flex flex-column justify-content-center align-items-center"
+    >
       <div class="dark-mode-switch">
         <div class="custom-control custom-switch">
           <input
@@ -21,19 +30,10 @@
             (change)="setDarkTheme((dark = !dark))"
           />
           <label class="custom-control-label" for="customSwitch1">{{
-            dark ? "Dark" : "Light"
+            dark ? "Tema escuro" : "Tema claro"
           }}</label>
         </div>
       </div>
-      <div class="header-content">
-        <div class="header-content-inner">
-          <ng-container #container group="left"></ng-container>
-        </div>
-      </div>
-    </div>
-    <div
-      class="header-right d-flex flex-column justify-content-center align-items-center"
-    >
       <div class="lines">
         <div class="line"></div>
       </div>
