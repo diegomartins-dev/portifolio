@@ -55,7 +55,7 @@
 <div class="container-slide">
   <div *ngIf="this.loading" class="loader"></div>
   <!-- DESKTOP -->
-  <div *ngIf="this.showCarouselInDesktop" id="carousel-content">
+  <div class="d-md-none d-lg-block" id="carousel-content">
     <div
       #carouselDesktop
       *ngFor="let item of items; let i = index"
@@ -119,11 +119,7 @@
   </div>
 
   <!-- MOBILE -->
-  <div
-    *ngIf="!this.showCarouselInDesktop"
-    class="d-md-block d-xl-none p-3"
-    id="carousel-content"
-  >
+  <div class="d-md-block d-xl-none p-3" id="carousel-content">
     <div
       #carouselMobile
       id="slide"

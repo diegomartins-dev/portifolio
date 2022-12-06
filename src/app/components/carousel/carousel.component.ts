@@ -3,9 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -16,11 +14,11 @@ import {
   styleUrls: ['./carousel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
+export class CarouselComponent implements OnInit, AfterViewInit {
   @Input('items') items: any;
   private itemsBackup: any;
 
-  @Input('minimumScreenMobile') minimumScreenMobile: any;
+  private minimumScreenMobile = 1200;
   private screenWidth = 0;
   public showCarouselInDesktop!: boolean;
 
@@ -49,8 +47,6 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnInit() {
     this.screenWidth = window.innerWidth;
     this.loading = true;
-    this.showCarouselInDesktop =
-      this.screenWidth >= this.minimumScreenMobile ? true : false;
     this.itemsBackup = this.items;
     this.loading = false;
     this.onAutoPlayCarousel();
@@ -77,11 +73,6 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
         }, 100);
       }
     };
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('on changes');
-    console.log(changes);
   }
 
   ngAfterViewInit(): void {
