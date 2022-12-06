@@ -1,4 +1,4 @@
-export interface ICarouselProjects {
+export interface IProjects {
   category: string;
   image: {
     src: string;
@@ -15,6 +15,7 @@ export interface ICarouselProjects {
     technologies: Array<string>;
   };
   links: ILink[];
+  published: boolean;
 }
 
 interface ILink {

@@ -48,6 +48,5 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   getDataApi() {
     const datas = this.api.getAll();
-    console.log(datas);
   }
 }

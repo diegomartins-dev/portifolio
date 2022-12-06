@@ -1,5 +1,5 @@
 import { ProjectsService } from './projects.service';
-import { ICarouselProjects } from './projects.interface';
+import { IProjects } from './projects.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.sass'],
 })
 export class ProjectsComponent implements OnInit {
-  public projectsBackup!: Array<ICarouselProjects>;
-  public projects!: ICarouselProjects[];
+  public projectsBackup!: Array<IProjects>;
+  public projects!: IProjects[];
   public categories = [];
   public technologies = [];
 
@@ -18,8 +18,8 @@ export class ProjectsComponent implements OnInit {
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
-    this.projectsService.getProjects().subscribe((results) => {
-      this.projects = results;
+    this.projectsService.getProjects().subscribe((results: IProjects[]) => {
+      this.projects = results.filter((project: IProjects) => project.published);
 
       const { categories, technologies } = this.projectsService.getFilters(
         this.projects

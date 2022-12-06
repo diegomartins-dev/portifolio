@@ -1,59 +1,66 @@
-export default [
-  // {
-  //   category: 'frontend',
-  //   image: {
-  //     src: 'assets/img/projects/matchgular.jpg',
-  //     alt: 'matchgular',
-  //     bg: 'assets/img/projects/bgs/technology01b.jpg',
-  //   },
-  //   status: {
-  //     title: 'Em andamento',
-  //     class: 'warning',
-  //   },
-  //   body: {
-  //     title: 'Matchgular',
-  //     description: 'Um projeto feito em angular para treinar tecnicas',
-  //     technologies: [
-  //       'Material Angular',
-  //       'Sass',
-  //       'Angular',
-  //       'Firebase',
-  //       'Typescript',
-  //     ],
-  //   },
-  //   link: {
-  //     href: 'https://matchgular.web.app',
-  //     title: 'Visitar o site aqui',
-  //   },
-  // },
-  // {
-  //   category: 'frontend',
-  //   image: {
-  //     src: 'assets/img/projects/agenda-sms.png',
-  //     alt: 'agenda de sms',
-  //     bg: 'assets/img/projects/bgs/technology02b.jpg',
-  //   },
-  //   status: {
-  //     title: 'Concluído',
-  //     class: 'primary',
-  //   },
-  //   body: {
-  //     title: 'Agendamento de SMS',
-  //     description: 'Um projeto feito em angular para treinar tecnicas',
-  //     technologies: [
-  //       'Material Angular',
-  //       'Sass',
-  //       'Angular',
-  //       'Indexed DB',
-  //       'Firebase',
-  //       'Typescript',
-  //     ],
-  //   },
-  //   links: [{
-  //     href: 'https://github.com/diegohyenna/agenda-sms',
-  //     title: 'Visitar o repositório aqui',
-  //   }],
-  // },
+import { IProjects } from './projects.interface';
+export const Projects: IProjects[] = [
+  {
+    category: 'frontend',
+    image: {
+      src: 'assets/img/projects/matchgular.jpg',
+      alt: 'matchgular',
+      bg: 'assets/img/projects/bgs/technology01b.jpg',
+    },
+    status: {
+      title: 'Em andamento',
+      class: 'warning',
+    },
+    body: {
+      title: 'Matchgular',
+      description: 'Um projeto feito em angular para treinar tecnicas',
+      technologies: [
+        'Material Angular',
+        'Sass',
+        'Angular',
+        'Firebase',
+        'Typescript',
+      ],
+    },
+    links: [
+      {
+        href: 'https://matchgular.web.app',
+        title: 'Visitar o site aqui',
+      },
+    ],
+    published: false,
+  },
+  {
+    category: 'frontend',
+    image: {
+      src: 'assets/img/projects/agenda-sms.png',
+      alt: 'agenda de sms',
+      bg: 'assets/img/projects/bgs/technology02b.jpg',
+    },
+    status: {
+      title: 'Concluído',
+      class: 'primary',
+    },
+    body: {
+      title: 'Agendamento de SMS',
+      description: 'Um projeto feito em angular para treinar tecnicas',
+      technologies: [
+        'Material Angular',
+        'Sass',
+        'Angular',
+        'Indexed DB',
+        'Firebase',
+        'Typescript',
+      ],
+    },
+    links: [
+      {
+        href: 'https://github.com/diegohyenna/agenda-sms',
+        title: 'Visitar o repositório aqui',
+      },
+    ],
+    published: false,
+  },
   {
     category: 'frontend',
     image: {
@@ -80,6 +87,7 @@ export default [
         title: 'Visitar o site aqui',
       },
     ],
+    published: true,
   },
   {
     category: 'frontend',
@@ -116,6 +124,7 @@ export default [
         title: 'Visitar a demonstração',
       },
     ],
+    published: true,
   },
   {
     category: 'frontend',
@@ -154,6 +163,7 @@ export default [
         title: 'Visitar o site aqui',
       },
     ],
+    published: true,
   },
   {
     category: 'backend',
@@ -185,6 +195,7 @@ export default [
         title: 'Visitar a API aqui',
       },
     ],
+    published: true,
   },
   {
     category: 'frontend',
@@ -218,63 +229,66 @@ export default [
         title: 'Visitar o repositório aqui',
       },
     ],
+    published: true,
   },
-  // {
-  //   category: 'frontend',
-  //   image: {
-  //     src: 'assets/img/projects/gatsby.png',
-  //     alt: 'estudos em gatsby',
-  //     bg: 'assets/img/projects/bgs/technology01b.jpg',
-  //   },
-  //   status: {
-  //     title: 'Concluído',
-  //     class: 'primary',
-  //   },
-  //   body: {
-  //     title: 'Estudos com Gatsby',
-  //     description: 'Um estudo com Gatsby JS.',
-  //     technologies: [
-  //       'Gatsby',
-  //       'Styled Components',
-  //       'Node SASS',
-  //       'Bootstrap',
-  //       'Heroku',
-  //     ],
-  //   },
-  //   links: [
-  //     {
-  //       href: 'https://github.com/diegohyenna/estudos-gatsby',
-  //       title: 'Visitar o repositório aqui',
-  //     },
-  //   ],
-  // },
-  // {
-  //   category: 'backend',
-  //   image: {
-  //     src: 'assets/img/projects/mongodb.png',
-  //     alt: 'estudos em mongodb',
-  //     bg: 'assets/img/projects/bgs/technology02b.jpg',
-  //   },
-  //   status: {
-  //     title: 'Concluído',
-  //     class: 'primary',
-  //   },
-  //   body: {
-  //     title: 'Estudos com MongoDB + Mongoose',
-  //     description: 'Um estudo com MongoDB + Mongoose.',
-  //     technologies: ['MongoDB', 'Express', 'PassportJs', 'Express Handlebars'],
-  //   },
-  //   links: [
-  //     {
-  //       href: 'https://github.com/diegohyenna/estudos-com-mongodb',
-  //       title: 'Visitar o repositório aqui',
-  //     },
-  //     {
-  //       href: 'https://blog-nodejs-mongoose-estudos.herokuapp.com',
-  //       title: 'Visitar a demonstração',
-  //     },
-  //   ],
-  // },
+  {
+    category: 'frontend',
+    image: {
+      src: 'assets/img/projects/gatsby.png',
+      alt: 'estudos em gatsby',
+      bg: 'assets/img/projects/bgs/technology01b.jpg',
+    },
+    status: {
+      title: 'Concluído',
+      class: 'primary',
+    },
+    body: {
+      title: 'Estudos com Gatsby',
+      description: 'Um estudo com Gatsby JS.',
+      technologies: [
+        'Gatsby',
+        'Styled Components',
+        'Node SASS',
+        'Bootstrap',
+        'Heroku',
+      ],
+    },
+    links: [
+      {
+        href: 'https://github.com/diegohyenna/estudos-gatsby',
+        title: 'Visitar o repositório aqui',
+      },
+    ],
+    published: true,
+  },
+  {
+    category: 'backend',
+    image: {
+      src: 'assets/img/projects/mongodb.png',
+      alt: 'estudos em mongodb',
+      bg: 'assets/img/projects/bgs/technology02b.jpg',
+    },
+    status: {
+      title: 'Concluído',
+      class: 'primary',
+    },
+    body: {
+      title: 'Estudos com MongoDB + Mongoose',
+      description: 'Um estudo com MongoDB + Mongoose.',
+      technologies: ['MongoDB', 'Express', 'PassportJs', 'Express Handlebars'],
+    },
+    links: [
+      {
+        href: 'https://github.com/diegohyenna/estudos-com-mongodb',
+        title: 'Visitar o repositório aqui',
+      },
+      {
+        href: 'https://blog-nodejs-mongoose-estudos.herokuapp.com',
+        title: 'Visitar a demonstração',
+      },
+    ],
+    published: false,
+  },
   {
     category: 'backend',
     image: {
@@ -297,6 +311,7 @@ export default [
         title: 'Visitar o repositório aqui',
       },
     ],
+    published: true,
   },
   {
     category: 'frontend',
@@ -320,26 +335,30 @@ export default [
         title: 'Visitar o repositório aqui',
       },
     ],
+    published: true,
   },
-  // {
-  //   category: 'design',
-  //   image: {
-  //     src: 'assets/img/projects/style-guide.png',
-  //     alt: 'um parallax',
-  //     bg: 'assets/img/projects/bgs/technology02.jpg',
-  //   },
-  //   status: {
-  //     title: 'A ser refatorado',
-  //     class: 'danger',
-  //   },
-  //   body: {
-  //     title: 'Toopfy Style Guide',
-  //     description: 'Um style guide desenvolvido em cima do materialize.',
-  //     technologies: ['Materialize Css', 'JQuery', 'SASS', 'Gulp'],
-  //   },
-  //   links: [{
-  //     href: 'https://github.com/diegohyenna/toopfy-style-guide',
-  //     title: 'Visitar o repositório aqui',
-  //   }],
-  // },
+  {
+    category: 'design',
+    image: {
+      src: 'assets/img/projects/style-guide.png',
+      alt: 'um parallax',
+      bg: 'assets/img/projects/bgs/technology02.jpg',
+    },
+    status: {
+      title: 'A ser refatorado',
+      class: 'danger',
+    },
+    body: {
+      title: 'Toopfy Style Guide',
+      description: 'Um style guide desenvolvido em cima do materialize.',
+      technologies: ['Materialize Css', 'JQuery', 'SASS', 'Gulp'],
+    },
+    links: [
+      {
+        href: 'https://github.com/diegohyenna/toopfy-style-guide',
+        title: 'Visitar o repositório aqui',
+      },
+    ],
+    published: false,
+  },
 ];

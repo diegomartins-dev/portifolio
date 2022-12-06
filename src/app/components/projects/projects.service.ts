@@ -1,7 +1,7 @@
 import { of, Subject } from 'rxjs';
-import { ICarouselProjects } from './projects.interface';
+import { IProjects } from './projects.interface';
 import { Injectable } from '@angular/core';
-import ProjectsMock from './projects.mock';
+import { Projects } from './projects.mock';
 
 @Injectable({
   providedIn: 'root',
@@ -12,14 +12,14 @@ export class ProjectsService {
   constructor() {}
 
   getProjects() {
-    return of(ProjectsMock);
+    return of(Projects);
   }
 
-  getFilters(projects: ICarouselProjects[]) {
+  getFilters(projects: IProjects[]) {
     let categories: any = [];
     let technologies: any = [];
     let subs = this.projectSubject.subscribe((items: any) => {
-      items.map((item: ICarouselProjects) => {
+      items.map((item: IProjects) => {
         if (
           !categories.find((category: string) => item.category === category)
         ) {
