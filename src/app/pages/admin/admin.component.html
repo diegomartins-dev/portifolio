@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <li><a href="#" [routerLink]="['/admin']">admin</a></li>
+    <li><a href="#" [routerLink]="['/admin/home']">home</a></li>
+    <li><a href="#" [routerLink]="['/admin/home/view']">home filho</a></li>
+    <li><a href="#" [routerLink]="['/admin/about']">about</a></li>
+  </ul>
+</nav>
+<div class="container-fluid">
+  <app-alert></app-alert>
+
+  <h1>Olá {{ user?.email }}</h1>
+  <p>
+    Essa é a área de administração de conteudo do site
+    <a target="_blank" href="https://dgsite.web.app">https://dgsite.web.app</a>
+  </p>
+  <router-outlet></router-outlet>
+</div>

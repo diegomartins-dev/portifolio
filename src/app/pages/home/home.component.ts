@@ -1,5 +1,4 @@
 import { MockService } from './../../services/mock.service';
-import { ApiService } from './../../services/api.service';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 @Component({
@@ -14,7 +13,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
   public data: any = [];
   private storage: any = [];
 
-  constructor(private api: ApiService, private mock: MockService) {}
+  constructor(private mock: MockService) {}
 
   ngOnInit(): void {}
 
@@ -47,6 +46,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
   }
 
   getDataApi() {
-    const datas = this.api.getAll();
+    // const datas = this.api.getAll();
   }
 }
