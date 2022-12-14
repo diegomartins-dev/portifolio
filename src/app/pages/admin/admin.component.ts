@@ -10,6 +10,7 @@ import { LoginService } from '../login/login.service';
 })
 export class AdminComponent implements OnInit {
   user?: { name: string };
+  json: any;
 
   constructor(
     private contentfulService: ContentfulApiService,
@@ -25,5 +26,11 @@ export class AdminComponent implements OnInit {
       this.loginService.setLogin(res.email, res.password, login.id);
       this.user = { name: res.name };
     });
+
+    this.json = { name: 'Diego' };
+  }
+
+  onSave(json: {}) {
+    console.log(json);
   }
 }

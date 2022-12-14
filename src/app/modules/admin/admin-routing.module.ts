@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { AuthGuard } from '../guards/auth.guard';
+import { AuthGuard } from '../../guards/auth.guard';
 import { HomeViewComponent } from './home/home-view/home-view.component';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
+  {
     path: 'home',
+    pathMatch: 'full',
     component: HomeComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
@@ -16,6 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'home/view',
+    pathMatch: 'full',
     component: HomeViewComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
@@ -23,6 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
+    pathMatch: 'full',
     component: AboutComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],

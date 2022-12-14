@@ -24,6 +24,7 @@ import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './redux/reducers/root.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { JsonEditorComponent } from './components/shared/json-editor/json-editor.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { environment } from '../environments/environment';
     AdminComponent,
     LoginComponent,
     AlertComponent,
+    JsonEditorComponent,
   ],
   imports: [
     BrowserModule,
