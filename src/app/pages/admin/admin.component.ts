@@ -9,7 +9,7 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./admin.component.sass'],
 })
 export class AdminComponent implements OnInit {
-  user?: { email: string };
+  user?: { name: string };
 
   constructor(
     private contentfulService: ContentfulApiService,
@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit {
 
     this.contentfulService.getEntry(login.id).then((res) => {
       this.loginService.setLogin(res.email, res.password, login.id);
-      this.user = { email: res.email };
+      this.user = { name: res.name };
     });
   }
 }
