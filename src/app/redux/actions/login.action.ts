@@ -1,6 +1,4 @@
 import { createAction, props } from '@ngrx/store';
+import { ILogin } from '../interfaces/login.interface';
 
-export const setLogin = createAction(
-  'set login',
-  props<{ payload: { email: string; password: string; id?: string } }>()
-);
+export const setLogin = createAction('set login', props<{ payload: ILogin }>());

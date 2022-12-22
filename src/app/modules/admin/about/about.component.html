@@ -1,1 +1,9 @@
-<p>about works!</p>
+<h1>Conteudo do Sobre</h1>
+
+<div *ngFor="let js of json; let i = index">
+  <app-json-editor
+    [json]="js"
+    [index]="i"
+    (onSave)="onSave($event)"
+  ></app-json-editor>
+</div>

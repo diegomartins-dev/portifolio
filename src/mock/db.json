@@ -37,7 +37,7 @@
                 {
                   "component": "LinkComponent",
                   "class": "btn btn-primary mb-2 ml-2",
-                  "href": "/admin",
+                  "href": "/login",
                   "content": "Visite a área administrativa",
                   "target": "_self"
                 }

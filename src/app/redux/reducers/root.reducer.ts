@@ -14,7 +14,7 @@ export const rootReducer = createReducer(
     login: {
       email: action.payload.email,
       password: action.payload.password,
-      id: action.payload.id,
+      token: action.payload.token,
     },
   }))
 );

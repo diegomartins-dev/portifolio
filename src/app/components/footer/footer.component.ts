@@ -1,6 +1,4 @@
-import { Location } from '@angular/common';
 import { FooterService } from './footer.service';
-import { IFooter } from './footer.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,21 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.sass'],
 })
 export class FooterComponent implements OnInit {
-  public footer!: IFooter;
+  public footer?: any;
 
-  constructor(
-    private footerService: FooterService,
-    private location: Location
-  ) {}
+  constructor(private footerService: FooterService) {}
 
-  ngOnInit(): void {
-    this.footerService.getAll().subscribe((result: IFooter) => {
-      this.footer = {
-        ...result,
-        ...result.social.map(
-          (soc) => (soc.href = this.location.path() + soc.href)
-        ),
-      };
+  ngOnInit() {
+    this.getFooter();
+  }
+
+  async getFooter() {
+    this.footerService.getAll().subscribe(({ data }) => {
+      this.footer = data;
     });
   }
 }

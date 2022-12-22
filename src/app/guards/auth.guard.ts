@@ -11,12 +11,17 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AlertService } from '../components/shared/alert/alert.service';
+import { ApiDgsiteService } from '../services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanLoad {
-  constructor(private router: Router, private alertService: AlertService) {}
+  constructor(
+    private router: Router,
+    private alertService: AlertService,
+    private API: ApiDgsiteService
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,9 +30,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const loginStorage = localStorage.getItem('login') || '';
-
-    if (loginStorage) {
+    if (this.API.getToken()) {
       return true;
     } else {
       if (route.url[0].path !== 'login') {

@@ -1,4 +1,4 @@
 export const initialState = {
-  login: { email: '', password: '' },
+  login: { token: '', email: '', password: '' },
   alert: { type: '', message: '' },
 };

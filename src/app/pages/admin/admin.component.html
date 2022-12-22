@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav *ngIf="user?.name" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">CMS Portifólio</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -15,17 +15,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLinkActive]="'active'">
-        <a class="nav-link" href="#" [routerLink]="['/admin/home']">home</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
-        <a class="nav-link" href="#" [routerLink]="['/admin/home/view']"
-          >Home View</a
-        >
+        <a class="nav-link" href="#" [routerLink]="['/admin/home']">Início</a>
       </li>
       <li class="nav-item" [routerLinkActive]="'active'">
         <a class="nav-link" href="#" [routerLink]="['/admin/about']"
-          >Home View</a
+          >Cabeçalho</a
         >
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" href="#" [routerLink]="['/admin/about']">Sobre</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" href="#" [routerLink]="['/admin/about']"
+          >Projetos</a
+        >
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" href="#" [routerLink]="['/admin/about']">Rodapé</a>
       </li>
     </ul>
     <ul class="navbar-nav">
@@ -42,13 +48,18 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Meu Perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Sair</a>
+          <button class="dropdown-item" (click)="handleExit()">Sair</button>
         </div>
       </li>
     </ul>
   </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid mt-2 position-relative">
+  <div class="loading">
+    <div *ngIf="!user?.name" class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
   <app-alert></app-alert>
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="user?.name"></router-outlet>
 </div>

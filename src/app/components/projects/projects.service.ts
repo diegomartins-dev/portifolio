@@ -1,42 +1,44 @@
 import { of, Subject } from 'rxjs';
-import { IProjects } from './projects.interface';
 import { Injectable } from '@angular/core';
-import { Projects } from './projects.mock';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectsService {
   private projectSubject = new Subject();
+  private categories: any = [];
+  private technologies: any = [];
 
   constructor() {}
 
   getProjects() {
-    return of(Projects);
+    return of([]);
   }
 
-  getFilters(projects: IProjects[]) {
-    let categories: any = [];
-    let technologies: any = [];
-    let subs = this.projectSubject.subscribe((items: any) => {
-      items.map((item: IProjects) => {
+  getFilters(projects: any) {
+    this.filtersGenerate(projects).unsubscribe();
+    return { categories: this.categories, technologies: this.technologies };
+  }
+
+  filtersGenerate(projects: any) {
+    this.projectSubject.next(projects);
+
+    return this.projectSubject.subscribe((projects: any) => {
+      projects.map((item: any) => {
         if (
-          !categories.find((category: string) => item.category === category)
+          !this.categories.find(
+            (category: string) => item.category === category
+          )
         ) {
-          categories.push(item.category);
+          this.categories.push(item.category);
         }
 
-        item.body?.technologies.map((technology) => {
-          if (!technologies.find((tech: string) => tech === technology)) {
-            technologies.push(technology);
+        item.body?.technologies.map((technology: any) => {
+          if (!this.technologies.find((tech: string) => tech === technology)) {
+            this.technologies.push(technology);
           }
         });
       });
-      subs.unsubscribe();
     });
-
-    this.projectSubject.next(projects);
-
-    return { categories, technologies };
   }
 }

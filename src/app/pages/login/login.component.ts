@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 import { AlertService } from '../../components/shared/alert/alert.service';
 import { LoginService } from './login.service';
 
@@ -16,12 +18,18 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private alertService: AlertService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private API: ApiDgsiteService,
+    private router: Router
   ) {
     this.formGroup = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
+
+    if (this.API.getToken()) {
+      this.router.navigateByUrl('/admin');
+    }
   }
 
   ngOnInit(): void {}

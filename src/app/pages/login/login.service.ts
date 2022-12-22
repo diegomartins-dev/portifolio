@@ -1,45 +1,76 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AlertService } from 'src/app/components/shared/alert/alert.service';
 import { setLogin } from 'src/app/redux/actions/login.action';
-import {
-  ContentfulApiService,
-  IResponse,
-} from 'src/app/services/contentful-api.service';
+import { ILogin } from 'src/app/redux/interfaces/login.interface';
+import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class LoginService extends ApiDgsiteService {
   constructor(
-    private contentful: ContentfulApiService,
     private router: Router,
     private store: Store<{ app: any }>,
-    private alertService: AlertService
-  ) {}
+    private alertService: AlertService,
+    public override http: HttpClient
+  ) {
+    super(http);
+  }
 
-  login(email: string, password: string) {
-    this.contentful.login(email, password).then(({ status, message, id }) => {
-      if (status == 'success') {
-        this.alertService.setAlert({ type: 'success', message });
-        this.setLogin(email, password, id);
-        this.router.navigateByUrl('/admin');
-      }
-      if (status == 'error') {
-        this.alertService.setAlert({ type: 'danger', message });
+  override login(email: string, password: string): any {
+    super.login(email, password).subscribe({
+      next: (data) => {
+        if (data.status == 'success' && data.token) {
+          this.setLogin({ email, password, token: data.token });
+          this.router.navigateByUrl('/admin');
+          this.alertService.setAlert({
+            type: 'success',
+            message: 'logado com sucesso!',
+          });
+        } else if (data.message) {
+          this.alertService.setAlert({
+            type: 'danger',
+            message: data.message,
+          });
+          this.setLogout();
+        } else {
+          this.alertService.setAlert({
+            type: 'danger',
+            message: 'Erro ao logar!',
+          });
+          this.setLogout();
+        }
+      },
+      error: () => {
+        this.alertService.setAlert({
+          type: 'danger',
+          message: 'Erro ao fazer o login',
+        });
         this.setLogout();
-      }
-      return;
+      },
     });
   }
 
-  setLogin(email: string, password: string, id?: string) {
-    localStorage.setItem('login', JSON.stringify({ email, password, id }));
-    this.store.dispatch(setLogin({ payload: { email, password, id } }));
+  getEmail() {
+    let login = localStorage.getItem('login') || '';
+    let email = login ? JSON.parse(login)?.email : '';
+    return email;
+  }
+
+  setLogin(data: ILogin) {
+    localStorage.setItem('login', JSON.stringify({ ...data }));
+    this.store.dispatch(setLogin({ payload: { ...data } }));
   }
 
   setLogout() {
     localStorage.removeItem('login');
+    this.alertService.setAlert({
+      type: 'success',
+      message: 'Deslogado com sucesso!',
+    });
+    this.router.navigateByUrl('/login');
   }
 }

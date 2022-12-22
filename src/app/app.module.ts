@@ -24,7 +24,15 @@ import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './redux/reducers/root.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { JsonEditorComponent } from './components/shared/json-editor/json-editor.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+
+/** Http interceptor providers in outside-in order */
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+];
 
 @NgModule({
   declarations: [
@@ -43,7 +51,6 @@ import { JsonEditorComponent } from './components/shared/json-editor/json-editor
     AdminComponent,
     LoginComponent,
     AlertComponent,
-    JsonEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,13 +58,14 @@ import { JsonEditorComponent } from './components/shared/json-editor/json-editor
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    /* REDUX */
     StoreModule.forRoot({ app: rootReducer }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

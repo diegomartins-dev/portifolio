@@ -1,2 +1,5 @@
-<div id="jsoneditor"></div>
+<div [id]="'jsoneditor' + index" #editors>{{ index }}</div>
 <button (click)="handleSave()">Salvar</button>
+<button (click)="setMode(!this.jsonOpened)">
+  {{ !this.jsonOpened ? "Abrir o JSON" : "Fechar o JSON" }}
+</button>
