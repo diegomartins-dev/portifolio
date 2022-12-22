@@ -191,7 +191,7 @@ export const Projects: IProjects[] = [
     },
     links: [
       {
-        href: 'http://cms-api-portifolio.herokuapp.com/api-docs',
+        href: 'https://cms-portifolio.onrender.com/api-docs/',
         title: 'Visitar a API aqui',
       },
     ],
