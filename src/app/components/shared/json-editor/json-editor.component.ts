@@ -3,12 +3,8 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
-  QueryList,
-  SimpleChanges,
-  ViewChildren,
 } from '@angular/core';
 import JSONEditor from 'jsoneditor';
 
@@ -17,48 +13,53 @@ import JSONEditor from 'jsoneditor';
   templateUrl: './json-editor.component.html',
   styleUrls: ['./json-editor.component.sass'],
 })
-export class JsonEditorComponent implements OnInit, OnChanges, AfterViewInit {
+export class JsonEditorComponent implements OnInit, AfterViewInit {
   @Input() json!: {};
-  @Input() index!: {};
+  @Input() qtItems!: number;
+  @Input() index!: number;
   @Output() onSave = new EventEmitter();
-  @ViewChildren('editor') editors!: QueryList<any>;
+  private container: any;
+  private static editors: any = [];
 
   public jsonOpened = false;
 
   constructor() {}
 
   ngOnInit(): void {}
-  ngOnChanges(changes: any): void {
-    console.log(this.editors);
-    // const container = document.getElementById(
-    //   'jsoneditor' + changes?.index?.currentValue
-    // );
-    // if (container) {
-    //   this.editor = new JSONEditor(container, { mode: 'tree' });
-    // }
-    // if (this.editor && changes?.json?.currentValue)
-    //   this.editor.update(changes?.json?.currentValue);
-    // this.editor.map((view) => {
-    //   console.log(view.nativeElement);
-    // });
-  }
 
   ngAfterViewInit() {
-    // this.editors.changes.subscribe((res) => console.log(res));
+    this.container = document.getElementById('jsoneditor' + this.index);
 
-    this.editors.forEach((div) => console.log(div));
+    if (this.container && JsonEditorComponent.editors.length < this.qtItems) {
+      JsonEditorComponent.editors.push(
+        new JSONEditor(this.container, { mode: 'tree' })
+      );
+    } else {
+      this.container = document.getElementById('jsoneditor' + this.index);
+      JsonEditorComponent.editors[this.index].destroy();
+      JsonEditorComponent.editors[this.index] = new JSONEditor(this.container, {
+        mode: 'tree',
+      });
+    }
+
+    if (JsonEditorComponent.editors[this.index] && this.json)
+      JsonEditorComponent.editors.map((editor: any, index: any) => {
+        if (index == this.index) {
+          JsonEditorComponent.editors[this.index].update(this.json);
+        }
+      });
   }
 
-  handleSave() {
+  handleSave(id: number) {
     const save = confirm('Deseja salvar os dados?');
     if (save) {
-      // const updatedJson = this.editor.get();
-      // this.onSave.emit(updatedJson);
+      const updatedJson = JsonEditorComponent.editors[id].get();
+      this.onSave.emit(updatedJson);
     }
   }
 
-  setMode(open: boolean) {
+  setMode(open: boolean, id: number) {
     this.jsonOpened = open;
-    // this.editor.setMode(open ? 'text' : 'tree');
+    JsonEditorComponent.editors[id].setMode(open ? 'text' : 'tree');
   }
 }

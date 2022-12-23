@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { about } from 'src/app/components/about/about.mock';
+import { AlertService } from 'src/app/components/shared/alert/alert.service';
 import { AboutService } from './about.service';
 
 @Component({
@@ -8,17 +9,38 @@ import { AboutService } from './about.service';
   styleUrls: ['./about.component.sass'],
 })
 export class AboutComponent implements OnInit {
+  active!: number;
   json: any;
 
-  constructor(private aboutService: AboutService) {}
+  constructor(
+    private aboutService: AboutService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.aboutService.getAbout().subscribe((result: any) => {
-      this.json = result.data;
+      this.json = result;
+      this.active = 0;
     });
   }
 
+  onPrev() {
+    if (this.active != 0) this.active--;
+  }
+
+  onNext() {
+    if (this.active < this.json.length - 1) this.active++;
+  }
+
   onSave(json: {}) {
-    console.log(json);
+    // console.log(json);
+    this.aboutService.save(json).subscribe({
+      next: (result) => {
+        this.alertService.setAlert({
+          type: 'success',
+          message: result.message || 'Salvo com sucesso!',
+        });
+      },
+    });
   }
 }

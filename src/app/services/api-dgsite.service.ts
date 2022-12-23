@@ -54,10 +54,22 @@ export class ApiDgsiteService {
       .pipe(map((result: any) => result.data as IResponseData));
   }
 
-  public login(email: string, password: string): Observable<IResponse> {
+  login(email: string, password: string): Observable<IResponse> {
     return this.http.post(this.url + 'users/login', { email, password }).pipe(
       map((result: any) => result as IResponse),
       catchError((err) => of({ ...err.error }) as Observable<IResponse>)
     );
+  }
+
+  save(path: string, data: any): Observable<IResponse> {
+    return this.http
+      .post(this.url + path.replace('/', '') + '/create', data)
+      .pipe(map((result: any) => result as IResponse));
+  }
+
+  update(path: string, data: any) {
+    return this.http
+      .post(this.url + path.replace('/', '') + '/update', data)
+      .pipe(map((result: any) => result as IResponse));
   }
 }
