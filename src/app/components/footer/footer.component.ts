@@ -1,5 +1,7 @@
 import { FooterService } from './footer.service';
 import { Component, OnInit } from '@angular/core';
+import { of } from 'rxjs';
+import { Footer } from './footer.mock';
 
 @Component({
   selector: 'app-footer',
@@ -16,8 +18,18 @@ export class FooterComponent implements OnInit {
   }
 
   async getFooter() {
-    this.footerService.getAll().subscribe(({ data }) => {
-      this.footer = data;
+    this.footerService.getAll().subscribe({
+      next: ({ data }) => {
+        if (data) {
+          this.footer = data;
+        } else {
+          of(Footer).subscribe({
+            next: (data) => {
+              this.footer = data;
+            },
+          });
+        }
+      },
     });
   }
 }

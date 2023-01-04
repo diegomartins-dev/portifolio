@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../../guards/auth.guard';
-import { HomeViewComponent } from './home/home-view/home-view.component';
+import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
   {
@@ -21,12 +21,12 @@ const routes: Routes = [
     data: { role: 'read' },
   },
   {
-    path: 'home/view',
+    path: 'project',
     pathMatch: 'full',
-    component: HomeViewComponent,
+    component: ProjectComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
-    data: { role: 'write' },
+    data: { role: 'read' },
   },
   {
     path: 'about',
@@ -36,6 +36,14 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     data: { role: 'read' },
   },
+  // {
+  //   path: 'home/view',
+  //   pathMatch: 'full',
+  //   component: HomeViewComponent,
+  //   canActivate: [AuthGuard],
+  //   canLoad: [AuthGuard],
+  //   data: { role: 'write' },
+  // },
 ];
 
 @NgModule({

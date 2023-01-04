@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 import { LoginService } from '../login/login.service';
 
 @Component({

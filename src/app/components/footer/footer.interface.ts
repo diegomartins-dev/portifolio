@@ -7,7 +7,7 @@ export interface IFooter {
   copyright: string;
   description: string;
   links: ILink[];
-  social: ISocial[];
+  sections: ISection[];
 }
 
 interface ILink {
@@ -18,7 +18,7 @@ interface ILink {
   title: string;
 }
 
-interface ISocial {
+interface ISection {
   class: string;
   href: string;
   title: string;

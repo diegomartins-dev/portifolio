@@ -1,5 +1,6 @@
-import { of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +10,10 @@ export class ProjectsService {
   private categories: any = [];
   private technologies: any = [];
 
-  constructor() {}
+  constructor(private API: ApiDgsiteService) {}
 
   getProjects() {
-    return of([]);
+    return this.API.getPublished('project');
   }
 
   getFilters(projects: any) {

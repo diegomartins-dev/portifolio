@@ -5,11 +5,11 @@ import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AboutService {
+export class ProjectService {
   constructor(private API: ApiDgsiteService) {}
 
-  getAbout() {
-    return this.API.getAll('about');
+  getProject() {
+    return this.API.getAll('project');
   }
 
   save(data: any) {
@@ -19,9 +19,9 @@ export class AboutService {
       data: { profile: { ...data.profile }, content: { ...data.content } },
     };
     if (items.id) {
-      return this.API.update('about', data);
+      return this.API.update('project', data);
     } else {
-      return this.API.save('about', data);
+      return this.API.save('project', data);
     }
   }
 }

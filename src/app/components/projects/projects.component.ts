@@ -1,5 +1,7 @@
 import { ProjectsService } from './projects.service';
 import { Component, OnInit } from '@angular/core';
+import { Projects } from './projects.mock';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -7,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.sass'],
 })
 export class ProjectsComponent implements OnInit {
-  public projectsBackup!: [];
-  public projects!: [];
+  public projectsBackup?: [];
+  public projects?: [];
   public categories = [];
   public technologies = [];
 
@@ -18,13 +20,25 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectsService.getProjects().subscribe((results: any) => {
-      this.projects = results.filter((project: any) => project.publish);
-
-      const { categories, technologies } = this.projectsService.getFilters(
-        this.projects
-      );
-      this.categories = categories;
-      this.technologies = technologies;
+      if (results && results.length) {
+        this.setProjects(results);
+      } else {
+        of(Projects).subscribe({
+          next: (res: any) => {
+            this.setProjects(res);
+          },
+        });
+      }
     });
+  }
+
+  setProjects(projects: any) {
+    this.projects = projects.filter((project: any) => project.publish);
+    console.log(this.projects);
+    const { categories, technologies } = this.projectsService.getFilters(
+      this.projects
+    );
+    this.categories = categories;
+    this.technologies = technologies;
   }
 }

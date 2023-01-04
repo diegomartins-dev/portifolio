@@ -30,7 +30,19 @@ export class ApiDgsiteService {
   }
 
   getAll(path: string) {
-    return this.http.get(this.url + path.replace('/', ''));
+    return this.http.get(this.url + path.replace('/', '')).pipe(
+      map((item: any) => {
+        item.data.map((dt: any) => {
+          delete dt.__v;
+          delete dt.createdAt;
+          delete dt.updatedAt;
+          dt.id = dt._id;
+          delete dt._id;
+        });
+
+        return item.data;
+      })
+    );
   }
 
   getById(path: string, id: string) {

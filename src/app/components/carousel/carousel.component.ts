@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -81,8 +83,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   renderViewChildren() {
     if (this.screenWidth < this.minimumScreenMobile)
-      this.setActiveItemCarouselMobile(0);
-    else this.setActiveItemCarouselDesktop(0);
+      this.setActiveItemCarouselMobile(this.projectActiveItem);
+    else this.setActiveItemCarouselDesktop(this.projectActiveItem);
   }
 
   onChangeCategory(event: any): void {
@@ -136,6 +138,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   setActiveItemCarouselMobile = (index: number) => {
     const itensCarouselLength = this.carouselMobileView?._results.length;
 
+    if (itensCarouselLength == 0)
+      setTimeout(() => {
+        this.setActiveItemCarouselDesktop(this.projectActiveItem);
+      }, 500);
+
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;
 
@@ -149,6 +156,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   setActiveItemCarouselDesktop = (index: number) => {
     const itensCarouselLength = this.carouselDesktopView?._results.length;
+
+    if (itensCarouselLength == 0)
+      setTimeout(() => {
+        this.setActiveItemCarouselDesktop(this.projectActiveItem);
+      }, 500);
 
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;

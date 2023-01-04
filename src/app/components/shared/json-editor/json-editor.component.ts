@@ -3,6 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
   OnInit,
   Output,
 } from '@angular/core';
@@ -13,11 +14,12 @@ import JSONEditor from 'jsoneditor';
   templateUrl: './json-editor.component.html',
   styleUrls: ['./json-editor.component.sass'],
 })
-export class JsonEditorComponent implements OnInit, AfterViewInit {
+export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() json!: {};
   @Input() qtItems!: number;
   @Input() index!: number;
   @Output() onSave = new EventEmitter();
+
   private container: any;
   private static editors: any = [];
 
@@ -30,24 +32,20 @@ export class JsonEditorComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.container = document.getElementById('jsoneditor' + this.index);
 
-    if (this.container && JsonEditorComponent.editors.length < this.qtItems) {
+    if (this.container) {
       JsonEditorComponent.editors.push(
         new JSONEditor(this.container, { mode: 'tree' })
       );
-    } else {
-      this.container = document.getElementById('jsoneditor' + this.index);
-      JsonEditorComponent.editors[this.index].destroy();
-      JsonEditorComponent.editors[this.index] = new JSONEditor(this.container, {
-        mode: 'tree',
-      });
-    }
-
-    if (JsonEditorComponent.editors[this.index] && this.json)
       JsonEditorComponent.editors.map((editor: any, index: any) => {
         if (index == this.index) {
           JsonEditorComponent.editors[this.index].update(this.json);
         }
       });
+    }
+  }
+
+  ngOnDestroy(): void {
+    JsonEditorComponent.editors = [];
   }
 
   handleSave(id: number) {

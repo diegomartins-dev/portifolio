@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { map, of } from 'rxjs';
 import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
-import * as footer from './footer.mock.json';
+import * as footer from './footer.mock';
 
 @Injectable({
   providedIn: 'root',

@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { about } from 'src/app/components/about/about.mock';
 import { AlertService } from 'src/app/components/shared/alert/alert.service';
-import { AboutService } from './about.service';
+import { ProjectService } from './project.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.sass'],
+  selector: 'app-project',
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.sass'],
 })
-export class AboutComponent implements OnInit {
+export class ProjectComponent implements OnInit {
   active!: number;
   json: any;
   loading = false;
 
   constructor(
-    private aboutService: AboutService,
+    private projectService: ProjectService,
     private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
     this.loading = true;
-    this.aboutService.getAbout().subscribe((result: any) => {
-      this.json = result;
+    this.projectService.getProject().subscribe((result: any) => {
+      console.log(result);
+      this.json = result.length ? result : null;
       this.active = 0;
       this.loading = false;
     });
@@ -37,7 +37,7 @@ export class AboutComponent implements OnInit {
 
   onSave(json: {}) {
     // console.log(json);
-    this.aboutService.save(json).subscribe({
+    this.projectService.save(json).subscribe({
       next: (result) => {
         this.alertService.setAlert({
           type: 'success',
