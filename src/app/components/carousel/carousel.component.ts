@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   OnInit,
   ViewChild,
   ViewChildren,
@@ -14,7 +15,7 @@ import {
   styleUrls: ['./carousel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselComponent implements OnInit, AfterViewInit {
+export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input('items') items: any;
   private itemsBackup: any;
 
@@ -40,49 +41,57 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   private projectActiveItemNumber = 0;
 
-  loading = false;
+  public loading = false;
 
   constructor() {}
 
   ngOnInit() {
     this.screenWidth = window.innerWidth;
-    this.loading = true;
-    this.itemsBackup = this.items;
-    this.loading = false;
     this.onAutoPlayCarousel();
-    window.onresize = (e: any) => {
-      this.screenWidth = e.target.innerWidth;
-      this.loading = true;
-      if (this.screenWidth >= this.minimumScreenMobile) {
-        this.showCarouselInDesktop = true;
-        let timer = setInterval(() => {
-          if (this.carouselDesktopView._results.length > 0) {
-            clearInterval(timer);
-            this.renderViewChildren();
-            this.loading = false;
+    this.loading = true;
+
+    let timer = setInterval(() => {
+      if (this.items) {
+        clearInterval(timer);
+        this.itemsBackup = this.items;
+        this.renderViewChildren();
+
+        window.onresize = (e: any) => {
+          this.screenWidth = e.target.innerWidth;
+          if (this.screenWidth >= this.minimumScreenMobile) {
+            this.showCarouselInDesktop = true;
+            let timer2 = setInterval(() => {
+              if (this.carouselDesktopView._results.length > 0) {
+                clearInterval(timer2);
+                this.renderViewChildren();
+              }
+            }, 100);
+          } else {
+            this.showCarouselInDesktop = false;
+            let timer3 = setInterval(() => {
+              if (this.carouselMobileView._results.length > 0) {
+                clearInterval(timer3);
+                this.renderViewChildren();
+              }
+            }, 100);
           }
-        }, 100);
-      } else {
-        this.showCarouselInDesktop = false;
-        let timer = setInterval(() => {
-          if (this.carouselMobileView._results.length > 0) {
-            clearInterval(timer);
-            this.renderViewChildren();
-            this.loading = false;
-          }
-        }, 100);
+        };
       }
-    };
+    }, 300);
   }
 
   ngAfterViewInit(): void {
     this.renderViewChildren();
   }
 
+  ngOnChanges(): void {
+    this.loading = false;
+  }
+
   renderViewChildren() {
     if (this.screenWidth < this.minimumScreenMobile)
-      this.setActiveItemCarouselMobile(0);
-    else this.setActiveItemCarouselDesktop(0);
+      this.setActiveItemCarouselMobile(this.projectActiveItem);
+    else this.setActiveItemCarouselDesktop(this.projectActiveItem);
   }
 
   onChangeCategory(event: any): void {
@@ -136,6 +145,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   setActiveItemCarouselMobile = (index: number) => {
     const itensCarouselLength = this.carouselMobileView?._results.length;
 
+    if (itensCarouselLength == 0)
+      setTimeout(() => {
+        this.setActiveItemCarouselDesktop(this.projectActiveItem);
+      }, 500);
+
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;
 
@@ -149,6 +163,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   setActiveItemCarouselDesktop = (index: number) => {
     const itensCarouselLength = this.carouselDesktopView?._results.length;
+
+    if (itensCarouselLength == 0)
+      setTimeout(() => {
+        this.setActiveItemCarouselDesktop(this.projectActiveItem);
+      }, 500);
 
     if (index < 0) index = itensCarouselLength - 1;
     if (index >= itensCarouselLength) index = 0;

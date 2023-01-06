@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { about } from './about.mock';
+import { map } from 'rxjs';
+import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AboutService {
-  constructor() {}
+  constructor(private API: ApiDgsiteService) {}
 
   getItemsAbout() {
-    return of(about);
+    return this.API.getPublished('about').pipe(map((res) => res.data));
   }
 }

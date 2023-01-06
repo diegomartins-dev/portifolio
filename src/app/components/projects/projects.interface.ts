@@ -1,4 +1,7 @@
-export interface IProjects {
+export interface IProject {
+  publish: boolean;
+  createdAt: string;
+  updatedAt: string;
   category: string;
   image: {
     src: string;
@@ -6,16 +9,16 @@ export interface IProjects {
     bg: string;
   };
   status: {
-    class: string;
     title: string;
+    class: string;
   };
   body: {
     title: string;
     description: string;
-    technologies: Array<string>;
+    technologies: any;
   };
   links: ILink[];
-  published: boolean;
+  order: number;
 }
 
 interface ILink {

@@ -46,6 +46,7 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.dataInput);
     let timer = setInterval(() => {
       if (this.containers) {
         clearInterval(timer);

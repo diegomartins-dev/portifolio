@@ -1,14 +1,23 @@
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { footer } from './footer.mock';
+import { map, of } from 'rxjs';
+import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
+import * as footer from './footer.mock';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FooterService {
-  constructor() {}
+  constructor(private location: Location, private API: ApiDgsiteService) {}
 
   getAll() {
-    return of(footer);
+    return this.API.getPublished('footer').pipe(
+      map((items) => ({
+        ...items,
+        ...items.data?.sections?.map(
+          (items: any) => (items.href = this.location.path() + items.href)
+        ),
+      }))
+    );
   }
 }

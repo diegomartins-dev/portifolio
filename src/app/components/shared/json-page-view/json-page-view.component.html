@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between mb-4">
+  <h2>{{ title }}</h2>
+  <button class="btn btn-primary" [routerLink]="['new']">Criar</button>
+</div>
+<div class="position-relative">
+  <div *ngIf="loading">Carregando...</div>
+  <div
+    class="box"
+    [ngClass]="i == this.active ? 'active' : ''"
+    *ngFor="let js of json; let i = index"
+  >
+    <app-json-editor
+      [json]="js"
+      [index]="i"
+      (onSave)="handleSave($event)"
+      [qtItems]="json.length"
+      [readonly]="readonly"
+    ></app-json-editor>
+    <button class="btn btn-info mt-2 mr-2" (click)="onPrev()">prev</button>
+    <button class="btn btn-info mt-2 mr-2" (click)="onNext()">next</button>
+    <button
+      class="btn btn-warning mt-2 mr-2 text-white"
+      (click)="readonly = !readonly"
+    >
+      {{ readonly ? "Editar" : "Fechar" }}
+    </button>
+  </div>
+  <div *ngIf="!loading && !this.json.length">
+    <p>Não tem dados inseridos ainda...</p>
+  </div>
+</div>

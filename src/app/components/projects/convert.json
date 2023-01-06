@@ -1,0 +1,31 @@
+{
+  "publish": true,
+  "data": {
+    "category": "backend",
+    "image": {
+      "src": "assets/img/projects/mongodb.png",
+      "alt": "estudos em mongodb",
+      "bg": "assets/img/projects/bgs/technology02b.jpg"
+    },
+    "status": {
+      "title": "Concluído",
+      "class": "primary"
+    },
+    "body": {
+      "title": "Estudos com MongoDB + Mongoose",
+      "description": "Um estudo com MongoDB + Mongoose.",
+      "technologies": ["MongoDB", "Express", "PassportJs", "Express Handlebars"]
+    },
+    "links": [
+      {
+        "href": "https://github.com/diegohyenna/estudos-com-mongodb",
+        "title": "Visitar o repositório aqui"
+      },
+      {
+        "href": "https://blog-nodejs-mongoose-estudos.herokuapp.com",
+        "title": "Visitar a demonstração"
+      }
+    ],
+    "order": 9
+  }
+}

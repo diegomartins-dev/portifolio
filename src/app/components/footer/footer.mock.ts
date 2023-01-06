@@ -1,5 +1,6 @@
 import { IFooter } from './footer.interface';
-export const footer: IFooter = {
+
+export const Footer: IFooter = {
   logo: {
     src: './../../assets/img/logo-02.svg',
     alt: '',
@@ -31,20 +32,20 @@ export const footer: IFooter = {
       title: 'Linkedin',
     },
   ],
-  social: [
+  sections: [
     {
       class: 'btn btn-outline-light btn-sm',
-      href: '#header',
+      href: 'home#header',
       title: 'Início',
     },
     {
       class: 'btn btn-outline-light btn-sm',
-      href: '#about',
+      href: 'home#about',
       title: 'Sobre',
     },
     {
       class: 'btn btn-outline-light btn-sm',
-      href: '#projects',
+      href: 'home#projects',
       title: 'Projetos',
     },
   ],
