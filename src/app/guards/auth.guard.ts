@@ -52,7 +52,11 @@ export class AuthGuard implements CanActivate, CanLoad {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    console.log(route.data);
+    // console.log(route.data);
+    // const { email, id } = this.API.getLogin();
+    // this.API.getByEmail('users', email).subscribe((result) => {
+    //   console.log(result);
+    // });
     return true;
   }
 }

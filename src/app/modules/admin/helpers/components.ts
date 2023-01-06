@@ -11,6 +11,19 @@ const execute = (items: any, service: any, method: string, alert: any) => {
           type: 'danger',
           message: result.message || 'Erro',
         });
+      if (result[0]?.type) {
+        alert.setAlert({
+          type: 'warning',
+          message: result[0].message || 'Falta algo!',
+        });
+      }
+    },
+    error: (error: any) => {
+      console.log(error);
+      alert.setAlert({
+        type: 'danger',
+        message: error.message || 'Erro',
+      });
     },
   });
 };

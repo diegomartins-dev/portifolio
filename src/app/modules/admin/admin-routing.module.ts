@@ -1,14 +1,16 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from '../../guards/auth.guard';
-import { ProjectComponent } from './project/project.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { NewProjectComponent } from './project/new-project/new-project.component';
+import { AboutComponent } from './about/about.component';
 import { NewAboutComponent } from './about/new-about/new-about.component';
+import { FooterComponent } from './footer/footer.component';
+import { NewFooterComponent } from './footer/new-footer/new-footer.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { NewProjectComponent } from './project/new-project/new-project.component';
+import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
     data: { role: 'read' },
+  },
+  {
+    path: 'footer/new',
+    pathMatch: 'full',
+    component: NewFooterComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'write' },
   },
 ];
 

@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AboutService {
+export class FooterService {
   constructor(private API: ApiDgsiteService) {}
 
   getAbout() {
-    return this.API.getAll('about');
+    return this.API.getAll('footer');
   }
 
   save(data: any) {
-    return this.API.save('about', data);
+    return this.API.update('footer', data);
   }
 
   update(data: any) {
-    return this.API.update('about', data);
+    return this.API.update('footer', data);
   }
 }

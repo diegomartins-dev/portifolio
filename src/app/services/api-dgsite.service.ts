@@ -14,6 +14,7 @@ export interface IResponse {
   message?: string;
   token?: string;
   data?: string;
+  id?: string;
 }
 
 @Injectable({
@@ -27,6 +28,11 @@ export class ApiDgsiteService {
   getToken() {
     let login = localStorage.getItem('login') || '';
     return login ? JSON.parse(login)?.token : false;
+  }
+
+  getLogin() {
+    let login = localStorage.getItem('login') || '';
+    return login ? JSON.parse(login) : false;
   }
 
   getAll(path: string) {
@@ -43,6 +49,12 @@ export class ApiDgsiteService {
         return item.data;
       })
     );
+  }
+
+  getByEmail(email: string) {
+    return this.http.post(this.url + 'users/find-by-email', {
+      email,
+    });
   }
 
   getById(path: string, id: string) {

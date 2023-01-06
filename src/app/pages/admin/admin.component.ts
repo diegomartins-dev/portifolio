@@ -24,7 +24,7 @@ export class AdminComponent implements OnInit {
 
   getUserName() {
     let email = this.loginService.getEmail();
-    this.loginService.getByParam('users', { email }).subscribe({
+    this.loginService.getByEmail(email).subscribe({
       next: (result: any) => {
         this.user = {
           name: result.data && result.data.name ? result.data.name : '',
