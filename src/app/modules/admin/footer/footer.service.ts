@@ -12,7 +12,7 @@ export class FooterService {
   }
 
   save(data: any) {
-    return this.API.update('footer', data);
+    return this.API.save('footer', data);
   }
 
   update(data: any) {
