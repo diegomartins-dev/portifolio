@@ -1,0 +1,34 @@
+{
+  "publish": true,
+  "data": {
+    "category": "frontend",
+    "image": {
+      "src": "assets/img/projects/agenda-sms.png",
+      "alt": "uma imagem mostrando o app de agendamento de sms",
+      "bg": "assets/img/projects/bgs/technology02b.jpg"
+    },
+    "status": {
+      "title": "Concluído",
+      "class": "primary"
+    },
+    "body": {
+      "title": "Agendamento de SMS",
+      "description": "Um projeto feito em angular para treinar tecnicas que consistem em um app de agendamento de sms com funcionalidades básicas, utilizei o banco de dados do browser (indexed DB)",
+      "technologies": [
+        "Material Angular",
+        "Sass",
+        "Angular",
+        "Indexed DB",
+        "Firebase",
+        "Typescript"
+      ]
+    },
+    "links": [
+      {
+        "href": "https://github.com/diegohyenna/agenda-sms",
+        "title": "Visitar o repositório aqui"
+      }
+    ],
+    "order": 2
+  }
+}

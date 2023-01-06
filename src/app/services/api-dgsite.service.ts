@@ -76,12 +76,18 @@ export class ApiDgsiteService {
   save(path: string, data: any): Observable<IResponse> {
     return this.http
       .post(this.url + path.replace('/', '') + '/create', data)
-      .pipe(map((result: any) => result as IResponse));
+      .pipe(
+        map((result: any) => result as IResponse),
+        catchError((err) => of({ ...err.error }) as Observable<IResponse>)
+      );
   }
 
   update(path: string, data: any) {
     return this.http
       .post(this.url + path.replace('/', '') + '/update', data)
-      .pipe(map((result: any) => result as IResponse));
+      .pipe(
+        map((result: any) => result as IResponse),
+        catchError((err) => of({ ...err.error }) as Observable<IResponse>)
+      );
   }
 }

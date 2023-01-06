@@ -13,15 +13,6 @@ export class AboutService {
   }
 
   save(data: any) {
-    let items = {
-      id: data.id,
-      publish: data.publish,
-      data: { profile: { ...data.profile }, content: { ...data.content } },
-    };
-    if (items.id) {
-      return this.API.update('about', data);
-    } else {
-      return this.API.save('about', data);
-    }
+    return this.API.update('about', data);
   }
 }

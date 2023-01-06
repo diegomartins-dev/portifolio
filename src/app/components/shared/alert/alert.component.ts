@@ -18,15 +18,6 @@ export class AlertComponent implements OnInit {
 
       this.timer = setTimeout(() => {
         this.alert = { type: '', message: '' };
-
-        // this.store.dispatch(
-        //   setAlert({
-        //     payload: {
-        //       type: '',
-        //       message: '',
-        //     },
-        //   })
-        // );
       }, 5000);
     });
   }

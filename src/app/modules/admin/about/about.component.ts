@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { about } from 'src/app/components/about/about.mock';
 import { AlertService } from 'src/app/components/shared/alert/alert.service';
+
+import { onUpdate } from '../helpers/components';
 import { AboutService } from './about.service';
 
 @Component({
@@ -9,9 +10,7 @@ import { AboutService } from './about.service';
   styleUrls: ['./about.component.sass'],
 })
 export class AboutComponent implements OnInit {
-  active!: number;
-  json: any;
-  loading = false;
+  json = [];
 
   constructor(
     private aboutService: AboutService,
@@ -19,31 +18,17 @@ export class AboutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loading = true;
     this.aboutService.getAbout().subscribe((result: any) => {
       this.json = result;
-      this.active = 0;
-      this.loading = false;
     });
   }
 
-  onPrev() {
-    if (this.active != 0) this.active--;
-  }
-
-  onNext() {
-    if (this.active < this.json.length - 1) this.active++;
-  }
-
-  onSave(json: {}) {
-    // console.log(json);
-    this.aboutService.save(json).subscribe({
-      next: (result) => {
-        this.alertService.setAlert({
-          type: 'success',
-          message: result.message || 'Salvo com sucesso!',
-        });
-      },
-    });
+  onSave(json: any) {
+    let items = {
+      id: json.id,
+      publish: json.publish,
+      data: { profile: { ...json.profile }, content: { ...json.content } },
+    };
+    onUpdate(items, this.aboutService, this.alertService);
   }
 }

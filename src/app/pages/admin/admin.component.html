@@ -14,23 +14,43 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [routerLinkActive]="'active'">
+      <li
+        class="nav-item"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="nav-link" href="#" [routerLink]="['/admin/home']">Início</a>
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
+      <li
+        class="nav-item"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="nav-link" href="#" [routerLink]="['/admin/header']"
           >Cabeçalho</a
         >
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
+      <li
+        class="nav-item"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="nav-link" href="#" [routerLink]="['/admin/about']">Sobre</a>
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
+      <li
+        class="nav-item"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="nav-link" href="#" [routerLink]="['/admin/project']"
           >Projetos</a
         >
       </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
+      <li
+        class="nav-item"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="nav-link" href="#" [routerLink]="['/admin/footer']">Rodapé</a>
       </li>
     </ul>
@@ -46,7 +66,14 @@
           {{ user?.name }}
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Meu Perfil</a>
+          <a
+            class="dropdown-item"
+            href="#"
+            [routerLink]="['/admin/profile']"
+            [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Meu Perfil</a
+          >
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" (click)="handleExit()">Sair</button>
         </div>
@@ -61,5 +88,7 @@
     </div>
   </div>
   <app-alert></app-alert>
-  <router-outlet *ngIf="user?.name"></router-outlet>
+  <div [@routeAnimations]="prepareRoute()">
+    <router-outlet *ngIf="user?.name"></router-outlet>
+  </div>
 </div>

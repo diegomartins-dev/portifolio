@@ -5,6 +5,10 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../../guards/auth.guard';
 import { ProjectComponent } from './project/project.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NewProjectComponent } from './project/new-project/new-project.component';
+import { NewAboutComponent } from './about/new-about/new-about.component';
 
 const routes: Routes = [
   {
@@ -29,6 +33,14 @@ const routes: Routes = [
     data: { role: 'read' },
   },
   {
+    path: 'project/new',
+    pathMatch: 'full',
+    component: NewProjectComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'write' },
+  },
+  {
     path: 'about',
     pathMatch: 'full',
     component: AboutComponent,
@@ -36,14 +48,30 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     data: { role: 'read' },
   },
-  // {
-  //   path: 'home/view',
-  //   pathMatch: 'full',
-  //   component: HomeViewComponent,
-  //   canActivate: [AuthGuard],
-  //   canLoad: [AuthGuard],
-  //   data: { role: 'write' },
-  // },
+  {
+    path: 'about/new',
+    pathMatch: 'full',
+    component: NewAboutComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'write' },
+  },
+  {
+    path: 'header',
+    pathMatch: 'full',
+    component: HeaderComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'read' },
+  },
+  {
+    path: 'footer',
+    pathMatch: 'full',
+    component: FooterComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'read' },
+  },
 ];
 
 @NgModule({

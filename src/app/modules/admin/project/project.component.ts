@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/components/shared/alert/alert.service';
+
+import { onUpdate } from '../helpers/components';
 import { ProjectService } from './project.service';
 
 @Component({
@@ -8,9 +10,7 @@ import { ProjectService } from './project.service';
   styleUrls: ['./project.component.sass'],
 })
 export class ProjectComponent implements OnInit {
-  active!: number;
-  json: any;
-  loading = false;
+  json = [];
 
   constructor(
     private projectService: ProjectService,
@@ -18,32 +18,17 @@ export class ProjectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loading = true;
     this.projectService.getProject().subscribe((result: any) => {
-      console.log(result);
-      this.json = result.length ? result : null;
-      this.active = 0;
-      this.loading = false;
+      this.json = result;
     });
   }
 
-  onPrev() {
-    if (this.active != 0) this.active--;
-  }
-
-  onNext() {
-    if (this.active < this.json.length - 1) this.active++;
-  }
-
-  onSave(json: {}) {
-    // console.log(json);
-    this.projectService.save(json).subscribe({
-      next: (result) => {
-        this.alertService.setAlert({
-          type: 'success',
-          message: result.message || 'Salvo com sucesso!',
-        });
-      },
-    });
+  onSave(json: any) {
+    let items = {
+      id: json.id,
+      publish: json.publish,
+      data: { ...json.data },
+    };
+    onUpdate(items, this.projectService, this.alertService);
   }
 }

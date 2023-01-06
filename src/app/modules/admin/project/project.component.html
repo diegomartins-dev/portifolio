@@ -1,29 +1,5 @@
-<h2>Conteudo dos Projetos</h2>
-
-<div class="position-relative">
-  <div *ngIf="loading">Carregando...</div>
-  <div
-    class="box"
-    [ngClass]="i == this.active ? 'active' : ''"
-    *ngFor="let js of json; let i = index"
-  >
-    <app-json-editor
-      [json]="js"
-      [index]="i"
-      (onSave)="onSave($event)"
-      [qtItems]="json.length"
-    ></app-json-editor>
-    <button (click)="onPrev()">prev</button>
-    <button (click)="onNext()">next</button>
-  </div>
-  <div *ngIf="!this.json && !this.loading" class="box active">
-    <app-json-editor
-      [json]="0"
-      [index]="0"
-      (onSave)="onSave($event)"
-      [qtItems]="0"
-    ></app-json-editor>
-    <button (click)="onPrev()">prev</button>
-    <button (click)="onNext()">next</button>
-  </div>
-</div>
+<app-json-page-view
+  title="Conteúdo do projetos"
+  [json]="json"
+  (onSave)="onSave($event)"
+></app-json-page-view>

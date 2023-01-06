@@ -15,9 +15,11 @@ import JSONEditor from 'jsoneditor';
   styleUrls: ['./json-editor.component.sass'],
 })
 export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() json!: {};
+  @Input() json: any;
   @Input() qtItems!: number;
   @Input() index!: number;
+  @Input() readonly = true;
+  @Input() id?: string;
   @Output() onSave = new EventEmitter();
 
   private container: any;
@@ -30,15 +32,16 @@ export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.container = document.getElementById('jsoneditor' + this.index);
-
+    this.container = document.getElementById(
+      this.id ? this.id : 'jsoneditor' + this.index
+    );
     if (this.container) {
       JsonEditorComponent.editors.push(
         new JSONEditor(this.container, { mode: 'tree' })
       );
       JsonEditorComponent.editors.map((editor: any, index: any) => {
         if (index == this.index) {
-          JsonEditorComponent.editors[this.index].update(this.json);
+          JsonEditorComponent.editors[this.index].set(this.json);
         }
       });
     }

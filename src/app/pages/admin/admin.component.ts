@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
+import { fader, slider } from 'src/app/route-animation';
+
 import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.sass'],
+  animations: [slider],
 })
 export class AdminComponent implements OnInit {
   user?: { name: string };
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private contexts: ChildrenOutletContexts
+  ) {}
 
   ngOnInit(): void {
     this.getUserName();
@@ -28,5 +35,9 @@ export class AdminComponent implements OnInit {
 
   handleExit() {
     this.loginService.setLogout();
+  }
+
+  prepareRoute() {
+    return this.contexts.getContext('primary')?.route?.snapshot;
   }
 }
