@@ -53,7 +53,7 @@
   </div>
 </div>
 <div class="container-slide">
-  <div class="loader" [ngClass]="this.loading ? 'show' : 'hide'"></div>
+  <div *ngIf="this.loading" class="loader"></div>
   <!-- DESKTOP -->
   <div class="d-md-none d-lg-block" id="carousel-content">
     <div

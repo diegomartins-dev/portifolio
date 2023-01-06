@@ -27,17 +27,8 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.sass",
-              "./node_modules/jsoneditor/dist/jsoneditor.min.css"
-            ],
-            "scripts": ["./node_modules/jsoneditor/dist/jsoneditor.min.js"],
-            "allowedCommonJsDependencies": [
-              "contentful",
-              "jsoneditor",
-              "ts-fs",
-              "fs"
-            ]
+            "styles": ["src/styles.sass"],
+            "scripts": []
           },
           "configurations": {
             "production": {

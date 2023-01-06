@@ -1,11 +1,6 @@
-import { IProject } from './projects.interface';
-
-export const Projects: IProject[] = [
+import { IProjects } from './projects.interface';
+export const Projects: IProjects[] = [
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/matchgular.jpg',
@@ -33,13 +28,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o site aqui',
       },
     ],
-    order: 1,
+    published: false,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/agenda-sms.png',
@@ -48,7 +39,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Agendamento de SMS',
@@ -68,12 +59,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 2,
+    published: false,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
     category: 'frontend',
     image: {
       src: 'assets/img/projects/financas.jpg',
@@ -82,7 +70,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Financas',
@@ -99,13 +87,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o site aqui',
       },
     ],
-    order: 3,
+    published: true,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/playerlizzer.png',
@@ -114,7 +98,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Playerlizzer',
@@ -140,13 +124,9 @@ export const Projects: IProject[] = [
         title: 'Visitar a demonstração',
       },
     ],
-    order: 4,
+    published: true,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/portifolio.png',
@@ -162,7 +142,7 @@ export const Projects: IProject[] = [
       description:
         'Meu portifólio que fica em constante evolução, vou acrescentando features ao decorrer do tempo.',
       technologies: [
-        'HTML5',
+        'Html5',
         'CSS3',
         'Javascript',
         'Angular',
@@ -183,13 +163,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o site aqui',
       },
     ],
-    order: 5,
+    published: true,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'backend',
     image: {
       src: 'assets/img/projects/nodejs.png',
@@ -197,12 +173,13 @@ export const Projects: IProject[] = [
       bg: 'assets/img/projects/bgs/technology06b.jpg',
     },
     status: {
-      title: 'Concluído',
-      class: 'success',
+      title: 'Não finalizado',
+      class: 'danger',
     },
     body: {
       title: 'Uma API em Nodejs',
-      description: 'A API do meu antigo portifolio. Documentada com Swagger',
+      description:
+        'Seria a API do CMS desse portifolio aqui, porém ele sofreu mudanças e a API se tornou obsoleta. Agora serve como mais um projeto',
       technologies: [
         'Nodejs',
         'Express',
@@ -218,13 +195,9 @@ export const Projects: IProject[] = [
         title: 'Visitar a API aqui',
       },
     ],
-    order: 6,
+    published: true,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/reactjs.png',
@@ -233,7 +206,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Social APP',
@@ -256,13 +229,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 7,
+    published: true,
   },
   {
-    publish: false,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/gatsby.png',
@@ -271,7 +240,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Estudos com Gatsby',
@@ -290,13 +259,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 8,
+    published: true,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'backend',
     image: {
       src: 'assets/img/projects/mongodb.png',
@@ -305,7 +270,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Estudos com MongoDB + Mongoose',
@@ -322,13 +287,9 @@ export const Projects: IProject[] = [
         title: 'Visitar a demonstração',
       },
     ],
-    order: 9,
+    published: false,
   },
   {
-    publish: true,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'backend',
     image: {
       src: 'assets/img/projects/laravel.png',
@@ -337,7 +298,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Estudos MVC - CRUD - Laravel',
@@ -350,13 +311,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 10,
+    published: true,
   },
   {
-    publish: false,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'frontend',
     image: {
       src: 'assets/img/projects/parallax.png',
@@ -365,7 +322,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'success',
+      class: 'primary',
     },
     body: {
       title: 'Fixed Parallax',
@@ -378,13 +335,9 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 11,
+    published: true,
   },
   {
-    publish: false,
-    createdAt: '2022-12-16T11:23:12.061Z',
-    updatedAt: '2022-12-16T11:23:12.061Z',
-
     category: 'design',
     image: {
       src: 'assets/img/projects/style-guide.png',
@@ -406,6 +359,6 @@ export const Projects: IProject[] = [
         title: 'Visitar o repositório aqui',
       },
     ],
-    order: 12,
+    published: false,
   },
 ];

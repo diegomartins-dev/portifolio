@@ -1,37 +1,42 @@
+import { of, Subject } from 'rxjs';
+import { IProjects } from './projects.interface';
 import { Injectable } from '@angular/core';
-import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
+import { Projects } from './projects.mock';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectsService {
-  private categories: any = [];
-  private technologies: any = [];
+  private projectSubject = new Subject();
 
-  constructor(private API: ApiDgsiteService) {}
+  constructor() {}
 
   getProjects() {
-    return this.API.getPublished('project');
+    return of(Projects);
   }
 
-  getFilters(projects: any) {
-    this.filtersGenerate(projects);
-    return { categories: this.categories, technologies: this.technologies };
-  }
-
-  filtersGenerate(projects: any) {
-    projects.map((item: any) => {
-      if (
-        !this.categories.find((category: string) => item.category === category)
-      ) {
-        this.categories.push(item.category);
-      }
-
-      item.body?.technologies.map((technology: any) => {
-        if (!this.technologies.find((tech: string) => tech === technology)) {
-          this.technologies.push(technology);
+  getFilters(projects: IProjects[]) {
+    let categories: any = [];
+    let technologies: any = [];
+    let subs = this.projectSubject.subscribe((items: any) => {
+      items.map((item: IProjects) => {
+        if (
+          !categories.find((category: string) => item.category === category)
+        ) {
+          categories.push(item.category);
         }
+
+        item.body?.technologies.map((technology) => {
+          if (!technologies.find((tech: string) => tech === technology)) {
+            technologies.push(technology);
+          }
+        });
       });
+      subs.unsubscribe();
     });
+
+    this.projectSubject.next(projects);
+
+    return { categories, technologies };
   }
 }
