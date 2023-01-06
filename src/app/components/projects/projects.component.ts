@@ -39,7 +39,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   setProjects(projects: any) {
-    this.projects = projects.filter((project: any) => project.publish);
+    this.projects = projects
+      .filter((project: any) => project.publish)
+      .sort((a: any, b: any) => (a.order > b.order ? 1 : -1));
 
     const { categories, technologies } = this.projectsService.getFilters(
       this.projects
