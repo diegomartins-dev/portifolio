@@ -1,10 +1,10 @@
 {
   "publish": true,
   "data": {
-    "category": "frontend",
+    "category": "backend",
     "image": {
-      "src": "assets/img/projects/agenda-sms.png",
-      "alt": "uma imagem mostrando o app de agendamento de sms",
+      "src": "assets/img/projects/mongodb.png",
+      "alt": "estudos em mongodb",
       "bg": "assets/img/projects/bgs/technology02b.jpg"
     },
     "status": {
@@ -12,23 +12,20 @@
       "class": "primary"
     },
     "body": {
-      "title": "Agendamento de SMS",
-      "description": "Um projeto feito em angular para treinar tecnicas que consistem em um app de agendamento de sms com funcionalidades básicas, utilizei o banco de dados do browser (indexed DB)",
-      "technologies": [
-        "Material Angular",
-        "Sass",
-        "Angular",
-        "Indexed DB",
-        "Firebase",
-        "Typescript"
-      ]
+      "title": "Estudos com MongoDB + Mongoose",
+      "description": "Um estudo com MongoDB + Mongoose.",
+      "technologies": ["MongoDB", "Express", "PassportJs", "Express Handlebars"]
     },
     "links": [
       {
-        "href": "https://github.com/diegohyenna/agenda-sms",
+        "href": "https://github.com/diegohyenna/estudos-com-mongodb",
         "title": "Visitar o repositório aqui"
+      },
+      {
+        "href": "https://blog-nodejs-mongoose-estudos.herokuapp.com",
+        "title": "Visitar a demonstração"
       }
     ],
-    "order": 2
+    "order": 9
   }
 }

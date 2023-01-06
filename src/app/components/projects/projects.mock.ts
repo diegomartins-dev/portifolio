@@ -48,7 +48,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Agendamento de SMS',
@@ -82,7 +82,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Financas',
@@ -114,7 +114,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Playerlizzer',
@@ -162,7 +162,7 @@ export const Projects: IProject[] = [
       description:
         'Meu portifólio que fica em constante evolução, vou acrescentando features ao decorrer do tempo.',
       technologies: [
-        'Html5',
+        'HTML5',
         'CSS3',
         'Javascript',
         'Angular',
@@ -197,8 +197,8 @@ export const Projects: IProject[] = [
       bg: 'assets/img/projects/bgs/technology06b.jpg',
     },
     status: {
-      title: 'Não finalizado',
-      class: 'danger',
+      title: 'Concluído',
+      class: 'success',
     },
     body: {
       title: 'Uma API em Nodejs',
@@ -233,7 +233,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Social APP',
@@ -259,7 +259,7 @@ export const Projects: IProject[] = [
     order: 7,
   },
   {
-    publish: true,
+    publish: false,
     createdAt: '2022-12-16T11:23:12.061Z',
     updatedAt: '2022-12-16T11:23:12.061Z',
 
@@ -271,7 +271,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Estudos com Gatsby',
@@ -305,7 +305,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Estudos com MongoDB + Mongoose',
@@ -337,7 +337,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Estudos MVC - CRUD - Laravel',
@@ -353,7 +353,7 @@ export const Projects: IProject[] = [
     order: 10,
   },
   {
-    publish: true,
+    publish: false,
     createdAt: '2022-12-16T11:23:12.061Z',
     updatedAt: '2022-12-16T11:23:12.061Z',
 
@@ -365,7 +365,7 @@ export const Projects: IProject[] = [
     },
     status: {
       title: 'Concluído',
-      class: 'primary',
+      class: 'success',
     },
     body: {
       title: 'Fixed Parallax',
@@ -381,7 +381,7 @@ export const Projects: IProject[] = [
     order: 11,
   },
   {
-    publish: true,
+    publish: false,
     createdAt: '2022-12-16T11:23:12.061Z',
     updatedAt: '2022-12-16T11:23:12.061Z',
 

@@ -21,6 +21,12 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     this.projectsService.getProjects().subscribe((results: any) => {
       if (results && results.length) {
+        results = results
+          .map((result: any) => ({
+            publish: result.publish,
+            ...result.data,
+          }))
+          .sort((a: any, b: any) => (a.order > b.order ? 1 : -1));
         this.setProjects(results);
       } else {
         of(Projects).subscribe({
@@ -34,7 +40,7 @@ export class ProjectsComponent implements OnInit {
 
   setProjects(projects: any) {
     this.projects = projects.filter((project: any) => project.publish);
-    console.log(this.projects);
+
     const { categories, technologies } = this.projectsService.getFilters(
       this.projects
     );
