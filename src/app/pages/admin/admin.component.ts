@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
-import { fader, slider } from 'src/app/route-animation';
+import { ChildrenOutletContexts } from '@angular/router';
+import { fader, slider } from 'src/app/pages/admin/route-animation';
 
 import { LoginService } from '../login/login.service';
 
