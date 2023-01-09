@@ -1,14 +1,38 @@
 <div id="login">
   <app-alert></app-alert>
-  <form [formGroup]="formGroup" (ngSubmit)="handleLogin()">
-    <div class="form-group">
-      <label for=""></label>
-      <input type="text" formControlName="email" name="email" />
+  <div class="background-primary"></div>
+  <div class="background-secondary">
+    <div class="form">
+      <h1 class="d-none d-md-block mb-4">Entrar na área administrativa</h1>
+      <h4 class="d-md-none mb-4">Entrar na área administrativa</h4>
+      <p>Para visitante:</p>
+      <li><strong>Email:</strong> visitante@email.com</li>
+      <li class="mb-4"><strong>Senha:</strong> 123456</li>
+      <form [formGroup]="formGroup" (ngSubmit)="handleLogin()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            formControlName="email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            name="password"
+          />
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="loading">
+          Logar <i *ngIf="loading" class="fas fa-circle-notch fa-spin"></i>
+        </button>
+      </form>
     </div>
-    <div class="form-group">
-      <label for=""></label>
-      <input type="password" formControlName="password" name="password" />
-    </div>
-    <button type="submit">Logar</button>
-  </form>
+  </div>
 </div>

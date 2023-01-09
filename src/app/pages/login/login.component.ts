@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   alert!: string;
   message!: string;
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,6 +46,42 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loginService.login(email, password);
+    this.loading = true;
+
+    this.loginService.login(email, password).subscribe({
+      next: (data) => {
+        if (data.status == 'success' && data.token) {
+          this.loginService.setLogin({ email, password, token: data.token });
+          this.router.navigateByUrl('/admin');
+          this.alertService.setAlert({
+            type: 'success',
+            message: 'logado com sucesso!',
+          });
+          this.loading = false;
+        } else if (data.message) {
+          this.alertService.setAlert({
+            type: 'danger',
+            message: data.message,
+          });
+          this.loginService.setLogout();
+          this.loading = false;
+        } else {
+          this.alertService.setAlert({
+            type: 'danger',
+            message: 'Erro ao logar!',
+          });
+          this.loginService.setLogout();
+          this.loading = false;
+        }
+      },
+      error: () => {
+        this.alertService.setAlert({
+          type: 'danger',
+          message: 'Erro ao fazer o login',
+        });
+        this.loginService.setLogout();
+        this.loading = false;
+      },
+    });
   }
 }

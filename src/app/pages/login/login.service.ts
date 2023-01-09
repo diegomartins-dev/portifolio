@@ -20,38 +20,8 @@ export class LoginService extends ApiDgsiteService {
     super(http);
   }
 
-  override login(email: string, password: string): any {
-    super.login(email, password).subscribe({
-      next: (data) => {
-        if (data.status == 'success' && data.token) {
-          this.setLogin({ email, password, token: data.token });
-          this.router.navigateByUrl('/admin');
-          this.alertService.setAlert({
-            type: 'success',
-            message: 'logado com sucesso!',
-          });
-        } else if (data.message) {
-          this.alertService.setAlert({
-            type: 'danger',
-            message: data.message,
-          });
-          this.setLogout();
-        } else {
-          this.alertService.setAlert({
-            type: 'danger',
-            message: 'Erro ao logar!',
-          });
-          this.setLogout();
-        }
-      },
-      error: () => {
-        this.alertService.setAlert({
-          type: 'danger',
-          message: 'Erro ao fazer o login',
-        });
-        this.setLogout();
-      },
-    });
+  override login(email: string, password: string) {
+    return super.login(email, password);
   }
 
   getEmail() {
