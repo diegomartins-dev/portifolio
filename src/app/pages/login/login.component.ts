@@ -49,28 +49,28 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.loginService.login(email, password).subscribe({
-      next: (data) => {
+      next: (data: any) => {
         if (data.status == 'success' && data.token) {
           this.loginService.setLogin({ email, password, token: data.token });
           this.router.navigateByUrl('/admin');
-          this.alertService.setAlert({
-            type: 'success',
-            message: 'logado com sucesso!',
-          });
           this.loading = false;
         } else if (data.message) {
           this.alertService.setAlert({
             type: 'danger',
             message: data.message,
           });
-          this.loginService.setLogout();
+          this.loading = false;
+        } else if (data[0].message.indexOf('must be a valid email') != -1) {
+          this.alertService.setAlert({
+            type: 'danger',
+            message: 'Informe um email válido!',
+          });
           this.loading = false;
         } else {
           this.alertService.setAlert({
             type: 'danger',
             message: 'Erro ao logar!',
           });
-          this.loginService.setLogout();
           this.loading = false;
         }
       },

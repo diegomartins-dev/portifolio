@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
+import { AlertService } from 'src/app/components/shared/alert/alert.service';
 import { fader, slider } from 'src/app/pages/admin/route-animation';
 
 import { LoginService } from '../login/login.service';
@@ -10,16 +11,21 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./admin.component.sass'],
   animations: [slider],
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, AfterContentInit {
   user?: { name: string };
 
   constructor(
     private loginService: LoginService,
-    private contexts: ChildrenOutletContexts
+    private contexts: ChildrenOutletContexts,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
     this.getUserName();
+  }
+
+  ngAfterContentInit(): void {
+    this.alertService.setAlert({ type: '', message: '' });
   }
 
   getUserName() {

@@ -29,8 +29,11 @@
             name="password"
           />
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="loading">
+        <button class="btn btn-success mr-2" type="submit" [disabled]="loading">
           Logar <i *ngIf="loading" class="fas fa-circle-notch fa-spin"></i>
+        </button>
+        <button class="btn btn-info" type="sbutton" [routerLink]="['/']">
+          Voltar
         </button>
       </form>
     </div>

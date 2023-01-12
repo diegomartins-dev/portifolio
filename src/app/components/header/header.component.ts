@@ -46,7 +46,6 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.dataInput);
     let timer = setInterval(() => {
       if (this.containers) {
         clearInterval(timer);
@@ -55,6 +54,7 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
     }, 500);
 
     this.dark = this.getSettedDarkMode();
+    if (!localStorage.getItem('theme')) this.setTheme('theme-blue-orange');
   }
 
   getSettedDarkMode() {
@@ -67,14 +67,14 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
         return false;
       }
     } else {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.setDarkTheme(true);
-        this.setTheme('theme-aqua-blueviolet');
-        return true;
-      } else {
-        this.setDarkTheme(false);
-        return false;
-      }
+      // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      //   this.setDarkTheme(true);
+      //   this.setTheme('theme-aqua-blueviolet');
+      //   return true;
+      // } else {
+      this.setDarkTheme(false);
+      return false;
+      // }
     }
   }
 
