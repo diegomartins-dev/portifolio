@@ -8,15 +8,70 @@
           <strong>Sobre mim</strong>
         </h1>
         <div class="card d-flex justify-content wow bounceInLeft">
-          <!-- particles.js container -->
-          <div id="particles-js"></div>
           <div class="row no-gutters">
-            <img
-              src="../../../../assets/img/eu.jpg"
-              class="card-img col-12"
-              alt="minha foto"
-              style="z-index: 2"
-            />
+            <div class="bg-animate position-relative">
+              <span
+                class="square-in"
+                style="
+                  --velocity: '2s';
+                  --tam: '5px';
+                  --top: '20px';
+                  --left: 10px;
+                "
+              ></span>
+              <span
+                class="square-in"
+                style="
+                  --velocity: '1.8s';
+                  --tam: '55px';
+                  --top: '35px';
+                  --left: 30px;
+                "
+              ></span>
+              <span
+                class="square-in"
+                style="
+                  --velocity: '1.9s';
+                  --tam: '35px';
+                  --top: '30px';
+                  --left: 75px;
+                "
+              ></span>
+              <img
+                src="../../../../assets/img/eu.jpg"
+                class="card-img col-12"
+                alt="minha foto"
+                style="z-index: 2"
+              />
+              <span
+                class="square-out"
+                style="
+                  --velocity: '2s';
+                  --tam: '5px';
+                  --bottom: '0px';
+                  --right: 15px;
+                "
+              ></span>
+              <span
+                class="square-out"
+                style="
+                  --velocity: '1.8s';
+                  --tam: '55px';
+                  --bottom: '15px';
+                  --right: 30px;
+                "
+              ></span>
+              <span
+                class="square-out"
+                style="
+                  --velocity: '1.9s';
+                  --tam: '35px';
+                  --bottom: '5px';
+                  --right: 75px;
+                "
+              ></span>
+            </div>
+
             <div class="card-content col-12">
               <div class="card-body">
                 <h3 class="title">{{ this.profile?.name }}</h3>
