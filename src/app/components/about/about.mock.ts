@@ -69,23 +69,19 @@ export const about: IAbout = {
         percent: '100%',
       },
       {
+        title: 'ReactJs',
+        percent: '85%',
+      },
+      {
         title: 'Ionic',
         percent: '100%',
       },
       {
         title: 'Firebase',
-        percent: '85%',
+        percent: '90%',
       },
       {
         title: 'NodeJs',
-        percent: '85%',
-      },
-      {
-        title: 'ReactJs',
-        percent: '100%',
-      },
-      {
-        title: 'PHP',
         percent: '100%',
       },
       {
@@ -102,7 +98,19 @@ export const about: IAbout = {
       },
       {
         title: 'Gulp',
-        percent: '70%',
+        percent: '50%',
+      },
+      {
+        title: 'MongoDB',
+        percent: '50%',
+      },
+      {
+        title: 'Mongoose',
+        percent: '50%',
+      },
+      {
+        title: 'API Restful',
+        percent: '75%',
       },
     ],
     links: [

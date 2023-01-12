@@ -6,7 +6,7 @@ export const Footer: IFooter = {
     alt: '',
   },
   title: 'DG Site',
-  copyright: '2022 | DG Site - Todos os direitos reservados.',
+  copyright: '2023 | DG Site - Todos os direitos reservados.',
   description:
     ' Esse é o meu portifólio onde atualizo sempre com as tecnologias que vou aprendendo ao longo dos meus estudos. Fique a vontade para navegar por aqui.',
   links: [
