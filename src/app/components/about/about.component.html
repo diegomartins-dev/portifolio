@@ -75,8 +75,8 @@
 
             <div class="card-content col-12">
               <div class="card-body">
-                <h3 class="title">{{ this.profile?.name }}</h3>
-                <h5 class="subtitle mb-5">{{ this.profile?.occupation }}</h5>
+                <h3 class="title">{{ this.profile.name }}</h3>
+                <h5 class="subtitle mb-5">{{ this.profile.occupation }}</h5>
                 <p
                   *ngFor="let contact of this.profile?.contacts"
                   class="text-secondary"
@@ -112,7 +112,7 @@
             <strong>Descrição</strong>
           </h5>
           <p class="text-secondary" data-wow-delay=".1s">
-            {{ this.content?.description }}
+            {{ this.content.description }}
             <span class="dgsite-span"
               >DG Site - DGSite - diego guimarães martins</span
             >
