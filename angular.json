@@ -26,12 +26,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.sass",
               "./node_modules/jsoneditor/dist/jsoneditor.min.css"
             ],
-            "scripts": ["./node_modules/jsoneditor/dist/jsoneditor.min.js"],
+            "scripts": [
+              "./node_modules/jsoneditor/dist/jsoneditor.min.js"
+            ],
             "allowedCommonJsDependencies": [
               "contentful",
               "jsoneditor",
@@ -98,9 +103,24 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "sass",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.sass"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.sass"
+            ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "portifolio:build:production",
+            "firebaseProject": "api-dgsite",
+            "firebaseHostingSite": "api-dgsite"
           }
         }
       }

@@ -53,14 +53,14 @@
   </div>
 </div>
 <div class="container-slide">
-  <div class="loader" [ngClass]="this.loading ? 'show' : 'hide'"></div>
+  <!-- <div class="loader" [ngClass]="this.loading ? 'show' : 'hide'"></div> -->
   <!-- DESKTOP -->
-  <div class="d-md-none d-lg-block" id="carousel-content">
+  <div class="d-md-none d-lg-block">
     <div
       #carouselDesktop
       *ngFor="let item of items; let i = index"
       [style]="'background-image: url(' + item?.image?.bg + ')'"
-      class="project-content project-bg d-none d-xl-flex position-relative"
+      class="project-content project-bg d-none d-xl-flex position-relative carousel-id"
     >
       <div class="buttons">
         <div class="project-number">{{ i + 1 }}</div>
@@ -119,14 +119,14 @@
   </div>
 
   <!-- MOBILE -->
-  <div class="d-md-block d-xl-none p-3" id="carousel-content">
+  <div class="d-md-block d-xl-none p-3">
     <div
       #carouselMobile
       id="slide"
       (touchmove)="touchMove(j, setActiveItemCarouselMobile, $event)"
       (touchstart)="touchStart($event)"
       *ngFor="let item of items; let j = index"
-      class="slide card mb-3 {{ item?.status?.class }}"
+      class="slide card mb-3 {{ item?.status?.class }} carousel-id"
     >
       <div class="row no-gutters">
         <div class="col-md-12 card-image-col position-relative">

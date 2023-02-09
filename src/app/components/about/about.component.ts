@@ -1,8 +1,7 @@
-import { IProfile, IContent } from './about.interface';
-import { AboutService } from './about.service';
 import { Component, OnInit } from '@angular/core';
-import { about } from './about.mock';
-import { of } from 'rxjs';
+
+import { IContent, IProfile } from './about.interface';
+import { AboutService } from './about.service';
 
 @Component({
   selector: 'app-about',

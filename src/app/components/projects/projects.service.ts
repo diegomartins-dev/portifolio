@@ -13,9 +13,10 @@ export class ProjectsService {
   constructor(private API: ApiDgsiteService) {}
 
   getProjects() {
-    return this.API.getPublished('project').pipe(
-      timeout({ each: 4000, with: () => of(Projects) })
-    );
+    // return this.API.getPublished('project').pipe(
+    //   timeout({ each: 4000, with: () => of(Projects) })
+    // );
+    return this.API.getPublished('project');
   }
 
   getFilters(projects: any) {
