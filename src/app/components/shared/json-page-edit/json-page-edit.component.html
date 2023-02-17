@@ -5,11 +5,9 @@
 <div class="position-relative">
   <app-json-editor
     [json]="[]"
-    [index]="0"
     (onSave)="handleSave($event)"
     [qtItems]="1"
     [readonly]="readonly"
-    [id]="'json-editor-new'"
   ></app-json-editor>
   <button
     class="btn btn-warning mt-2 mr-2 text-white"

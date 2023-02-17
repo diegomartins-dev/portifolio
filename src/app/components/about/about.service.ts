@@ -10,8 +10,6 @@ export class AboutService {
   constructor(private API: ApiDgsiteService) {}
 
   getItemsAbout() {
-    return this.API.getPublished('about')
-      .pipe(map((res) => res.data))
-      .pipe(timeout({ each: 4000, with: () => of(about) }));
+    return this.API.getPublished('about').pipe(map((res) => res.data));
   }
 }

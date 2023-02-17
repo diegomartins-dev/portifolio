@@ -9,6 +9,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 
+import { tap, fromEvent, filter, switchMap, interval } from 'rxjs';
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -79,6 +81,55 @@ export class CarouselComponent implements OnInit, AfterViewInit, OnChanges {
       }
     }, 300);
   }
+
+  // ngOnInit() {
+  //   this.updateScreenWidth();
+  //   this.loading = true;
+
+  //   this.items$
+  //     .pipe(
+  //       filter((items) => !!items),
+  //       tap(() => {
+  //         this.updateItemsBackup();
+  //         this.renderViewChildren();
+  //       })
+  //     )
+  //     .subscribe();
+
+  //   fromEvent(window, 'resize')
+  //     .pipe(
+  //       tap((event: any) => this.updateScreenWidth(event)),
+  //       switchMap(() => {
+  //         return this.showCarouselInDesktop
+  //           ? this.carouselDesktopView$
+  //           : this.carouselMobileView$;
+  //       }),
+  //       filter((views: any) => views.length > 0),
+  //       tap(() => this.renderViewChildren())
+  //     )
+  //     .subscribe();
+  // }
+
+  // private updateScreenWidth(event?: any) {
+  //   this.screenWidth = event ? event.target.innerWidth : window.innerWidth;
+  //   this.showCarouselInDesktop = this.screenWidth >= this.minimumScreenMobile;
+  // }
+
+  // private updateItemsBackup() {
+  //   this.itemsBackup = this.items;
+  // }
+
+  // private carouselDesktopView$ = interval(100).pipe(
+  //   switchMap(() => this.carouselDesktopView),
+  //   filter((views: any) => views.length > 0)
+  // );
+
+  // private carouselMobileView$ = interval(100).pipe(
+  //   switchMap(() => this.carouselMobileView),
+  //   filter((views: any) => views.length > 0)
+  // );
+
+  // private items$ = interval(300).pipe(switchMap(() => this.items));
 
   ngAfterViewInit(): void {
     this.renderViewChildren();

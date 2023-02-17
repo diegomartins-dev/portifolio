@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 import { AlertService } from '../../components/shared/alert/alert.service';
 import { LoginService } from './login.service';
 
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private alertService: AlertService,
     private loginService: LoginService,
-    private API: ApiDgsiteService,
     private router: Router
   ) {
     this.formGroup = this.formBuilder.group({
@@ -28,7 +26,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    if (this.API.getToken()) {
+    if (this.loginService.getCredentials()) {
       this.router.navigateByUrl('/admin');
     }
   }
@@ -48,40 +46,36 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
 
-    this.loginService.login(email, password).subscribe({
-      next: (data: any) => {
-        if (data.status == 'success' && data.token) {
-          this.loginService.setLogin({ email, password, token: data.token });
+    this.loginService
+      .login(email, password)
+      .then((data: any) => {
+        this.loading = false;
+        if (data.status == 'success') {
           this.router.navigateByUrl('/admin');
-          this.loading = false;
-        } else if (data.message) {
+        } else if (data.code == 'auth/user-not-found') {
           this.alertService.setAlert({
             type: 'danger',
-            message: data.message,
+            message: 'Usuário ou senha errados!',
           });
-          this.loading = false;
-        } else if (data[0].message.indexOf('must be a valid email') != -1) {
+        } else if (data.code == 'auth/wrong-password"') {
           this.alertService.setAlert({
             type: 'danger',
-            message: 'Informe um email válido!',
+            message: 'Usuário ou senha errados!',
           });
-          this.loading = false;
         } else {
           this.alertService.setAlert({
             type: 'danger',
-            message: 'Erro ao logar!',
+            message: 'Erro ao tentar logar',
           });
-          this.loading = false;
         }
-      },
-      error: () => {
+      })
+      .catch((error) => {
         this.alertService.setAlert({
           type: 'danger',
           message: 'Erro ao fazer o login',
         });
         this.loginService.setLogout();
         this.loading = false;
-      },
-    });
+      });
   }
 }

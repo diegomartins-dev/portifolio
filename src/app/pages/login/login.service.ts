@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { user } from '@angular/fire/auth';
+import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AlertService } from 'src/app/components/shared/alert/alert.service';
@@ -15,9 +17,9 @@ export class LoginService extends ApiDgsiteService {
     private router: Router,
     private store: Store<{ app: any }>,
     private alertService: AlertService,
-    public override http: HttpClient
+    public override firestore: Firestore
   ) {
-    super(http);
+    super(firestore);
   }
 
   override login(email: string, password: string) {
@@ -26,8 +28,14 @@ export class LoginService extends ApiDgsiteService {
 
   getEmail() {
     let login = localStorage.getItem('login') || '';
-    let email = login ? JSON.parse(login)?.email : '';
+    let email = login ? JSON.parse(login)?.user?.email : '';
     return email;
+  }
+
+  getCredentials() {
+    let login = localStorage.getItem('login') || '';
+    login = login ? JSON.parse(login) : '';
+    return login;
   }
 
   setLogin(data: ILogin) {

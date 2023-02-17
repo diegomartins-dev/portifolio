@@ -18,8 +18,9 @@ export class NewFooterComponent implements OnInit {
 
   onSave(json: any) {
     let items = {
-      publish: json.publish,
-      data: { ...json.data },
+      ...json,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
     onSave(items, this.footerService, this.alertService);
   }

@@ -18,16 +18,20 @@ export class AboutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.aboutService.getAbout().subscribe((result: any) => {
-      this.json = result;
-    });
+    this.aboutService
+      .getAbout()
+      .then((result: any) => {
+        this.json = result.data;
+      })
+      .catch((err) => {
+        this.json = [];
+      });
   }
 
   onSave(json: any) {
     let items = {
-      id: json.id,
-      publish: json.publish,
-      data: { profile: { ...json.profile }, content: { ...json.content } },
+      ...json,
+      updateAt: new Date().toISOString(),
     };
     onUpdate(items, this.aboutService, this.alertService);
   }

@@ -18,16 +18,20 @@ export class FooterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.footerService.getAbout().subscribe((result: any) => {
-      this.json = result;
-    });
+    this.footerService
+      .getFooter()
+      .then((result: any) => {
+        this.json = result.data;
+      })
+      .catch((err) => {
+        this.json = [];
+      });
   }
 
   onSave(json: any) {
     let items = {
-      id: json.id,
-      publish: json.publish,
-      data: { ...json.data },
+      ...json,
+      updatedAt: new Date().toISOString(),
     };
     onUpdate(items, this.footerService, this.alertService);
   }

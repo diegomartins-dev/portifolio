@@ -19,8 +19,9 @@ export class NewAboutComponent implements OnInit {
 
   onSave(json: any) {
     let items = {
-      publish: json.publish,
-      data: { profile: { ...json.profile }, content: { ...json.content } },
+      ...json,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
     onSave(items, this.aboutService, this.alertService);
   }

@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "api-dgsite"
+    "default": "cms-api-curriculo"
   },
   "targets": {
     "cms-api-curriculo": {

@@ -18,9 +18,14 @@ export class ProjectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projectService.getProject().subscribe((result: any) => {
-      this.json = result;
-    });
+    this.projectService
+      .getProject()
+      .then((result: any) => {
+        this.json = result.data;
+      })
+      .catch((err) => {
+        this.json = [];
+      });
   }
 
   onSave(json: any) {

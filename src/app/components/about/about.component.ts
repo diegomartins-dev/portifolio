@@ -16,8 +16,8 @@ export class SobreComponent implements OnInit {
 
   ngOnInit(): void {
     this.aboutService.getItemsAbout().subscribe((result) => {
-      this.profile = result.profile;
-      this.content = result.content;
+      this.profile = result[0].profile;
+      this.content = result[0].content;
     });
   }
 }

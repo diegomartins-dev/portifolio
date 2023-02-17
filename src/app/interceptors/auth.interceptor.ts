@@ -16,16 +16,15 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    if (!request.url.includes('/login')) {
-      let authToken = this.API.getToken();
-
-      const authReq = request.clone({
-        body: request.body,
-        headers: request.headers.set('Authorization', `Bearer ` + authToken),
-      });
-
-      return next.handle(authReq);
-    }
+    // if (!request.url.includes('/login')) {
+    //   let authToken = this.API.getToken();
+    //   const authReq = request.clone({
+    //     body: request.body,
+    //     headers: request.headers.set('Authorization', `Bearer ` + authToken),
+    //   });
+    //   return next.handle(authReq);
+    // }
+    // return next.handle(request);
     return next.handle(request);
   }
 }

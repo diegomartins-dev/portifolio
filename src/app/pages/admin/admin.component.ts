@@ -30,19 +30,14 @@ export class AdminComponent implements OnInit, AfterContentInit {
 
   getUserName() {
     let email = this.loginService.getEmail();
-    this.loginService.getByEmail(email).subscribe({
-      next: (result: any) => {
-        this.user = {
-          name: result.data && result.data.name ? result.data.name : '',
-        };
-      },
-    });
+    this.user = { name: email };
   }
 
   handleExit() {
     this.loginService.setLogout();
   }
 
+  //animacao de rotas
   prepareRoute() {
     return this.contexts.getContext('primary')?.route?.snapshot;
   }

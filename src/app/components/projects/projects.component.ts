@@ -20,12 +20,9 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectsService.getProjects().subscribe((results: any) => {
-      results = results
-        .map((result: any) => ({
-          publish: result.publish,
-          ...result.data,
-        }))
-        .sort((a: any, b: any) => (a.order > b.order ? 1 : -1));
+      results = results.data.sort((a: any, b: any) =>
+        a.order > b.order ? 1 : -1
+      );
       this.setProjects(results);
     });
   }
