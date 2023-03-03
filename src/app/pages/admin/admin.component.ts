@@ -1,7 +1,7 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
-import { fader, slider } from 'src/app/pages/admin/route-animation';
+import { slider } from 'src/app/pages/admin/route-animation';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { LoginService } from '../login/login.service';
 
@@ -30,19 +30,14 @@ export class AdminComponent implements OnInit, AfterContentInit {
 
   getUserName() {
     let email = this.loginService.getEmail();
-    this.loginService.getByEmail(email).subscribe({
-      next: (result: any) => {
-        this.user = {
-          name: result.data && result.data.name ? result.data.name : '',
-        };
-      },
-    });
+    this.user = { name: email };
   }
 
   handleExit() {
     this.loginService.setLogout();
   }
 
+  //animacao de rotas
   prepareRoute() {
     return this.contexts.getContext('primary')?.route?.snapshot;
   }

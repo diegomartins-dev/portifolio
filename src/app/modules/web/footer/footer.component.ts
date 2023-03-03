@@ -19,16 +19,8 @@ export class FooterComponent implements OnInit {
 
   async getFooter() {
     this.footerService.getAll().subscribe({
-      next: ({ data }) => {
-        if (data) {
-          this.footer = data;
-        } else {
-          of(Footer).subscribe({
-            next: (data) => {
-              this.footer = data;
-            },
-          });
-        }
+      next: (result) => {
+        this.footer = result[0];
       },
     });
   }

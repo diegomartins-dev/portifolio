@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
@@ -9,14 +8,14 @@ export class AboutService {
   constructor(private API: ApiDgsiteService) {}
 
   getAbout() {
-    return this.API.getAll('about');
+    return this.API.selectAll('about');
   }
 
   save(data: any) {
-    return this.API.save('about', data);
+    return this.API.add('about', data);
   }
 
   update(data: any) {
-    return this.API.update('about', data);
+    return this.API.update('about', data.id, data);
   }
 }

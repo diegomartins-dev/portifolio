@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
 import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  constructor(
-    private API: ApiDgsiteService,
-    private alertService: AlertService
-  ) {}
+  constructor(private API: ApiDgsiteService) {}
 
   getProject() {
-    return this.API.getAll('project');
+    return this.API.selectAll('project');
   }
 
   update(data: any) {
-    return this.API.update('project', data);
+    return this.API.update('project', data.id, data);
   }
 
   save(data: any) {
-    return this.API.save('project', data);
+    return this.API.add('project', data);
   }
 }

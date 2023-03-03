@@ -120,47 +120,57 @@
           color: var(--white)
           font-weight: 700
 
-  .slide
-    display: flex
-    justify-content: space-between
-    z-index: 9999
-    height: 100%
-    display: none
-    opacity: 0
-    transition: all 1s ease-in-out
-    background: var(--bg-card-secondary)
+  .container-slide-mobile
+    display: block
+    position: relative
 
-    &.active
-      display: block
-      opacity: 1
+    .slide
+      // display: block
+      display: none
+      background: var(--bg-card-secondary)
+      width: calc(100% - 42px)
+      margin-left: 21px
+      position: absolute
+      top: 0
+      left: 0
+      opacity: 0
+      // transform: translateY(-100%)
+      // transition: transform 1s, opacity .5s
+      transition: opacity .5s
 
-    .card-body
-      padding-bottom: 0
+      &.active
+        z-index: 9999
+        display: contents
+        opacity: 1
+        // transform: translateY(0)
 
-      //DEIXA OS ITENS DE TECNOLOGIAS LINEAR COM UMA BARRA DE ROLAGEM HORIZONTAL MAS ATRAPALHA SLIDE DOS ITENS
-    .card-text
-      .container-technologies
-        display: flex
-          // overflow-y: hidden
-        flex-wrap: wrap
-        flex-direction: row
-          // flex-direction: column
-          // height: 52px
-          // justify-content: center
-          // align-content: start
+      .card-body
+        padding-bottom: 0
 
-        .technologies
-          color: var(--white)
-          background-color: var(--secondary-color)
-          padding: 4px 10px
-          border-radius: 20px
-          font-size: 0.8rem
-          font-weight: 500
-          margin-top: 6px
-          display: inline
-          margin-right: 10px
-          align-self: center
-          height: auto
+        //DEIXA OS ITENS DE TECNOLOGIAS LINEAR COM UMA BARRA DE ROLAGEM HORIZONTAL MAS ATRAPALHA SLIDE DOS ITENS
+      .card-text
+        .container-technologies
+          display: flex
+          flex-wrap: wrap
+          flex-direction: row
+            // overflow-y: hidden
+            // flex-direction: column
+            // height: 52px
+            // justify-content: center
+            // align-content: start
+
+          .technologies
+            color: var(--white)
+            background-color: var(--secondary-color)
+            padding: 4px 10px
+            border-radius: 20px
+            font-size: 0.8rem
+            font-weight: 500
+            margin-top: 6px
+            display: inline
+            margin-right: 10px
+            align-self: center
+            height: auto
 
     .dots
       position: relative
@@ -177,6 +187,7 @@
         cursor: pointer
 
         &.active
+          z-index: 9999
           background-color: var(--primary-color)
 
 .project-bg

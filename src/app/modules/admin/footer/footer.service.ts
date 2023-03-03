@@ -7,15 +7,15 @@ import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
 export class FooterService {
   constructor(private API: ApiDgsiteService) {}
 
-  getAbout() {
-    return this.API.getAll('footer');
+  getFooter() {
+    return this.API.selectAll('footer');
   }
 
   save(data: any) {
-    return this.API.save('footer', data);
+    return this.API.add('footer', data);
   }
 
   update(data: any) {
-    return this.API.update('footer', data);
+    return this.API.update('footer', data.id, data);
   }
 }

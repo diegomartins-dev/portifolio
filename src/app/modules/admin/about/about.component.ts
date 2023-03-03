@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { onUpdate } from '../helpers/components';
 import { AboutService } from './about.service';
@@ -18,16 +18,20 @@ export class AboutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.aboutService.getAbout().subscribe((result: any) => {
-      this.json = result;
-    });
+    this.aboutService
+      .getAbout()
+      .then((result: any) => {
+        this.json = result.data;
+      })
+      .catch((err) => {
+        this.json = [];
+      });
   }
 
   onSave(json: any) {
     let items = {
-      id: json.id,
-      publish: json.publish,
-      data: { profile: { ...json.profile }, content: { ...json.content } },
+      ...json,
+      updateAt: new Date().toISOString(),
     };
     onUpdate(items, this.aboutService, this.alertService);
   }

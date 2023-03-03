@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { onSave } from '../../helpers/components';
 import { AboutService } from '../about.service';
@@ -19,8 +19,9 @@ export class NewAboutComponent implements OnInit {
 
   onSave(json: any) {
     let items = {
-      publish: json.publish,
-      data: { profile: { ...json.profile }, content: { ...json.content } },
+      ...json,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
     onSave(items, this.aboutService, this.alertService);
   }

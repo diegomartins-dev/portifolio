@@ -1,6 +1,6 @@
 const execute = (items: any, service: any, method: string, alert: any) => {
-  service[method](items).subscribe({
-    next: (result: any) => {
+  service[method](items)
+    .then((result: any) => {
       if (result.status == 'success')
         alert.setAlert({
           type: 'success',
@@ -11,21 +11,13 @@ const execute = (items: any, service: any, method: string, alert: any) => {
           type: 'danger',
           message: result.message || 'Erro',
         });
-      if (result[0]?.type) {
-        alert.setAlert({
-          type: 'warning',
-          message: result[0].message || 'Falta algo!',
-        });
-      }
-    },
-    error: (error: any) => {
-      console.log(error);
+    })
+    .catch((error: any) => {
       alert.setAlert({
         type: 'danger',
         message: error.message || 'Erro',
       });
-    },
-  });
+    });
 };
 
 export const onUpdate = (items: any, service: any, alert: any) => {

@@ -1,15 +1,14 @@
-import { IProfile, IContent } from './about.interface';
-import { AboutService } from './about.service';
 import { Component, OnInit } from '@angular/core';
-import { about } from './about.mock';
-import { of } from 'rxjs';
+
+import { IContent, IProfile } from './about.interface';
+import { AboutService } from './about.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.sass'],
 })
-export class SobreComponent implements OnInit {
+export class AboutComponent implements OnInit {
   public profile?: IProfile;
   public content?: IContent;
 
@@ -17,8 +16,8 @@ export class SobreComponent implements OnInit {
 
   ngOnInit(): void {
     this.aboutService.getItemsAbout().subscribe((result) => {
-      this.profile = result.profile;
-      this.content = result.content;
+      this.profile = result[0].profile;
+      this.content = result[0].content;
     });
   }
 }

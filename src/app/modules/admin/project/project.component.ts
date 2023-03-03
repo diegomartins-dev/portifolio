@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { onUpdate } from '../helpers/components';
 import { ProjectService } from './project.service';
@@ -18,9 +18,14 @@ export class ProjectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.projectService.getProject().subscribe((result: any) => {
-      this.json = result;
-    });
+    this.projectService
+      .getProject()
+      .then((result: any) => {
+        this.json = result.data;
+      })
+      .catch((err) => {
+        this.json = [];
+      });
   }
 
   onSave(json: any) {

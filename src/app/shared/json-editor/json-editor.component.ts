@@ -17,9 +17,8 @@ import JSONEditor from 'jsoneditor';
 export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() json: any;
   @Input() qtItems!: number;
-  @Input() index!: number;
+  index = Math.random();
   @Input() readonly = true;
-  @Input() id?: string;
   @Output() onSave = new EventEmitter();
 
   private container: any;
@@ -32,16 +31,14 @@ export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.container = document.getElementById(
-      this.id ? this.id : 'jsoneditor' + this.index
-    );
+    this.container = document.getElementById('jsoneditor' + this.index);
     if (this.container) {
       JsonEditorComponent.editors.push(
         new JSONEditor(this.container, { mode: 'tree' })
       );
       JsonEditorComponent.editors.map((editor: any, index: any) => {
-        if (index == this.index) {
-          JsonEditorComponent.editors[this.index].set(this.json);
+        if (editor.container.id == 'jsoneditor' + this.index) {
+          JsonEditorComponent.editors[index].set(this.json);
         }
       });
     }
@@ -54,13 +51,23 @@ export class JsonEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   handleSave(id: number) {
     const save = confirm('Deseja salvar os dados?');
     if (save) {
-      const updatedJson = JsonEditorComponent.editors[id].get();
-      this.onSave.emit(updatedJson);
+      const updatedJson = JsonEditorComponent.editors.filter(
+        (editor: any, index: any) => {
+          if (editor.container.id == 'jsoneditor' + id) {
+            return JsonEditorComponent.editors[index].get();
+          }
+        }
+      );
+      this.onSave.emit(updatedJson[0].get());
     }
   }
 
   setMode(open: boolean, id: number) {
     this.jsonOpened = open;
-    JsonEditorComponent.editors[id].setMode(open ? 'text' : 'tree');
+    JsonEditorComponent.editors.map((editor: any, index: any) => {
+      if (editor.container.id == 'jsoneditor' + id) {
+        JsonEditorComponent.editors[index].setMode(open ? 'text' : 'tree');
+      }
+    });
   }
 }
