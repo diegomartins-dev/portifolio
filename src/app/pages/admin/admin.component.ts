@@ -1,7 +1,7 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
-import { fader, slider } from 'src/app/pages/admin/route-animation';
+import { slider } from 'src/app/pages/admin/route-animation';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { LoginService } from '../login/login.service';
 

@@ -1,7 +1,3 @@
-import { DynamicComponentShared } from './../shared/dynamic-component/dynamic-component.shared';
-import { IDynamicComponent } from './../shared/dynamic-component/dynamic-component.interface';
-import { ParagraphComponent } from './../shared/paragraph/paragraph.component';
-import { ImageComponent } from '../shared/image/image.component';
 import {
   Component,
   Input,
@@ -10,8 +6,12 @@ import {
   ViewChildren,
   ViewContainerRef,
 } from '@angular/core';
-import { LinkComponent } from '../shared/link/link.component';
-import { SocialMediaComponent } from '../shared/social-media/social-media.component';
+import { IDynamicComponent } from 'src/app/shared/dynamic-component/dynamic-component.interface';
+import { DynamicComponentShared } from 'src/app/shared/dynamic-component/dynamic-component.shared';
+import { ImageComponent } from 'src/app/shared/image/image.component';
+import { LinkComponent } from 'src/app/shared/link/link.component';
+import { ParagraphComponent } from 'src/app/shared/paragraph/paragraph.component';
+import { SocialMediaComponent } from 'src/app/shared/social-media/social-media.component';
 
 @Component({
   selector: 'app-header',
@@ -67,14 +67,8 @@ export class HeaderComponent extends DynamicComponentShared implements OnInit {
         return false;
       }
     } else {
-      // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      //   this.setDarkTheme(true);
-      //   this.setTheme('theme-aqua-blueviolet');
-      //   return true;
-      // } else {
       this.setDarkTheme(false);
       return false;
-      // }
     }
   }
 

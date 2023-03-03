@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertService } from '../../components/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 import { LoginService } from './login.service';
 
 @Component({

@@ -23,6 +23,9 @@
     >
       {{ readonly ? "Editar" : "Fechar" }}
     </button>
+    <p>
+      {{ i + 1 }} de {{ json.length }} {{ json.length > 1 ? "items" : "item" }}
+    </p>
   </div>
   <div *ngIf="!loading && !this.json.length">
     <p>Não tem dados inseridos ainda...</p>

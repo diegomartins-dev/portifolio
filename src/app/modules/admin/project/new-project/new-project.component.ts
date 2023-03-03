@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 import { onSave } from '../../helpers/components';
 import { ProjectService } from '../project.service';

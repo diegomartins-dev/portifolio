@@ -8,7 +8,7 @@ import { AboutService } from './about.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.sass'],
 })
-export class SobreComponent implements OnInit {
+export class AboutComponent implements OnInit {
   public profile?: IProfile;
   public content?: IContent;
 

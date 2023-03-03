@@ -10,9 +10,9 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AlertService } from '../components/shared/alert/alert.service';
 import { LoginService } from '../pages/login/login.service';
 import { ApiDgsiteService } from '../services/api-dgsite.service';
+import { AlertService } from '../shared/alert/alert.service';
 
 @Injectable({
   providedIn: 'root',

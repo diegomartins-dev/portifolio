@@ -4,10 +4,10 @@ import { user } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AlertService } from 'src/app/components/shared/alert/alert.service';
 import { setLogin } from 'src/app/redux/actions/login.action';
 import { ILogin } from 'src/app/redux/interfaces/login.interface';
 import { ApiDgsiteService } from 'src/app/services/api-dgsite.service';
+import { AlertService } from 'src/app/shared/alert/alert.service';
 
 @Injectable({
   providedIn: 'root',

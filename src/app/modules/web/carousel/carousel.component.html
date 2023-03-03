@@ -53,37 +53,27 @@
   </div>
 </div>
 <div class="container-slide">
-  <!-- <div class="loader" [ngClass]="this.loading ? 'show' : 'hide'"></div> -->
   <!-- DESKTOP -->
   <div class="d-md-none d-lg-block">
     <div
-      #carouselDesktop
       *ngFor="let item of items; let i = index"
       [style]="'background-image: url(' + item?.image?.bg + ')'"
-      class="project-content project-bg d-none d-xl-flex position-relative carousel-id"
+      class="project-content project-bg d-none d-xl-flex position-relative carousel-id wow slideInLeft"
+      [ngClass]="this.projectActiveItem == i ? 'active' : ''"
     >
       <div class="buttons">
         <div class="project-number">{{ i + 1 }}</div>
         <div>
-          <div
-            class="prev"
-            (click)="this.onLeft(i, setActiveItemCarouselDesktop)"
-          >
+          <div class="prev" (click)="this.onLeft(i)">
             {{ "\<" }}
           </div>
-          <div
-            class="next"
-            (click)="this.onRight(i, setActiveItemCarouselDesktop)"
-          >
+          <div class="next" (click)="this.onRight(i)">
             {{ ">" }}
           </div>
         </div>
       </div>
       <div class="d-none d-xl-flex flex-column project-items">
-        <div
-          class="card-img-desktop-container wow slideInLeft"
-          data-wow-delay=".1s"
-        >
+        <div class="card-img-desktop-container" data-wow-delay=".1s">
           <img
             src="{{ item?.image?.src }}"
             class="card-img-desktop"
@@ -91,16 +81,13 @@
           />
         </div>
 
-        <h1 class="project-item-title wow slideInLeft" data-wow-delay=".2s">
+        <h1 class="project-item-title">
           {{ item?.body?.title }}
         </h1>
-        <p
-          class="project-item-description text-secondary wow slideInLeft"
-          data-wow-delay=".2s"
-        >
+        <p class="project-item-description text-secondary" data-wow-delay=".2s">
           {{ item?.body?.description }}
         </p>
-        <div class="container-tech wow slideInLeft" data-wow-delay=".3s">
+        <div class="container-tech">
           <span
             *ngFor="let technology of item?.body?.technologies"
             class="project-item-technology"
@@ -119,14 +106,14 @@
   </div>
 
   <!-- MOBILE -->
-  <div class="d-md-block d-xl-none p-3">
+  <div class="container-slide-mobile d-md-block d-xl-none p-3">
     <div
-      #carouselMobile
       id="slide"
-      (touchmove)="touchMove(j, setActiveItemCarouselMobile, $event)"
+      (touchmove)="touchMove(j, $event)"
       (touchstart)="touchStart($event)"
       *ngFor="let item of items; let j = index"
       class="slide card mb-3 {{ item?.status?.class }} carousel-id"
+      [ngClass]="this.projectActiveItem == j ? 'active' : ''"
     >
       <div class="row no-gutters">
         <div class="col-md-12 card-image-col position-relative">
@@ -174,14 +161,14 @@
           </div>
         </div>
       </div>
-      <div class="dots d-flex pt-2 pb-4 justify-content-center">
-        <div
-          *ngFor="let project of items; let i = index"
-          class="dot"
-          [ngClass]="j == i ? 'active' : ''"
-          (click)="moveItOnDot(i, setActiveItemCarouselMobile)"
-        ></div>
-      </div>
+    </div>
+    <div class="dots d-flex pt-2 pb-4 justify-content-center">
+      <div
+        *ngFor="let project of items; let i = index"
+        class="dot"
+        [ngClass]="this.projectActiveItem == i ? 'active' : ''"
+        (click)="moveItOnDot(i)"
+      ></div>
     </div>
   </div>
 </div>

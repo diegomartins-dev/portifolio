@@ -1,7 +1,6 @@
-import { ProjectsService } from './projects.service';
 import { Component, OnInit } from '@angular/core';
-import { Projects } from './projects.mock';
-import { of } from 'rxjs';
+
+import { ProjectsService } from './projects.service';
 
 @Component({
   selector: 'app-projects',

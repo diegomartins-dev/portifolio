@@ -7,9 +7,6 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
   styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent implements OnInit, AfterContentInit {
-  private mode = ['mock', 'prod'];
-  private modeActive = 'mock';
-
   public data: any = [];
   private storage: any = [];
 
@@ -18,10 +15,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {}
 
   ngAfterContentInit(): void {
-    if (this.modeActive === this.mode[0]) {
-      this.getDataMocks();
-    } else if (this.modeActive === this.mode[1]) {
-    }
+    this.getDataMocks();
   }
 
   getDataMocks() {
