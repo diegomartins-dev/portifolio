@@ -32,12 +32,7 @@
               "./node_modules/jsoneditor/dist/jsoneditor.min.css"
             ],
             "scripts": ["./node_modules/jsoneditor/dist/jsoneditor.min.js"],
-            "allowedCommonJsDependencies": [
-              "contentful",
-              "jsoneditor",
-              "ts-fs",
-              "fs"
-            ]
+            "allowedCommonJsDependencies": ["jsoneditor"]
           },
           "configurations": {
             "production": {
