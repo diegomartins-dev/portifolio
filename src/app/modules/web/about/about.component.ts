@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
   constructor(private aboutService: AboutService) {}
 
   ngOnInit(): void {
-    this.aboutService.getItemsAbout().subscribe((result) => {
+    this.aboutService.getAbout().subscribe((result) => {
       this.profile = result[0].profile;
       this.content = result[0].content;
     });

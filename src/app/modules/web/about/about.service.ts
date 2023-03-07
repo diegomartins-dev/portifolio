@@ -9,7 +9,7 @@ import { about } from './about.mock';
 export class AboutService {
   constructor(private API: ApiDgsiteService) {}
 
-  getItemsAbout() {
+  getAbout() {
     return this.API.getPublished('about').pipe(map((res) => res.data));
   }
 }

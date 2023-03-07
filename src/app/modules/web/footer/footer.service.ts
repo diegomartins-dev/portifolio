@@ -10,7 +10,7 @@ import { Footer } from './footer.mock';
 export class FooterService {
   constructor(private location: Location, private API: ApiDgsiteService) {}
 
-  getAll() {
+  getFooter() {
     return this.API.getPublished('footer').pipe(map((res) => res.data));
   }
 }

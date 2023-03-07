@@ -19,17 +19,12 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.projectsService.getProjects().subscribe((results: any) => {
-      results = results.data.sort((a: any, b: any) =>
-        a.order > b.order ? 1 : -1
-      );
       this.setProjects(results);
     });
   }
 
   setProjects(projects: any) {
-    this.projects = projects
-      .filter((project: any) => project.publish)
-      .sort((a: any, b: any) => (a.order > b.order ? 1 : -1));
+    this.projects = projects.filter((project: any) => project.publish);
 
     const { categories, technologies } = this.projectsService.getFilters(
       this.projects
