@@ -109,11 +109,11 @@
   <div class="container-slide-mobile d-md-block d-xl-none p-3">
     <div
       id="slide"
-      (touchmove)="touchMove(j, $event)"
-      (touchstart)="touchStart($event)"
       *ngFor="let item of items; let j = index"
       class="slide card mb-3 {{ item?.status?.class }} carousel-id"
       [ngClass]="this.projectActiveItem == j ? 'active' : ''"
+      (touchmove)="touchMove(j, $event)"
+      (touchstart)="touchStart($event)"
     >
       <div class="row no-gutters">
         <div class="col-md-12 card-image-col position-relative">

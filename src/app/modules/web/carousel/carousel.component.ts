@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnChanges,
   OnInit,
   ViewChild,
 } from '@angular/core';
