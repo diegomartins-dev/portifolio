@@ -121,28 +121,24 @@
           font-weight: 700
 
   .container-slide-mobile
-    display: block
-    position: relative
+    display: flex
+    scroll-snap-type: x proximity
+    overflow-x: auto
+    // align-items: start
+    justify-content: space-between
+    flex-flow: row nowrap
+    scroll-behavior: smooth
 
     .slide
-      // display: block
-      display: none
       background: var(--bg-card-secondary)
-      width: calc(100% - 42px)
+      width: 100%
       margin-left: 21px
-      position: absolute
-      top: 0
-      left: 0
-      opacity: 0
-      // transform: translateY(-100%)
-      // transition: transform 1s, opacity .5s
-      transition: opacity .5s
+      overflow-x: auto
+      flex: none
+      scroll-snap-align: center
 
       &.active
         z-index: 9999
-        display: contents
-        opacity: 1
-        // transform: translateY(0)
 
       .card-body
         padding-bottom: 0
@@ -172,23 +168,23 @@
             align-self: center
             height: auto
 
-    .dots
-      position: relative
-      bottom: 0
-      left: 50%
-      transform: translateX(-50%)
+  .dots
+    position: relative
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
 
-      .dot
-        width: 16px
-        height: 16px
-        border-radius: 100%
-        margin-left: 8px
-        background-color: var(--bg-card)
-        cursor: pointer
+    .dot
+      width: 16px
+      height: 16px
+      border-radius: 100%
+      margin-left: 8px
+      background-color: var(--bg-card)
+      cursor: pointer
 
-        &.active
-          z-index: 9999
-          background-color: var(--primary-color)
+      &.active
+        z-index: 9999
+        background-color: var(--primary-color)
 
 .project-bg
   display: flex

@@ -113,6 +113,10 @@ export class CarouselComponent implements OnInit {
   }
 
   moveItOnDot(index: number) {
+    const containerMobile = document.querySelector('.container-slide-mobile');
+
+    containerMobile?.scrollTo({ left: document.body.clientWidth * index + 1 });
+
     this.projectActiveItem = index;
   }
 }
