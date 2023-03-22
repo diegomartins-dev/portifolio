@@ -122,26 +122,25 @@
 
   .container-slide-mobile
     display: flex
-    scroll-snap-type: x proximity
-    overflow-x: auto
+    // scroll-snap-type: x proximity
+    overflow: auto
     // align-items: start
-    justify-content: space-between
-    flex-flow: row nowrap
-    scroll-behavior: smooth
+    // justify-content: space-between
+    // flex-flow: row nowrap
 
     .slide
       background: var(--bg-card-secondary)
       width: 100%
       margin-left: 21px
-      overflow-x: auto
+      // overflow: auto
       flex: none
-      scroll-snap-align: center
+      // scroll-snap-align: center
 
       &.active
         z-index: 9999
 
-      .card-body
-        padding-bottom: 0
+    .card-body
+      padding-bottom: 0
 
         //DEIXA OS ITENS DE TECNOLOGIAS LINEAR COM UMA BARRA DE ROLAGEM HORIZONTAL MAS ATRAPALHA SLIDE DOS ITENS
       .card-text

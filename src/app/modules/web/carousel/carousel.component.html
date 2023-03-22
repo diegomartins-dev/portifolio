@@ -108,12 +108,9 @@
   <!-- MOBILE -->
   <div class="container-slide-mobile d-md-flex d-xl-none p-3">
     <div
-      id="slide"
       *ngFor="let item of items; let j = index"
-      class="slide card mb-3 {{ item?.status?.class }} carousel-id"
+      class="slide card mb-3 {{ item?.status?.class }} carousel-mobile"
       [ngClass]="this.projectActiveItem == j ? 'active' : ''"
-      (touchmove)="touchMove(j, $event)"
-      (touchstart)="touchStart($event)"
     >
       <div class="row no-gutters">
         <div class="col-md-12 card-image-col position-relative">
@@ -163,12 +160,12 @@
       </div>
     </div>
   </div>
-  <div class="dots d-flex d-md-flex d-xl-none pt-2 pb-4 justify-content-center">
+  <!-- <div class="dots d-flex d-md-flex d-xl-none pt-2 pb-4 justify-content-center">
     <div
       *ngFor="let project of items; let i = index"
       class="dot"
       [ngClass]="this.projectActiveItem == i ? 'active' : ''"
       (click)="moveItOnDot(i)"
     ></div>
-  </div>
+  </div> -->
 </div>
