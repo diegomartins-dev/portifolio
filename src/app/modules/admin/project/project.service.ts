@@ -8,11 +8,15 @@ export class ProjectService {
   constructor(private API: ApiDgsiteService) {}
 
   getProject() {
-    return this.API.selectAll('project');
+    return this.API.selectAll('project').then((project: any) => {
+      return project.data.sort((a: any, b: any) =>
+        a.order > b.order ? 1 : -1
+      );
+    });
   }
 
   update(data: any) {
-    return this.API.update('project', data.id, data);
+    return this.API.set('project', data.id, data);
   }
 
   save(data: any) {

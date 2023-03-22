@@ -16,6 +16,6 @@ export class FooterService {
   }
 
   update(data: any) {
-    return this.API.update('footer', data.id, data);
+    return this.API.set('footer', data.id, data);
   }
 }

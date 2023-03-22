@@ -19,7 +19,6 @@ import {
   deleteDoc,
   collectionData,
   getDocs,
-  getDoc,
 } from '@angular/fire/firestore';
 import { catchError, map, of, filter } from 'rxjs';
 
@@ -40,8 +39,8 @@ export class ApiDgsiteService {
   constructor(public firestore: Firestore) {}
 
   //indicado para criar um documento com o uid setado por aqui
-  set(document: string, uid: string, data: {}) {
-    return setDoc(doc(this.firestore, document, uid), data)
+  set(document: string, id: string, data: {}) {
+    return setDoc(doc(this.firestore, document, id), data)
       .then(() => {
         return { status: 'success' };
       })

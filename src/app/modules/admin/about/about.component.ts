@@ -31,7 +31,7 @@ export class AboutComponent implements OnInit {
   onSave(json: any) {
     let items = {
       ...json,
-      updateAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
     onUpdate(items, this.aboutService, this.alertService);
   }

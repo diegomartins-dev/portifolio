@@ -21,7 +21,7 @@ export class ProjectComponent implements OnInit {
     this.projectService
       .getProject()
       .then((result: any) => {
-        this.json = result.data;
+        this.json = result;
       })
       .catch((err) => {
         this.json = [];
@@ -30,9 +30,10 @@ export class ProjectComponent implements OnInit {
 
   onSave(json: any) {
     let items = {
+      ...json,
       id: json.id,
       publish: json.publish,
-      data: { ...json.data },
+      updatedAt: new Date().toISOString(),
     };
     onUpdate(items, this.projectService, this.alertService);
   }

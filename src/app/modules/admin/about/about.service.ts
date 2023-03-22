@@ -16,6 +16,6 @@ export class AboutService {
   }
 
   update(data: any) {
-    return this.API.update('about', data.id, data);
+    return this.API.set('about', data.id, data);
   }
 }
