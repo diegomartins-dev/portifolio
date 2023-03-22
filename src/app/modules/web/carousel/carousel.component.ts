@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 import { IProject } from '../projects/projects.interface';
 
@@ -12,7 +6,6 @@ import { IProject } from '../projects/projects.interface';
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselComponent implements OnInit {
   @Input('items') items: any;
@@ -26,8 +19,10 @@ export class CarouselComponent implements OnInit {
   @ViewChild('selectCategories') selectCategories: any;
   @ViewChild('selectTechnologies') selectTechnologies: any;
 
-  private touchXStart = 0;
-  private touchYStart = 0;
+  itemActiveModal: any;
+
+  // private touchXStart = 0;
+  // private touchYStart = 0;
 
   constructor() {}
 

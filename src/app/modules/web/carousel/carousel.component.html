@@ -133,28 +133,16 @@
             <div class="card-title">
               {{ item?.body?.title }}
             </div>
-            <p class="card-text text-secondary">
-              {{ item?.body?.description }}
-            </p>
-            <div class="card-text text-secondary">
-              <small><strong>Algumas tecnologias usadas:</strong></small>
-              <div class="container-technologies">
-                <span
-                  *ngFor="let technology of item?.body?.technologies"
-                  class="technologies"
-                  >{{ technology }}</span
-                >
-              </div>
-            </div>
           </div>
           <div class="card-footer">
-            <a
-              *ngFor="let link of item?.links"
-              href="{{ link?.href }}"
-              target="_blank"
+            <button
               class="btn btn-primary btn-block font-weight-bold"
-              >{{ link?.title }}</a
+              data-toggle="modal"
+              data-target="#modal"
+              (click)="itemActiveModal = item"
             >
+              Ver mais
+            </button>
           </div>
         </div>
       </div>
@@ -168,4 +156,55 @@
       (click)="moveItOnDot(i)"
     ></div>
   </div> -->
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ itemActiveModal?.body?.title }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body card-content">
+        <small><strong>Descrição:</strong></small>
+        <p class="card-text text-secondary">
+          {{ itemActiveModal?.body?.description }}
+        </p>
+        <div class="card-text text-secondary">
+          <small><strong>Algumas tecnologias usadas:</strong></small>
+          <div class="container-technologies">
+            <span
+              *ngFor="let technology of itemActiveModal?.body?.technologies"
+              class="technologies"
+              >{{ technology }}</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a
+          *ngFor="let link of itemActiveModal?.links"
+          href="{{ link?.href }}"
+          target="_blank"
+          class="btn btn-primary btn-block font-weight-bold"
+          >{{ link?.title }}</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
