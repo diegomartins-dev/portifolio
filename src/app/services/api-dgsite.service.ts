@@ -240,7 +240,7 @@ export class ApiDgsiteService {
       .then(() => {
         return {
           status: 'success',
-          message: 'Atualizção realizada com sucesso!',
+          message: 'Atualização realizada com sucesso!',
         };
       })
       .catch((err) => ({
@@ -261,13 +261,4 @@ export class ApiDgsiteService {
       });
     });
   }
-
-  // updateOld(path: string, data: any) {
-  //   return this.http
-  //     .post(this.url + path.replace('/', '') + '/update', data)
-  //     .pipe(
-  //       map((result: any) => result as IResponse),
-  //       catchError((err) => of({ ...err.error }) as Observable<IResponse>)
-  //     );
-  // }
 }

@@ -4,11 +4,11 @@ import { of } from 'rxjs';
 import { Footer } from './footer.mock';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'v1-app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.sass'],
 })
-export class FooterComponent implements OnInit {
+export class V1FooterComponent implements OnInit {
   public footer?: any;
 
   constructor(private footerService: FooterService) {}

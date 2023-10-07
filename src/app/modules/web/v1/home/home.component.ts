@@ -1,12 +1,12 @@
-import { MockService } from './../../services/mock.service';
+import { MockService } from '../../../../services/mock.service';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'v1-app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.sass'],
 })
-export class HomeComponent implements OnInit, AfterContentInit {
+export class V1HomeComponent implements OnInit, AfterContentInit {
   public data: any = [];
   private storage: any = [];
 

@@ -14,11 +14,14 @@ import { ParagraphComponent } from 'src/app/shared/paragraph/paragraph.component
 import { SocialMediaComponent } from 'src/app/shared/social-media/social-media.component';
 
 @Component({
-  selector: 'app-header',
+  selector: 'v1-app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass'],
 })
-export class HeaderComponent extends DynamicComponentShared implements OnInit {
+export class V1HeaderComponent
+  extends DynamicComponentShared
+  implements OnInit
+{
   @Input('data') dataInput: any;
   @ViewChildren('container', {
     read: ViewContainerRef,

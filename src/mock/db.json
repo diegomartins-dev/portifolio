@@ -29,7 +29,7 @@
                 },
                 {
                   "component": "LinkComponent",
-                  "class": "btn btn-primary mb-2 ml-2",
+                  "class": "btn btn-primary mb-2 ml-2 text-white",
                   "href": "/login",
                   "content": "Visite a área administrativa",
                   "target": "_self"

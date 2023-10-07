@@ -3,11 +3,11 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IProject } from '../projects/projects.interface';
 
 @Component({
-  selector: 'app-carousel',
+  selector: 'v1-app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.sass'],
 })
-export class CarouselComponent implements OnInit {
+export class V1CarouselComponent implements OnInit {
   @Input('items') items: any;
   private itemsBackup: any;
 

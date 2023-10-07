@@ -4,11 +4,11 @@ import { IContent, IProfile } from './about.interface';
 import { AboutService } from './about.service';
 
 @Component({
-  selector: 'app-about',
+  selector: 'v1-app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.sass'],
 })
-export class AboutComponent implements OnInit {
+export class V1AboutComponent implements OnInit {
   public profile?: IProfile;
   public content?: IContent;
 

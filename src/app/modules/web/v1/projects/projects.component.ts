@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from './projects.service';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'v1-app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.sass'],
 })
-export class ProjectsComponent implements OnInit {
+export class V1ProjectsComponent implements OnInit {
   public projectsBackup?: [];
   public projects?: [];
   public categories = [];

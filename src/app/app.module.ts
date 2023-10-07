@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminComponent } from './pages/admin/admin.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { rootReducer } from './redux/reducers/root.reducer';
@@ -25,37 +24,18 @@ import {
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { ImageComponent } from './shared/image/image.component';
-import { ParagraphComponent } from './shared/paragraph/paragraph.component';
-import { LinkComponent } from './shared/link/link.component';
-import { SocialMediaComponent } from './shared/social-media/social-media.component';
-import { AlertComponent } from './shared/alert/alert.component';
-import { WebModule } from './modules/web/web.module';
+import { SharedModule } from './shared/shared.module';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ImageComponent,
-    ParagraphComponent,
-    LinkComponent,
-    SocialMediaComponent,
-    NotFoundComponent,
-    AlertComponent,
-    HomeComponent,
-    AdminComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WebModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     /* REDUX */
     StoreModule.forRoot({ app: rootReducer }, {}),
