@@ -1,46 +1,40 @@
+@import "/src/styles.scss";
+
 .Menu {
   display: flex;
   border-bottom: 1px solid #1e2d3d;
   list-style: none;
   padding: 0 24px;
 
-  @mixin Font {
-    font-family: Fira Code;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 450;
-    line-height: normal;
-  }
-
-  .brand {
+  .Brand {
     padding: 16px 0;
     color: #607b96;
     min-width: 24%;
-    @include Font();
+    @include Font(16px);
   }
 
-  .pages {
+  .Pages {
     border-left: 1px solid #1e2d3d;
     cursor: pointer;
 
     &:hover,
-    &.active {
+    &.Active {
       border-bottom: 3px solid #fea55f;
     }
 
     &:hover .page .link,
-    &.active .page .link {
+    &.Active .page .link {
       color: #fff;
     }
 
-    .page {
+    .Page {
       padding: 16px 32px;
 
-      .link {
+      .Link {
         color: #607b96;
         text-decoration: none;
 
-        @include Font();
+        @include Font(16px);
       }
     }
   }

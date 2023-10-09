@@ -1,4 +1,8 @@
-<p>
-  sidenav works!
-  <ng-content></ng-content>
-</p>
+<div class="Container">
+  <div class="Left" *ngIf="showLeft">
+    <ng-content select="[boxLeft]"></ng-content>
+  </div>
+  <div class="Right">
+    <ng-content select="[boxRight]"></ng-content>
+  </div>
+</div>

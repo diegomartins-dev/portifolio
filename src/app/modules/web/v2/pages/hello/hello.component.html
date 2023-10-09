@@ -1,4 +1,25 @@
-<h1>{{ hello?.title }}</h1>
-<h1>{{ hello?.name }}</h1>
-<h4>{{ hello?.subtitle }}</h4>
-<p>{{ hello?.description }}</p>
+<v2-app-sidenav [showLeft]="false">
+  <ul boxLeft>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+  </ul>
+
+  <div class="Container" boxRight>
+    <div class="Hero">
+      <div class="Left">
+        <h5 class="Title">{{ hello?.title }}</h5>
+        <h1 class="Name">{{ hello?.name }}</h1>
+        <h4 class="Subtitle">{{ hello?.subtitle }}</h4>
+        <p class="Description">{{ hello?.description }}</p>
+      </div>
+
+      <div class="Right Profile">
+        <img class="Image" src="assets/img/eu.jpg" />
+      </div>
+
+      <img class="Vector01" src="assets/img/v2/bgs/vector-01.svg" />
+      <img class="Vector02" src="assets/img/v2/bgs/vector-02.svg" />
+    </div>
+  </div>
+</v2-app-sidenav>

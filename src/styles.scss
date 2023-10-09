@@ -31,6 +31,15 @@
   --bg-card-secondary: #49167944;
   --bg-card-ternary: #ddd;
 }
+
+@mixin Font($size: 16px, $style: normal, $weight: 450, $lineHeight: normal) {
+  font-family: "Fira Code", Arial, Helvetica, sans-serif;
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+
 @mixin scrollBarConfig($primaryColor, $secondaryColor) {
   /* Barra de rolagem */
   //firefox

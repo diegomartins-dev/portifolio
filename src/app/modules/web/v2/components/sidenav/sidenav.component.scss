@@ -1,3 +1,12 @@
-:host {
+.Container {
   flex-grow: 1;
+  height: 100%;
+
+  .Left {
+    height: 100%;
+  }
+
+  .Right {
+    height: 100%;
+  }
 }

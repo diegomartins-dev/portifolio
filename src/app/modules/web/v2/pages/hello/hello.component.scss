@@ -1,0 +1,80 @@
+@import "/src/styles.scss";
+
+.Container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  color: white;
+  height: 100%;
+
+  .Hero {
+    display: flex;
+    position: relative;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .Left {
+      display: block;
+
+      .Title {
+        color: #e5e9f0;
+        @include Font(18px, normal, 300);
+      }
+
+      .Name {
+        color: #e5e9f0;
+        @include Font(62px);
+      }
+
+      .Subtitle {
+        color: #4d5bce;
+        @include Font(32px);
+      }
+
+      .Description {
+        color: #607b96;
+        @include Font(16px, normal, 500);
+      }
+    }
+
+    .Right {
+      position: relative;
+      min-width: 40%;
+
+      &.Profile {
+        .Image {
+          width: 320px;
+
+          border-radius: 440px;
+        }
+      }
+    }
+
+    .Vector01 {
+      width: 585px;
+      position: absolute;
+      top: -50px;
+      right: 0;
+      transform: rotate(-94.305deg);
+
+      fill: #43d9ad;
+      filter: blur(87px);
+    }
+
+    .Vector02 {
+      width: 430px;
+      position: absolute;
+      bottom: 0;
+      right: -220px;
+      transform: rotate(13.508deg);
+
+      fill: #4d5bce;
+
+      filter: blur(87px);
+    }
+  }
+}

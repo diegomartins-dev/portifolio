@@ -6,4 +6,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
+  .Body {
+    flex-grow: 1;
+  }
 }

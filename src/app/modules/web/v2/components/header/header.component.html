@@ -1,9 +1,9 @@
 <nav>
   <ul class="Menu">
-    <li class="brand">{{ header?.brand }}</li>
-    <a class="pages" [routerLinkActive]="'active'" *ngFor="let page of pages">
-      <div class="page" [routerLink]="page?.href">
-        <li class="link">{{ page?.title }}</li>
+    <li class="Brand">{{ header?.brand }}</li>
+    <a class="Pages" [routerLinkActive]="'Active'" *ngFor="let page of pages">
+      <div class="Page" [routerLink]="page?.href">
+        <li class="Link">{{ page?.title }}</li>
       </div>
     </a>
   </ul>
