@@ -5,8 +5,8 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from '../guards/auth.guard';
-import { V1HomeComponent } from '../modules/web/v1/home/home.component';
-import { V2HomeComponent } from '../modules/web/v2/home/home.component';
+import { V1HomeComponent } from '../modules/web/v1/pages/home/home.component';
+import { V2HelloComponent } from '../modules/web/v2/pages/hello/hello.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/v2', pathMatch: 'full' },
@@ -19,8 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'v2',
-    pathMatch: 'full',
-    component: V2HomeComponent,
+    pathMatch: 'prefix',
     loadChildren: () =>
       import('../modules/web/web.module').then((m) => m.WebModule),
   },

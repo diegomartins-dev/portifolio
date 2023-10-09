@@ -1,0 +1,10 @@
+<nav>
+  <ul class="menu">
+    <li class="brand">Diego Guimarães</li>
+    <div class="pages" *ngFor="let page of pages">
+      <li class="page">
+        <a class="link" [routerLink]="page?.href"> {{ page?.title }}</a>
+      </li>
+    </div>
+  </ul>
+</nav>

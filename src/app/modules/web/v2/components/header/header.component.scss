@@ -1,0 +1,30 @@
+.menu {
+  display: flex;
+  padding: 0 28px;
+  border-bottom: solid;
+  border-width: 1px;
+  list-style: none;
+  background-color: var(primary-color);
+
+  .brand {
+    padding: 24px 0;
+    min-width: 20%;
+  }
+
+  .pages {
+    padding: 24px 0;
+    border-left: 1px solid black;
+
+    .page {
+      padding: 0 28px;
+
+      .link {
+        color: black;
+      }
+    }
+  }
+
+  & > :last-child {
+    border-right: 1px solid black;
+  }
+}

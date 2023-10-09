@@ -232,28 +232,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
-
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyAtQSer6abZozwDTDUIPxro13IG7ua74E8",
-        authDomain: "cms-api-curriculo.firebaseapp.com",
-        databaseURL: "https://cms-api-curriculo.firebaseio.com",
-        projectId: "cms-api-curriculo",
-        storageBucket: "cms-api-curriculo.appspot.com",
-        messagingSenderId: "212348249722",
-        appId: "1:212348249722:web:c09e7c6d07150cdc83fdc3",
-        measurementId: "G-T2JP8JXRNQ",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-171539083-1"
-    ></script>
+    <!--  -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -266,21 +245,22 @@
 
     <!-- loading das paginas -->
     <script>
-      window.onload = () => {
+      window.onload = (res) => {
+        const body = document.querySelector("body");
+        const splashScreen = document.querySelector("#splashScreen");
+
         const elements = {
-          home: [
+          v1: [
             "#splashScreen",
             "#header",
             "#about",
             ".carousel-mobile",
             "#footer",
           ],
+          v2: ["#splashScreen", ".page"],
           login: ["#login"],
           admin: [".navbar"],
         };
-
-        const body = document.querySelector("body");
-        const splashScreen = document.querySelector("#splashScreen");
 
         const url = (document.URL || document.documentURI).replace(
           document.baseURI,
