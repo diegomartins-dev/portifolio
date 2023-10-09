@@ -1,30 +1,50 @@
-.menu {
+.Menu {
   display: flex;
-  padding: 0 28px;
-  border-bottom: solid;
-  border-width: 1px;
+  border-bottom: 1px solid #1e2d3d;
   list-style: none;
-  background-color: var(primary-color);
+  padding: 0 24px;
+
+  @mixin Font {
+    font-family: Fira Code;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: normal;
+  }
 
   .brand {
-    padding: 24px 0;
-    min-width: 20%;
+    padding: 16px 0;
+    color: #607b96;
+    min-width: 24%;
+    @include Font();
   }
 
   .pages {
-    padding: 24px 0;
-    border-left: 1px solid black;
+    border-left: 1px solid #1e2d3d;
+
+    &:hover,
+    &.active {
+      border-bottom: 3px solid #fea55f;
+    }
+
+    &:hover .page .link,
+    &.active .page .link {
+      color: #fff;
+    }
 
     .page {
-      padding: 0 28px;
+      padding: 16px 32px;
 
       .link {
-        color: black;
+        color: #607b96;
+        text-decoration: none;
+
+        @include Font();
       }
     }
   }
 
   & > :last-child {
-    border-right: 1px solid black;
+    border-right: 1px solid #1e2d3d;
   }
 }

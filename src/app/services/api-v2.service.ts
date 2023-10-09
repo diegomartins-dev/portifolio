@@ -136,7 +136,9 @@ export class V2ApiService {
   getAllPages(document: string) {
     const coll = collection(this.firestore, document);
     return collectionData(coll).pipe(
-      map((res) => res.filter((it: any) => it.published === true)),
+      map((res) =>
+        res.filter((it: any) => it.published === true && it.page === true)
+      ),
       map((res) => {
         return {
           status: 'success',
@@ -171,6 +173,7 @@ export class V2ApiService {
     return collectionData(coll).pipe(
       map((res) => res.filter((it: any) => it.published === true)),
       map((res) => {
+        console.log(res);
         return {
           status: 'success',
           message: 'consulta com sucesso',

@@ -1,14 +1,16 @@
-.menu {
+.Footer {
   display: flex;
-  padding: 0 28px;
+  padding: 0 24px;
   border-bottom: solid;
+  border-top: solid;
   border-width: 1px;
   list-style: none;
   background-color: var(primary-color);
+  margin-bottom: 0;
 
   .brand {
-    padding: 24px 0;
-    min-width: 20%;
+    padding: 24px 24px 0 0;
+    min-width: 10%;
   }
 
   .pages {

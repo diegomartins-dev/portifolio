@@ -7,12 +7,16 @@ import { V2HelloService } from '../../services/hello.service';
   styleUrls: ['./hello.component.scss'],
 })
 export class V2HelloComponent implements OnInit {
+  hello?: any;
+
   constructor(private helloService: V2HelloService) {}
 
   ngOnInit(): void {
     this.helloService.getAllPublished('v1').subscribe({
       next: (res) => {
         console.log(res);
+
+        this.hello = res.data[0];
       },
     });
 
