@@ -1,10 +1,10 @@
 <nav>
   <ul class="Menu">
     <li class="brand">{{ header?.brand }}</li>
-    <div class="pages" [routerLinkActive]="'active'" *ngFor="let page of pages">
-      <li class="page">
-        <a class="link" [routerLink]="page?.href"> {{ page?.title }}</a>
-      </li>
-    </div>
+    <a class="pages" [routerLinkActive]="'active'" *ngFor="let page of pages">
+      <div class="page" [routerLink]="page?.href">
+        <li class="link">{{ page?.title }}</li>
+      </div>
+    </a>
   </ul>
 </nav>

@@ -13,7 +13,7 @@ const routes: Routes = [
     component: WebTemplateComponent,
     children: [
       {
-        path: '',
+        path: 'hello',
         component: V2HelloComponent,
       },
       {
