@@ -1,6 +1,7 @@
 <nav>
   <ul class="Menu">
     <li class="Brand">{{ header?.brand }}</li>
+    <a class="btn Hamburguer"><i class="fas fa-bars"></i></a>
     <a class="Pages" [routerLinkActive]="'Active'" *ngFor="let page of pages">
       <div class="Page" [routerLink]="page?.href">
         <li class="Link">{{ page?.title }}</li>

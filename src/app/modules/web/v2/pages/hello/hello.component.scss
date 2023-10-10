@@ -1,24 +1,32 @@
 @import "/src/styles.scss";
 
+:root {
+  width: 100% !important;
+}
+
 .Container {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   padding: 24px;
   color: white;
+  width: 100%;
   height: 100%;
 
   .Hero {
     display: flex;
-    position: relative;
-    height: 100%;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100%;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 48px;
 
     .Left {
-      display: block;
+      grid-area: left;
+      position: relative;
+      flex-basis: 60%;
+      z-index: 2;
 
       .Title {
         color: #e5e9f0;
@@ -42,39 +50,79 @@
     }
 
     .Right {
-      position: relative;
-      min-width: 40%;
+      grid-area: right;
+      flex-basis: 20%;
+      z-index: 2;
 
       &.Profile {
         .Image {
           width: 320px;
+          border-radius: 100%;
+        }
+      }
+    }
 
-          border-radius: 440px;
+    @media (max-width: 1000px) {
+      .Left {
+        flex-basis: 50%;
+      }
+    }
+
+    @media (max-width: 790px) {
+      justify-content: unset;
+
+      .Left {
+        flex-basis: 100%;
+        text-align: center;
+
+        .Title {
+          @include Font(14px, normal, 300);
+        }
+
+        .Name {
+          @include Font(32px);
+        }
+
+        .Subtitle {
+          @include Font(20px);
+        }
+
+        .Description {
+          @include Font(14px, normal, 500);
+        }
+      }
+
+      .Right {
+        align-items: center;
+        justify-content: center;
+        &.Profile {
+          display: none;
+          .Image {
+            width: 260px;
+          }
         }
       }
     }
 
     .Vector01 {
-      width: 585px;
+      width: 650px;
       position: absolute;
-      top: -50px;
+      top: -100px;
       right: 0;
       transform: rotate(-94.305deg);
-
       fill: #43d9ad;
-      filter: blur(87px);
+      filter: blur(50px);
+      z-index: 0;
     }
-
     .Vector02 {
-      width: 430px;
+      width: 600px;
       position: absolute;
-      bottom: 0;
-      right: -220px;
+      bottom: -70px;
+      right: -120px;
       transform: rotate(13.508deg);
-
       fill: #4d5bce;
-
-      filter: blur(87px);
+      filter: blur(50px);
+      z-index: 0;
     }
   }
 }

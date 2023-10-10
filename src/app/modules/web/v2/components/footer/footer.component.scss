@@ -5,8 +5,9 @@
   border-top: solid;
   border-width: 1px;
   list-style: none;
-  background-color: var(primary-color);
+  // background-color: var(primary-color);
   margin-bottom: 0;
+  z-index: 9;
 
   .brand {
     padding: 24px 24px 0 0;
@@ -27,5 +28,12 @@
 
   & > :last-child {
     border-right: 1px solid black;
+  }
+
+  @media (max-width: 790px) {
+    > * {
+      font-size: 14px !important;
+      color: white;
+    }
   }
 }

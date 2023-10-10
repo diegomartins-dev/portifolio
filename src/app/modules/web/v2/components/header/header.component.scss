@@ -5,9 +5,12 @@
   border-bottom: 1px solid #1e2d3d;
   list-style: none;
   padding: 0 24px;
+  position: relative;
+  z-index: 99;
+  margin: 0;
 
   .Brand {
-    padding: 16px 0;
+    padding: 16px 16px 16px 0;
     color: #607b96;
     min-width: 24%;
     @include Font(16px);
@@ -36,6 +39,12 @@
 
         @include Font(16px);
       }
+    }
+  }
+
+  @media (max-width: 790px) {
+    .Pages {
+      display: none;
     }
   }
 

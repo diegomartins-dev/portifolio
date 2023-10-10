@@ -1,12 +1,32 @@
 .Container {
-  flex-grow: 1;
+  display: grid;
+  grid-template-areas: "left right";
+  grid-template-columns: 300px 1fr;
+  align-items: stretch;
   height: 100%;
 
   .Left {
-    height: 100%;
+    grid-area: left;
   }
 
   .Right {
-    height: 100%;
+    grid-area: right;
+  }
+
+  &.hideLeft {
+    grid-template-areas: "right" !important;
+    grid-template-rows: 1fr;
+    grid-template-columns: unset;
+  }
+
+  @media (max-width: 768px) {
+    grid-template:
+      "left left"
+      "right right";
+    grid-template-columns: 1fr;
+
+    .Left {
+      width: 100%;
+    }
   }
 }

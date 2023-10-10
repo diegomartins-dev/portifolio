@@ -196,12 +196,9 @@ body.light-mode {
     @include light-orange;
   }
 }
-strong {
-  font-weight: 700;
-}
-.text-white {
-  color: var(--white);
-}
+
+/** -------------------------- GLOBAL ----------------------  **/
+//BUTTONS
 .btn-primary {
   background-color: var(--primary-color);
   color: var(--primary-color-ultra-dark);
@@ -228,16 +225,28 @@ strong {
   background-color: var(--primary-color-ultra-dark);
   border-color: var(--primary-color-ultra-dark);
 }
+
 body {
   // font-family: "Work Sans", Arial, Helvetica, sans-serif
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
+strong {
+  font-weight: 700;
+}
+
+.text-white {
+  color: var(--white);
+}
+
 .dgsite-span {
   display: none;
 }
+
 .title strong {
   // background: linear-gradient(7deg, var(--secondary-color) 35%, rgb(143, 6, 223) 100%, var(--primary-color) 35%)
   background: linear-gradient(
@@ -252,9 +261,23 @@ html {
   -moz-text-fill-color: transparent;
   color: var(--primary-color);
 }
+
 .logo {
   width: 220px;
 }
+
+.DBlock {
+  display: block !important;
+}
+
+.DGrid {
+  display: grid !important;
+}
+
+.DFlex {
+  display: flex !important;
+}
+
 /** -------------------------- HEADER ----------------------  **/
 @media (max-width: 481px) {
   .logo {
