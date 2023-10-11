@@ -10,6 +10,7 @@ import { V2HeaderService } from '../../services/header.service';
 export class V2HeaderComponent implements OnInit {
   pages?: any;
   header?: any;
+  openMenu = false;
 
   constructor(
     private pagesService: V2PagesService,
@@ -30,5 +31,23 @@ export class V2HeaderComponent implements OnInit {
         this.header = res.data[0];
       },
     });
+  }
+
+  setTheme(theme: string) {
+    console.log(theme);
+  }
+
+  OpenCloseMenu(target: any) {
+    target = target?.checked;
+    if (target) {
+      this.openMenu = true;
+    } else {
+      this.openMenu = false;
+    }
+  }
+
+  closeMenu() {
+    this.openMenu = false;
+    document.getElementById('checkbox-menu')?.click();
   }
 }

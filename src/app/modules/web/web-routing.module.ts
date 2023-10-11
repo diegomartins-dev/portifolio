@@ -10,6 +10,11 @@ import { V2AboutComponent } from './v2/pages/about/about.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'hello',
+  },
+  {
+    path: '',
     component: WebTemplateComponent,
     children: [
       {
