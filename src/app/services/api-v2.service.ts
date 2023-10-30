@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import {
   createUserWithEmailAndPassword,
@@ -20,6 +21,9 @@ import {
   collectionData,
   getDocs,
   getDoc,
+  orderBy,
+  Query,
+  fromRef,
 } from '@angular/fire/firestore';
 import { catchError, map, of, filter, from } from 'rxjs';
 
@@ -139,6 +143,7 @@ export class V2ApiService {
       map((res) =>
         res.filter((it: any) => it.published === true && it.page === true)
       ),
+      map((res) => res.sort(sortByOrder)),
       map((res) => {
         return {
           status: 'success',
@@ -153,6 +158,11 @@ export class V2ApiService {
         return of(err);
       })
     );
+
+    function sortByOrder(a: any, b: any) {
+      if (a.order >= b.order) return 1;
+      else return -1;
+    }
   }
 
   get(document: string, id: string) {

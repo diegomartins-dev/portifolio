@@ -1,27 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthGuard } from '../guards/auth.guard';
+import { V1HomeComponent } from '../modules/web/v1/pages/home/home.component';
+import { V2WebTemplateComponent } from '../modules/web/v2/templates/web/web.template';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthGuard } from '../guards/auth.guard';
-import { V1HomeComponent } from '../modules/web/v1/pages/home/home.component';
-import { V2HelloComponent } from '../modules/web/v2/pages/hello/hello.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/v2', pathMatch: 'full' },
+  { path: 'v1', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: 'v1',
+    path: 'home',
     pathMatch: 'full',
     component: V1HomeComponent,
-    loadChildren: () =>
-      import('../modules/web/web.module').then((m) => m.WebModule),
   },
   {
     path: 'v2',
     pathMatch: 'prefix',
+    component: V2WebTemplateComponent,
     loadChildren: () =>
-      import('../modules/web/web.module').then((m) => m.WebModule),
+      import('../modules/web/web.module').then((m) => m.V2WebModule),
   },
   {
     path: 'admin',
