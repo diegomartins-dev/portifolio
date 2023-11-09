@@ -10,8 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/v2', pathMatch: 'full' },
-  { path: 'v1', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'v2',
+    pathMatch: 'full',
+  },
   {
     path: 'home',
     pathMatch: 'full',

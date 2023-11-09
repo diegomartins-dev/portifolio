@@ -17,6 +17,7 @@ import { V2ContactComponent } from './v2/pages/contact/contact.component';
 import { V2HelloComponent } from './v2/pages/hello/hello.component';
 import { V2WebTemplateComponent } from './v2/templates/web/web.template';
 import { V2WebRoutingModule } from './web-routing.module';
+import { V2AboutComponent } from './v2/pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { V2WebRoutingModule } from './web-routing.module';
     V2FooterComponent,
     V2HeaderComponent,
     V2SidenavComponent,
+    V2AboutComponent,
     V2BodyComponent,
     V2WebTemplateComponent,
     V2ContactComponent,
@@ -41,23 +43,6 @@ import { V2WebRoutingModule } from './web-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  exports: [
-    V1AboutComponent,
-    V1CarouselComponent,
-    V1ProjectsComponent,
-    V1HeaderComponent,
-    V1FooterComponent,
-    V1HomeComponent,
-    V2HelloComponent,
-    V2FooterComponent,
-    V2HeaderComponent,
-    V2SidenavComponent,
-    V2BodyComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    V2WebTemplateComponent,
-    V2ContactComponent,
-  ],
+  exports: [],
 })
 export class V2WebModule {}

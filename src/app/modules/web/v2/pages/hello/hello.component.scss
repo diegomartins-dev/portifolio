@@ -1,4 +1,5 @@
 @import "/src/styles.scss";
+@import "../../theme/theme.scss";
 
 :root {
   width: 100% !important;
@@ -7,11 +8,12 @@
 .Container {
   position: relative;
   padding: 24px;
-  color: white;
+  color: $light-color;
   width: 100%;
   height: 100%;
 
   .Hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,22 +31,22 @@
       z-index: 2;
 
       .Title {
-        color: #e5e9f0;
+        color: $light-secondary-color;
         @include Font(18px, normal, 300);
       }
 
       .Name {
-        color: #e5e9f0;
+        color: $light-secondary-color;
         @include Font(62px);
       }
 
       .Subtitle {
-        color: #4d5bce;
+        color: $primary-color;
         @include Font(32px);
       }
 
       .Description {
-        color: #607b96;
+        color: $dark-secondary-color;
         @include Font(16px, normal, 500);
       }
     }
@@ -108,19 +110,17 @@
       width: 650px;
       position: absolute;
       top: -100px;
-      right: 0;
+      right: -70px;
       transform: rotate(-94.305deg);
-      fill: #43d9ad;
       filter: blur(50px);
       z-index: 0;
     }
     .Vector02 {
       width: 600px;
       position: absolute;
-      bottom: -70px;
-      right: -120px;
+      bottom: -100px;
+      right: -200px;
       transform: rotate(13.508deg);
-      fill: #4d5bce;
       filter: blur(50px);
       z-index: 0;
     }

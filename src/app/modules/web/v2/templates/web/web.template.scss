@@ -1,5 +1,7 @@
+@import "../../theme/theme.scss";
+
 .Container {
-  background: #010c15;
+  background: $bg-primary;
   font-family: "Fira Code", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
