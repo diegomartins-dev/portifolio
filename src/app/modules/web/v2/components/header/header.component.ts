@@ -20,14 +20,12 @@ export class V2HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.pagesService.getAllPages().subscribe({
       next: (res) => {
-        console.log(res);
         this.pages = res?.data;
       },
     });
 
     this.headerService.getAllPublished('v1').subscribe({
       next: (res) => {
-        console.log(res);
         this.header = res.data[0];
       },
     });

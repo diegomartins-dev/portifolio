@@ -10,6 +10,7 @@
   display: grid;
   overflow: hidden;
   position: relative;
+  color: $light-color;
   grid-template-areas:
     "header"
     "body"

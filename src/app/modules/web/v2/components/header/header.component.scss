@@ -13,7 +13,7 @@
   .Brand {
     padding: 16px 16px 16px 0;
     color: $dark-secondary-color;
-    min-width: 24%;
+    width: calc(260px - 24px);
     @include Font(16px);
   }
 
@@ -90,6 +90,8 @@
         right: 0;
         left: 0;
         width: 100vw;
+        border-top: 1px solid $dark-color;
+        border-bottom: 1px solid $dark-color;
 
         .PageItem {
           padding: 12px;
@@ -154,7 +156,7 @@
     }
 
     .Page {
-      padding: 16px 32px;
+      padding: 16px 24px;
 
       .Link {
         color: $dark-secondary-color;
@@ -180,6 +182,14 @@
 
     .PagesMenu.Show {
       visibility: visible !important;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .Tools {
+      .Theme {
+        display: none;
+      }
     }
   }
 

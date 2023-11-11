@@ -15,8 +15,6 @@ export class V2FooterComponent implements OnInit {
   ngOnInit(): void {
     this.api.getAllPublished('v1').subscribe({
       next: (res) => {
-        console.log(res);
-
         this.footer = res.data[0];
       },
     });

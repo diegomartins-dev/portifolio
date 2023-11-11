@@ -18,6 +18,11 @@ import { V2HelloComponent } from './v2/pages/hello/hello.component';
 import { V2WebTemplateComponent } from './v2/templates/web/web.template';
 import { V2WebRoutingModule } from './web-routing.module';
 import { V2AboutComponent } from './v2/pages/about/about.component';
+import { BioComponent } from './v2/pages/about/bio/bio.component';
+import { InterestsComponent } from './v2/pages/about/interests/interests.component';
+import { EducationComponent } from './v2/pages/about/education/education.component';
+import { TreeItemComponent } from './v2/components/tree-item/tree-item.component';
+import { TreeRootComponent } from './v2/components/tree-root/tree-root.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,11 @@ import { V2AboutComponent } from './v2/pages/about/about.component';
     V2BodyComponent,
     V2WebTemplateComponent,
     V2ContactComponent,
+    BioComponent,
+    InterestsComponent,
+    EducationComponent,
+    TreeItemComponent,
+    TreeRootComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +53,5 @@ import { V2AboutComponent } from './v2/pages/about/about.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  exports: [],
 })
 export class V2WebModule {}

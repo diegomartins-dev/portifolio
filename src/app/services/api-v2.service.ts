@@ -183,7 +183,6 @@ export class V2ApiService {
     return collectionData(coll).pipe(
       map((res) => res.filter((it: any) => it.published === true)),
       map((res) => {
-        console.log(res);
         return {
           status: 'success',
           message: 'consulta com sucesso',
