@@ -246,54 +246,65 @@
 
     <!-- loading das paginas -->
     <script>
-      window.onload = (res) => {
-        const body = document.querySelector("body");
-        const splashScreen = document.querySelector("#splashScreen");
+      // window.onload = (res) => {
+      //   const body = document.querySelector("body");
+      //   const splashScreen = document.querySelector("#splashScreen");
 
-        const elements = {
-          v1: [
-            "#splashScreen",
-            "#header",
-            "#about",
-            ".carousel-mobile",
-            "#footer",
-          ],
-          v2: ["#splashScreen", ".Page"],
-          "v2/about": ["#splashScreen", ".Page"],
-          "v2/contact": ["#splashScreen", ".Page"],
-          "v2/projects": ["#splashScreen", ".Page"],
-          "v2/hello": ["#splashScreen", ".Page"],
-          login: ["#login"],
-          admin: [".navbar"],
-        };
+      //   const elements = {
+      //     v1: [
+      //       "#splashScreen",
+      //       "#header",
+      //       "#about",
+      //       ".carousel-mobile",
+      //       "#footer",
+      //     ],
+      //     v2: ["#splashScreen", ".Page"],
+      //     "v2/about": ["#splashScreen", ".Page"],
+      //     "v2/contact": ["#splashScreen", ".Page"],
+      //     "v2/projects": ["#splashScreen", ".Page"],
+      //     "v2/hello": ["#splashScreen", ".Page"],
+      //     login: ["#login"],
+      //     admin: [".navbar"],
+      //   };
 
-        const url = (document.URL || document.documentURI).replace(
-          document.baseURI,
-          ""
-        );
+      //   const url = (document.URL || document.documentURI).replace(
+      //     document.baseURI,
+      //     ""
+      //   );
 
-        let timer = setInterval(() => {
-          let elementsLoadingOnScreen =
-            document.querySelectorAll(elements[url]) || undefined;
+      //   let timer = setInterval(() => {
+      //     let elementsLoadingOnScreen =
+      //       document.querySelectorAll(elements[url]) || undefined;
 
-          if (
-            elements[url] == undefined ||
-            (elementsLoadingOnScreen !== undefined &&
-              elementsLoadingOnScreen.length >= elements[url].length)
-          ) {
-            clearInterval(timer);
+      //     if (
+      //       elements[url] == undefined ||
+      //       (elementsLoadingOnScreen !== undefined &&
+      //         elementsLoadingOnScreen.length >= elements[url].length)
+      //     ) {
+      //       clearInterval(timer);
 
-            body.style.overflow = "auto";
-            splashScreen.style.opacity = 0;
-            splashScreen.querySelector("svg").style.display = "none";
+      //       setTimeout(() => {
+      //         body.style.overflow = "auto";
+      //         splashScreen.style.opacity = 0;
+      //         splashScreen.querySelector("svg").style.display = "none";
+      //         splashScreen.style.minHeight = 0;
+      //         splashScreen.style.height = 0;
+      //       }, 1000);
+      //     }
+      //   }, 100);
+      // };
 
-            setTimeout(() => {
-              splashScreen.style.minHeight = 0;
-              splashScreen.style.height = 0;
-            }, 500);
-          }
-        }, 100);
-      };
+      const body = document.querySelector("body");
+      const splashScreen = document.querySelector("#splashScreen");
+      document.addEventListener("DOMContentLoaded", function (event) {
+        setTimeout(() => {
+          body.style.overflow = "auto";
+          splashScreen.style.opacity = 0;
+          splashScreen.querySelector("svg").style.display = "none";
+          splashScreen.style.minHeight = 0;
+          splashScreen.style.height = 0;
+        }, 1000);
+      });
     </script>
   </body>
 </html>

@@ -1,0 +1,23 @@
+@import "../../../theme/theme.scss";
+
+.Lines {
+  margin: 0;
+  display: flex;
+
+  .Indexes {
+    display: flex;
+    flex-direction: column;
+    margin-right: 12px;
+
+    .Index {
+      display: inline;
+      margin-right: 12px;
+      color: $dark-secondary-color;
+    }
+  }
+
+  p {
+    display: inline;
+    margin: 0;
+  }
+}

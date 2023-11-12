@@ -1,10 +1,8 @@
-<ol>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-  <li>1</li>
-</ol>
+<div class="Lines">
+  <div class="Indexes">
+    <div class="Index" *ngFor="let line of indexes; let i = index">
+      {{ i + 1 }}
+    </div>
+  </div>
+  <p class="bio" [innerText]="bio"></p>
+</div>
