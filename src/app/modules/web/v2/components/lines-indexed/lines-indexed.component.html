@@ -1,0 +1,19 @@
+<div class="Lines">
+  <div class="Indexes">
+    <div
+      class="Index"
+      *ngFor="let line of indexes; let i = index; let last = last"
+    >
+      <span>{{ i + 1 }}</span>
+      <div
+        class="Comments"
+        [ngStyle]="{ width: i != 0 && !last ? '20px' : '' }"
+      >
+        <span class="Comment" *ngIf="i == 0">/**</span>
+        <span class="Comment" *ngIf="i != 0 && !last">*</span>
+        <span class="Comment" *ngIf="last">**/</span>
+      </div>
+    </div>
+  </div>
+  <p class="text" [innerHTML]="text"></p>
+</div>

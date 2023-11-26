@@ -1,8 +1,9 @@
-<div class="Lines">
-  <div class="Indexes">
-    <div class="Index" *ngFor="let line of indexes; let i = index">
-      {{ i + 1 }}
-    </div>
-  </div>
-  <p class="bio" [innerText]="bio"></p>
+<app-lines-indexed [text]="bio"></app-lines-indexed>
+
+<div class="Skills">
+  <h5>Tecnologias conhecidas</h5>
+  <span *ngFor="let skill of this.skills" class="Technology"
+    >{{ skill?.attr }}
+    <span class="Percent">{{ skill?.value + "%" }}</span></span
+  >
 </div>

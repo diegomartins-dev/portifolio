@@ -19,12 +19,17 @@
         ><i class="fas fa-file-code"></i> {{ detailPage.title }}</a
       >
       <ng-template #link>
-        <a
-          [href]="detailPage.link?.href"
-          [target]="detailPage.link?.target"
-          [routerLinkActive]="'Active' || detailPage.activeClass"
-          ><i class="fas fa-file-code"></i> {{ detailPage.title }}</a
-        >
+        <ng-template *ngIf="detailPage?.link?.href; else nolink">
+          <a
+            [href]="detailPage.link?.href"
+            [target]="detailPage.link?.target"
+            [routerLinkActive]="'Active' || detailPage.activeClass"
+            ><i class="fas fa-file-code"></i> {{ detailPage.title }}</a
+          >
+        </ng-template>
+        <ng-template #nolink>
+          <span><i class="fas fa-file-code"></i> {{ detailPage.title }} </span>
+        </ng-template>
       </ng-template>
     </div>
   </div>

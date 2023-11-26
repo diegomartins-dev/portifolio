@@ -13,7 +13,7 @@
   .Brand {
     padding: 16px 16px 16px 0;
     color: $dark-secondary-color;
-    width: calc(260px - 24px);
+    width: 272px;
     @include Font(16px);
   }
 
@@ -150,9 +150,9 @@
       border-bottom: 3px solid $secondary-color;
     }
 
-    &:hover .page .link,
-    &.Active .page .link {
-      color: $light-color;
+    &:hover .Page .Link,
+    &.Active .Page .Link {
+      color: $light-color !important;
     }
 
     .Page {

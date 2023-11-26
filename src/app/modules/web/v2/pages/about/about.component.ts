@@ -14,11 +14,7 @@ export class V2AboutComponent implements OnInit {
   detailsPagesBio: DetailPage[] = [
     {
       url: 'bio',
-      title: 'index',
-    },
-    {
-      url: 'skills',
-      title: 'skills',
+      title: 'sobre-mim',
     },
     {
       link: { target: '_blank', href: 'https://webcurriculo.firebaseapp.com' },
@@ -26,17 +22,26 @@ export class V2AboutComponent implements OnInit {
     },
   ];
 
-  detailsPagesInterests: DetailPage[] = [
-    {
-      url: 'interests',
-      title: 'index',
-    },
-  ];
+  // detailsPagesInterests: DetailPage[] = [
+  //   {
+  //     url: 'interests',
+  //     title: 'index',
+  //   },
+  // ];
 
   detailsPagesEducation: DetailPage[] = [
     {
       url: 'education',
-      title: 'index',
+      title: 'descricao',
+    },
+  ];
+
+  detailsPagesContact: DetailPage[] = [
+    {
+      title: 'dgmartins87@hotmail.com',
+    },
+    {
+      title: '(71) 99332-9298',
     },
   ];
 

@@ -23,6 +23,7 @@ import { InterestsComponent } from './v2/pages/about/interests/interests.compone
 import { EducationComponent } from './v2/pages/about/education/education.component';
 import { TreeItemComponent } from './v2/components/tree-item/tree-item.component';
 import { TreeRootComponent } from './v2/components/tree-root/tree-root.component';
+import { LinesIndexedComponent } from './v2/components/lines-indexed/lines-indexed.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TreeRootComponent } from './v2/components/tree-root/tree-root.component
     EducationComponent,
     TreeItemComponent,
     TreeRootComponent,
+    LinesIndexedComponent,
   ],
   imports: [
     CommonModule,

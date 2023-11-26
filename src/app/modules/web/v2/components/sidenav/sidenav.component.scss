@@ -3,7 +3,7 @@
 .Container {
   display: grid;
   grid-template-areas: "left right";
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: auto 1fr;
   align-items: stretch;
   height: 100%;
 
