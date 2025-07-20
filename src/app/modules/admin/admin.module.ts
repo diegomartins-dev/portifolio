@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { NewProjectComponent } from './project/new-project/new-project.component';
 import { ProjectComponent } from './project/project.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProfessionalExperienceComponent } from './professional-experience/professional-experience.component';
+import { NewProfessionalExperienceComponent } from './professional-experience/new-professional-experience.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FooterComponent,
     HeaderComponent,
     ProjectComponent,
+    ProfessionalExperienceComponent,
+    NewProfessionalExperienceComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule],
   exports: [
@@ -33,6 +37,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     HeaderComponent,
     ProjectComponent,
     SharedModule,
+    ProfessionalExperienceComponent,
+    NewProfessionalExperienceComponent,
   ],
 })
 export class AdminModule {}

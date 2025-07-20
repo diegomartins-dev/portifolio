@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NewProjectComponent } from './project/new-project/new-project.component';
 import { ProjectComponent } from './project/project.component';
+import { ProfessionalExperienceComponent } from './professional-experience/professional-experience.component';
+import { NewProfessionalExperienceComponent } from './professional-experience/new-professional-experience.component';
 
 const routes: Routes = [
   {
@@ -77,6 +79,22 @@ const routes: Routes = [
     path: 'footer/new',
     pathMatch: 'full',
     component: NewFooterComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'write' },
+  },
+  {
+    path: 'experiences',
+    pathMatch: 'full',
+    component: ProfessionalExperienceComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+    data: { role: 'read' },
+  },
+  {
+    path: 'experiences/new',
+    pathMatch: 'full',
+    component: NewProfessionalExperienceComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
     data: { role: 'write' },

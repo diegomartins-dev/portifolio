@@ -31,7 +31,7 @@
     background-color: var(--white);
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-    // box-shadow: 2px 2px 24px var(--secondary-color-dark)
+    box-shadow: 1px 1px 100px var(--bg-box-shadow);
     flex-direction: column;
   }
   & .card {

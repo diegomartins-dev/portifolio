@@ -27,9 +27,10 @@
   --dark: #261536;
   --white: #fff;
   --light: #fff;
-  --bg-card: #ebe8e8;
+  --bg-card: #fcfcfc;
   --bg-card-secondary: #49167944;
   --bg-card-ternary: #ddd;
+  --bg-box-shadow: #f2f4f5;
 }
 
 @mixin Font($size: 16px, $style: normal, $weight: 450, $lineHeight: inherit) {
@@ -69,7 +70,7 @@
   --secondary-color-dark: #173152;
   --ternary-color: #6a10bd;
   --white: #fff;
-  --bg-card: #eee;
+  --bg-card: #fcfcfc;
   --bg-card-secondary: var(--light);
   --bg-card-ternary: #ddd;
   --text-card: #869791;
@@ -101,6 +102,7 @@
   --bg-card: #2e0852;
   --bg-card-secondary: #49167944;
   --bg-card-ternary: #ddd;
+  --bg-box-shadow: #49167944;
 
   * > .text-white,
   #header .links a:hover {
@@ -143,6 +145,7 @@
   --bg-card-secondary: var(--bg-card);
   --bg-card-ternary: #ddd;
   --bg-secondary-color: #6d3210;
+  --bg-box-shadow: transparent;
 
   * > .text-white {
     color: var(--light) !important;

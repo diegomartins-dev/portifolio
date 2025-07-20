@@ -1,0 +1,27 @@
+<section class="professional-experience-section">
+  <h1 class="text-center title mb-5">
+    <strong> Experiências Profissionais </strong>
+  </h1>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <span class="timeline-period">
+          {{ exp.startDate | date : "MMM/yyyy" | uppercase }}
+          -
+          {{ exp.endDate ? (exp.endDate | date : "MMM/yyyy" | uppercase) : "ATUAL" }}
+        </span>
+        <h3 class="timeline-position">{{ exp.position }}</h3>
+        <h4 class="timeline-company">{{ exp.company }}</h4>
+        <div class="timeline-technologies" *ngIf="exp.technologies?.length">
+          <span
+            class="badge badge-tech"
+            *ngFor="let tech of exp.technologies"
+            >{{ tech }}</span
+          >
+        </div>
+        <p class="timeline-description text-secondary">{{ exp.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
