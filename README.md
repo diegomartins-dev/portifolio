@@ -42,10 +42,14 @@ Para acessar o projeto no container via terminal rode:
 
 Para eu lembrar caso o ambiente de dev seja novo:
 
-- `npm install -g firebase-tools`
-- `firebase login`
+- npm run build
+- npm run deploy
 
-Após a instalação do firebase tools, roda sempre:
+- Instalando na máquina (opcional)
+    - `npm install -g firebase-tools`
+    - `firebase login`
 
-- fazer um build primeiro `ng build`
-- na pasta raiz, rodar `firebase deploy`
+    Após a instalação do firebase tools, roda sempre:
+
+    - fazer um build primeiro `ng build`
+    - na pasta raiz, rodar `firebase deploy`

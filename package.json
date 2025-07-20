@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch --browsers=Firefox",
-    "test:coverage": "ng test --code-coverage"
+    "test:coverage": "ng test --code-coverage",
+    "deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "@types/jasmine": "3.10.0",
     "@types/jsoneditor": "^9.9.0",
     "@types/node": "12.11.1",
+    "firebase-tools": "^11.30.0",
     "jasmine-core": "4.0.0",
     "karma": "6.3.0",
     "karma-chrome-launcher": "3.1.0",
