@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch --browsers=Firefox",
     "test:coverage": "ng test --code-coverage",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "upload:music":"node src/assets/mp3/update-list.js"
   },
   "private": true,
   "dependencies": {

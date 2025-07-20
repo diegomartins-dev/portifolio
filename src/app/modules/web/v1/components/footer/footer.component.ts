@@ -1,5 +1,5 @@
 import { FooterService } from './footer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { of } from 'rxjs';
 import { Footer } from './footer.mock';
 
@@ -9,7 +9,7 @@ import { Footer } from './footer.mock';
   styleUrls: ['./footer.component.scss'],
 })
 export class V1FooterComponent implements OnInit {
-  public footer?: any;
+  @Input() footer: any;
 
   constructor(private footerService: FooterService) {}
 
@@ -23,5 +23,12 @@ export class V1FooterComponent implements OnInit {
         this.footer = result[0];
       },
     });
+  }
+
+  smoothScrollTo(anchor: string) {
+    const el = document.getElementById(anchor);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

@@ -45,6 +45,11 @@ export const Footer: IFooter = {
     },
     {
       class: 'btn btn-outline-light btn-sm',
+      href: 'home#experiences',
+      title: 'Experiências Profissionais',
+    },
+    {
+      class: 'btn btn-outline-light btn-sm',
       href: 'home#projects',
       title: 'Projetos',
     },

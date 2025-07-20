@@ -1,0 +1,41 @@
+<div class="music-player-fixed" [class.expanded]="expanded">
+  <button class="music-player-toggle" (click)="toggleExpand()">
+    <i *ngIf="!expanded" class="fas fa-music"></i>
+    <i *ngIf="expanded" class="fas fa-times"></i>
+  </button>
+  <div class="music-player-panel" *ngIf="expanded">
+    <div class="music-player-controls">
+      <button (click)="prev()" title="Anterior"><i class="fas fa-backward"></i></button>
+      <button *ngIf="!isPlaying" (click)="play()" title="Tocar"><i class="fas fa-play"></i></button>
+      <button *ngIf="isPlaying" (click)="pause()" title="Pausar"><i class="fas fa-pause"></i></button>
+      <button (click)="next()" title="Próxima"><i class="fas fa-forward"></i></button>
+    </div>
+    <div class="music-player-progress">
+      <span class="music-player-time">{{ formatTime(currentTime) }}</span>
+      <input type="range" min="0" [max]="duration" [value]="currentTime" (input)="seek($event)" />
+      <span class="music-player-time">{{ formatTime(duration) }}</span>
+    </div>
+    <div class="music-player-volume">
+      <button (click)="toggleMute()" title="{{ muted ? 'Ativar som' : 'Mutar' }}">
+        <i *ngIf="muted" class="fas fa-volume-mute"></i>
+        <i *ngIf="!muted" class="fas fa-volume-up"></i>
+      </button>
+      <input type="range" min="0" max="1" step="0.01" [value]="volume" (input)="setVolume($event)" [disabled]="muted" />
+    </div>
+    <div class="music-player-info">
+      <div class="music-player-marquee" [title]="tracks[currentIndex].title + (tracks[currentIndex].artist ? ' - ' + tracks[currentIndex].artist : '')">
+        <span class="music-player-marquee-text">
+          {{ tracks[currentIndex].title }}<span *ngIf="tracks[currentIndex].artist"> - {{ tracks[currentIndex].artist }}</span>
+        </span>
+      </div>
+    </div>
+    <ul class="music-player-list">
+      <li *ngFor="let track of tracks; let i = index" [class.active]="i === currentIndex" (click)="select(i)">
+        <i class="fas fa-music"></i>
+        <span class="music-player-list-text" [title]="track.title + (track.artist ? ' - ' + track.artist : '')">
+          {{ track.title }}<span *ngIf="track.artist"> - {{ track.artist }}</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div> 

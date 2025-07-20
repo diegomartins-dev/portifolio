@@ -25,6 +25,7 @@ import { TreeItemComponent } from './v2/components/tree-item/tree-item.component
 import { TreeRootComponent } from './v2/components/tree-root/tree-root.component';
 import { LinesIndexedComponent } from './v2/components/lines-indexed/lines-indexed.component';
 import { ProfessionalExperienceComponent } from './v1/components/professional-experience/professional-experience.component';
+import { MusicPlayerComponent } from './v1/components/music-player/music-player.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ProfessionalExperienceComponent } from './v1/components/professional-ex
     TreeItemComponent,
     TreeRootComponent,
     LinesIndexedComponent,
+    MusicPlayerComponent,
   ],
   imports: [
     CommonModule,
